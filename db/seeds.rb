@@ -5,3 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+Event.create(name: 'SHY FX and friends', quantity: '8', location: 'London', date: Date.tomorrow, category: 'club')
+Event.create(name: 'SHY FX and friends', quantity: '2', location: 'London', date: Date.tomorrow, category: 'club')
+Event.create(name: 'DJ HYPE', quantity: '8', location: 'London', date: Date.tomorrow, category: 'club')
+Event.create(name: 'DJ HYPE', quantity: '3', location: 'Bristol', date: Date.tomorrow, category: 'club')
+Event.create(name: 'House night', quantity: '2', location: 'Manchester', date: Date.tomorrow, category: 'club')
+Event.create(name: 'Wireless', quantity: '1', location: 'London', date: Date.tomorrow, category: 'festival')
