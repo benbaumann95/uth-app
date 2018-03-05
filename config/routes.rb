@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   get 'dashboard', to: 'pages#dashboard'
 
-  resources :events, only: [:show]
+  resources :events, only: [:show, :create]
     resources :tickets do
       resources :bookings, only: [:create]
     end
