@@ -6,7 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-
+Event.destroy_all
+User.destroy_all
 
 Event.create(name: 'SHY FX and friends', quantity: '8', location: 'London', date: Date.tomorrow, category: 'club')
 Event.create(name: 'SHY FX and friends', quantity: '2', location: 'London', date: Date.tomorrow, category: 'club')

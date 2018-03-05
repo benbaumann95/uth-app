@@ -1,0 +1,39 @@
+@media (min-width: 1025px){
+  .event-index-container{
+    padding: 0 100px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+  .event-index-container{
+    padding: 0 50px;
+  }
+}
+@media (min-width: 320px) and (max-width: 767px) {
+  .event-index-container{
+    padding: 0 15px;
+  }
+}
+
+.event-index-card-by-venue{
+ background-color: $white;
+ opacity: 0.9;
+ min-height: 200px;
+ min-width: 250px;
+ padding: 0 0;
+ margin: 20px 10px;
+ border: solid 0.4px $green;
+ border-radius: 5px;
+ padding: 10px 10px;
+ box-shadow: 10px 15px 40px 0 rgba(0,0,0,.15);
+ &:hover{
+  box-shadow: 20px 30px 80px 0 rgba(0, 0, 0, 0.15);
+  transition: all .15s ease-in-out;
+  -ms-transform: scale(1.05);
+  -webkit-transform: scale(1.05);
+  transform: scale(1.05);
+  }
+}
+
+.venue-name-link{
+  color: $green !important;
+}
