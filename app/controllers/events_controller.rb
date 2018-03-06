@@ -19,8 +19,14 @@ class EventsController < ApplicationController
     @ticket.user = current_user
     @ticket.display_flag = @ticket.sold = false
     @ticket.save
-    raise
+
     redirect_to root_path
+  end
+
+  def show
+    @event = Event.find(params[:id])
+    @tickets = @event.tickets.where("sold = false")
+    @booking = Booking.new
   end
 
   private
