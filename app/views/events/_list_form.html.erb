@@ -1,10 +1,8 @@
 <%= simple_form_for event do |e| %>
   <%= e.input :name, label: 'Event Name' %>
   <%= e.input :location, label: 'Event Location' %>
-  <%= e.input :date, label: 'Event Date' %>
+  <%= e.input :date_and_time, label: 'Event Date and Time' %>
   <%= e.input :category, collection: ["Club night","Concert","Festival","Travel","Sport","Society","Socials"], label: 'Event Category' %>
-  <%= e.input :start_time %>
-  <%= e.input :end_time %>
   <%= e.simple_fields_for :ticket do |t| %>
     <%= t.input :price, label: 'Price' %>
     <%= t.input :description, label: 'Description' %>

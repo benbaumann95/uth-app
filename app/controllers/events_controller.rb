@@ -19,14 +19,14 @@ class EventsController < ApplicationController
     @ticket.user = current_user
     @ticket.display_flag = @ticket.sold = false
     @ticket.save
-
+    raise
     redirect_to root_path
   end
 
   private
 
   def event_params
-    params.require(:event).permit(:name, :quantity, :location, :date, :start_time, :end_time, :category)
+    params.require(:event).permit(:name, :quantity, :location, :date_and_time, :category)
   end
 
   def ticket_params
