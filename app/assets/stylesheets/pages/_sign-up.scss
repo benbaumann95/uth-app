@@ -1,0 +1,55 @@
+body{
+  background: #FFF;
+}
+.sign-up-container{
+  padding-top: 20px;
+  margin: auto;
+  margin-top: 70px;
+  border: 1px solid;
+  border-radius: 30px;
+  padding: 20px;
+  background: #F4F4F4;
+}
+@media (min-width: 1024px) {
+  .sign-up-container{
+    width: 40%;
+  }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .sign-up-container{
+    width: 60%;
+  }
+}
+@media (min-width: 481px) and (max-width: 767px) {
+  .sign-up-container{
+    width: 80%;
+  }
+}
+@media (min-width: 320px) and (max-width: 480px) {
+  .sign-up-container{
+    width: 95%;
+  }
+}
+
+.sign-up-text{
+  text-align: center;
+  margin-top: 0;
+  border-bottom: 0.3px solid rgba(0,0,0,0.8);
+  padding-bottom: 15px;
+  color: $dark-gray;
+  font-weight: lighter;
+}
+.form-inputs{
+  color: $green !important;
+}
+.form-control{
+  border-radius: 10px !important;
+}
+.log-in-button{
+  padding: 5px 0 20px 20px;
+}
+
+.help-block{
+  color: $dark-gray !important;
+  font-size: 14px !important;
+}
