@@ -18,4 +18,5 @@ Event.create(name: 'Wireless', quantity: '1', location: 'London', date: Date.tom
 
 # Event.create(name: 'ABC', quantity: 5, location: 'Bristol', date: Date.today, start_time: DateTime.now, end_time: DateTime.tomorrow)
 User.create(first_name: 'Cheryl', last_name: 'Chua', email: 'hello@unitix.com', password:'password')
+User.create(first_name: 'Ben', last_name: 'Ben', email: 'ben@unitix.com', password:'password')
 
