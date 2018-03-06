@@ -13,5 +13,5 @@ class Event < ApplicationRecord
     "Society",
     "Socials"
   ] }
-  validates :date, presence: true
+  validates :date_and_time, presence: true
 end
