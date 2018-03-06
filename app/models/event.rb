@@ -1,5 +1,6 @@
 class Event < ApplicationRecord
   has_many :tickets
+  accepts_nested_attributes_for :tickets
 
   validates :name, presence: true
   validates :location, presence: true
