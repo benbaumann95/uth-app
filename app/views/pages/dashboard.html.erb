@@ -1,22 +1,169 @@
+<div class="dashboard-tabs">
+  <a class="dashboardtab active" id="listings-tab" href="#listings-list">
+    <h3><%= @number_listings %></h3>
+    <p>Listings</p>
+  </a>
+  <a class="dashboardtab" id="bookings-tab" href="#purchases-list">
+    <h3><%= @number_purchases %></h3>
+    <p>Purchased</p>
+  </a>
+  <a class="dashboardtab" id="watching-tab" href="#watching-list">
+    <h3> <%= @number_watching %></h3>
+    <p>Watching</p>
+  </a>
+</div>
 
-<h1> Listings </h1>
-<% @tickets.each do |ticket| %>
-<p><%= ticket.description %></p>
-<p><%= ticket.price %></p>
-<p><%= ticket.event.name %></p>
-<p><%= ticket.event.location %></p>
-<p><%= ticket.created_at.to_date.strftime('%D')%> </p>
-<% end %>
+<!-- PURCHASES -->
 
-<h1> Bookings </h1>
-<% @bookings.each do |booking| %>
-<p><%=booking.ticket.event.name%></p>
-<p><%=booking.ticket.price %></p>
-<p><%=booking.ticket.description %></p>
-<p><%=booking.ticket.created_at.to_date.strftime('%D')%> </p>
-<p><%=booking.ticket.event.date_and_time %></p>
-<%= link_to ticket_file_path(photo: booking.ticket.photo )  do %>
-  <p class="voucher-photo"> <i class="far fa-file"></i> </p>
-  <% end %>
-<%end %>
+<section class="dashboard-main-section">
+  <section class="dashboard-primary-section">
+    <div class="dashboard-containers">
+
+      <div class="container-upcoming-dashboards margin-top-80" >
+        <div class="container-header-section">
+          <div class="container-header-text">
+            <span class="results-query">
+              Here are your purchases
+            </span>
+            <span class="results-location-query">
+              <strong><%=  @current_user.first_name %></strong>
+            </span>
+
+          </div>
+
+          <div class="dropdown-select-sort-container">
+            <div class="dropdown-select-sort">
+              <div class="dropdown-select-option-picked">
+                <div class="dropdown-select-option-picked-text">
+                  Date
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container-body">
+
+          <div class="dashboard-grouped-container">
+
+            <div class="dashboard-group-unique">
+              <% @bookings.each do |booking| %>
+              <div class="dashboard-date">
+                <div class="dashboard-date-container">
+                  <%= link_to ticket_file_path(photo: booking.ticket.photo )  do %>
+                  <p class="voucher-photo"><i class="far fa-file fa-4x"></i></p>
+                  <% end %>
+                </div>
+              </div>
+
+              <div class="dashboard-description">
+                <div class="dashboard-description-container">
+                  <div class="dashboard-link-to-show-page">
+                    <p><%= booking.ticket.event.name %> @ <%= booking.ticket.event.location %></p>
+                  </div>
+                  <div class="dashboard-details">
+                    <p>on: <%=booking.ticket.event.date_and_time.strftime('%D') %></p>
+                    <p><%= booking.ticket.description %></p>
+                  </div>
+                </div>
+
+              </div>
+
+
+              <div class="dashboard-price">
+                <div class='booking-ticket-date'><%=booking.ticket.created_at.to_date.strftime('%D')%></div>
+                <div class="cop-it">
+                  Bought for
+                </div>
+                <div class="price">
+                  £<%= booking.ticket.price %>
+                </div>
+              </div>
+              <%end%>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</section>
+
+<!-- LISTINGS -->
+
+<section class="dashboard-main-section">
+  <section class="dashboard-primary-section">
+    <div class="dashboard-containers">
+
+      <div class="container-upcoming-dashboards">
+        <div class="container-header-section">
+          <div class="container-header-text">
+            <span class="results-query">
+              Here are your listings
+            </span>
+            <span class="results-location-query">
+              <strong><%=  @current_user.first_name %></strong>
+            </span>
+
+          </div>
+
+          <div class="dropdown-select-sort-container">
+            <div class="dropdown-select-sort">
+              <div class="dropdown-select-option-picked">
+                <div class="dropdown-select-option-picked-text">
+                  Date
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container-body">
+
+          <div class="dashboard-grouped-container">
+
+            <div class="dashboard-group-unique">
+              <% @tickets.each do |ticket| %>
+              <div class="dashboard-date">
+                <div class="dashboard-date-container">
+                  <div class="date-dashboard-day">
+                    <p class='posted-on-text'>Posted on <%=ticket.created_at.to_date.strftime('%D')%> </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="dashboard-description">
+                <div class="dashboard-description-container">
+                  <div class="dashboard-link-to-show-page">
+                    <p><%= ticket.event.name %> @ <%= ticket.event.location %></p>
+                  </div>
+                  <div class="dashboard-details">
+                    <p><%= ticket.description %></p>
+                  </div>
+                </div>
+
+              </div>
+
+
+              <div class="dashboard-price">
+                <div class="cop-it">
+                  Listed at
+                </div>
+                <div class="price">
+                  <p>£<%= ticket.price %></p>
+                </div>
+              </div>
+              <%end%>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</section>
+
+
+
+
+
+
 

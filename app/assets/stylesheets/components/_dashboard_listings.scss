@@ -1,0 +1,211 @@
+
+.dashboard-primary-section{
+ display: block;
+ margin: 0 auto;
+ width: 100%;
+ padding-top: 20px;
+}
+.dashboard-main-section{
+  max-width: 1000px;
+  margin: auto;
+  padding: 0 20px 0 20px;
+}
+.container-header-section{
+  padding: 20px 10px;
+  border-bottom: 1.5px solid #E7EAEC;
+  font-size: 16px;
+  color: #2F343B;
+  display: block;
+}
+.container-header-text{
+  display: block;
+  margin-left: 10px;
+}
+.dropdown-select-sort-container{
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 120px;
+}
+.dropdown-select-sort{
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+  background: inherit;
+}
+.dropdown-select-option-picked{
+  padding-bottom: 3px;
+  display: block;
+  margin-left: 20px;
+}
+.dropdown-select-option-picked-text{
+  padding: 19px;
+  font-family: HelveticaNeue, "Helvetica Neue";
+  font-weight: 700;
+  font-size: 14px;
+  color: #585858;
+  text-align: left;
+}
+.dashboard-containers {
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #2F343B;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+}
+.container-upcoming-dashboards{
+  margin-bottom: 20px;
+  border: 0.5px solid #E7EAEC;
+  background-color: #fffffe;
+  position: relative;
+  display: block;
+  border-radius: 10px;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.15);
+}
+.margin-top-80{
+  margin-top: 80px;
+}
+.container-header-section{
+  padding: 20px 10px;
+  border-bottom: 2px solid #E7EAEC;
+  font-size: 16px;
+  color: #2F343B;
+  display: block;
+}
+@media (max-width: 767px) {
+  .dashboard-group-unique{
+    position: relative;
+    padding: 25px 0;
+    border-top: 1px solid #E7EAEC;
+  }
+}
+.dashboard-group-unique{
+  position: relative;
+  padding: 10px 0;
+  border-top: 1px solid #E7EAEC;
+}
+.dashboard-date{
+  display: table-cell;
+  vertical-align: top;
+}
+.dashboard-date-outside-block{
+  min-width: 50px;
+  display: block;
+}
+.dashboard-date-container{
+  width: 75px;
+  min-width: 75px;
+  height: 65px;
+  border-right: 0.5px solid #CFD4D9;
+  display: table-cell;
+  vertical-align: middle;
+}
+.date-dashboard-day{
+  width: 100%;
+  color: #535353;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  display: block;
+  text-align: center;
+  font-size: 18px;
+}
+.date-dashboard-month-date{
+  font-size: 12px;
+  width: 100%;
+  height: auto;
+  color: #87909A;
+  display: block;
+  font-weight: 700;
+  line-height: 14px;
+  letter-spacing: -0.1px;
+  margin-top: 2px;
+  text-align: center;
+  text-transform: uppercase;
+}
+.dashboard-description{
+  padding: 0 20px;
+  vertical-align: top;
+  width: 100%;
+  display: table-cell;
+  /*  border-right: 0.5px solid #CFD4D9;*/
+}
+.dashboard-description-container{
+  vertical-align: top;
+}
+.dashboard-link-to-show-page{
+  color: #4cb289;
+  font-size: 16px;
+  text-decoration: none;
+  cursor: pointer;
+  font-weight: bolder;
+}
+.dashboard-details{
+  margin-top: 12px;
+  font-size: 12px;
+  color: #828282;
+  overflow: hidden;
+  max-height: 45px;
+  line-height: 15px;
+}
+.dashboard-watch{
+  padding: 20px;
+  vertical-align: top;
+  width: 100%;
+  display: table-cell;
+  border-right: 0.5px solid #CFD4D9;
+}
+.fa-heart{
+  color: palevioletred;
+  cursor: pointer;
+}
+.fa-heart:hover{
+  color: orangered;
+  transition: all .15s ease-in-out;
+  -ms-transform: scale(1.40);
+  -webkit-transform: scale(1.40);
+  transform: scale(1.40);
+}
+.fa-heart:visited{
+  color: orangered;
+}
+.dashboard-price{
+  min-width: 80px;
+  padding-right: 10px;
+  vertical-align: top;
+  font-size: 12px;
+  text-align: right;
+  display: table-cell;
+  border-left: 0.5px solid #CFD4D9;
+}
+.dashboard-price .cop-it{
+  color: #535353;
+  font-size: 12px;
+  text-align: right;
+}
+.dashboard-price .price{
+  font-size: 20px;
+  color: #65B891;
+  margin: 0;
+}
+.dashboard-price .dashboards-left{
+  font-size: 12px;
+  color: #D26478;
+  letter-spacing: 0.4px;
+  font-weight: bolder;
+}
+.posted-on-text{
+  font-size: 12px;
+}
+.booking-ticket-date{
+  font-size:14px;
+  color: $dark-gray;
+  padding-bottom: 5px;
+}
+.fa-file{
+  padding-top: 10px;
+  padding-left: 18px;
+  color: darkslategray;
+}
