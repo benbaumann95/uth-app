@@ -1,0 +1,14 @@
+<%= simple_form_for event do |e| %>
+  <%= e.input :name, label: 'Event Name' %>
+  <%= e.input :location, label: 'Event Location' %>
+  <%= e.input :date, label: 'Event Date' %>
+  <%= e.input :category, collection: ["Club night","Concert","Festival","Travel","Sport","Society","Socials"], label: 'Event Category' %>
+  <%= e.input :start_time %>
+  <%= e.input :end_time %>
+  <%= e.simple_fields_for :ticket do |t| %>
+    <%= t.input :price, label: 'Price' %>
+    <%= t.input :description, label: 'Description' %>
+    <%= t.input :photo, as: :file, label: 'Upload Ticket' %>
+  <% end %>
+  <%= e.submit "List Ticket" %>
+<% end %>
