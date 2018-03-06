@@ -7,5 +7,6 @@ class PagesController < ApplicationController
     @tickets = current_user.tickets
     @bookings = current_user.bookings
   end
-
+  def ticket_file
+  end
 end

@@ -6,7 +6,6 @@
 <p><%= ticket.event.name %></p>
 <p><%= ticket.event.location %></p>
 <p><%= ticket.created_at.to_date.strftime('%D')%> </p>
-
 <% end %>
 
 <h1> Bookings </h1>
@@ -16,5 +15,8 @@
 <p><%=booking.ticket.description %></p>
 <p><%=booking.ticket.created_at.to_date.strftime('%D')%> </p>
 <p><%=booking.ticket.event.date_and_time %></p>
+<%= link_to ticket_file_path(photo: booking.ticket.photo )  do %>
+  <p class="voucher-photo"> <i class="far fa-file"></i> </p>
+  <% end %>
 <%end %>
 
