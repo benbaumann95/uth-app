@@ -4,11 +4,11 @@ body{
 .sign-up-container{
   padding-top: 20px;
   margin: auto;
-  margin-top: 70px;
+  margin-top: 90px;
   border: 1px solid;
   border-radius: 30px;
   padding: 20px;
-  background: #F4F4F4;
+  background: #FFF;
 }
 @media (min-width: 1024px) {
   .sign-up-container{
@@ -41,6 +41,9 @@ body{
 }
 .form-inputs{
   color: $green !important;
+}
+.form-group{
+  margin: 15px !important;
 }
 .form-control{
   border-radius: 10px !important;

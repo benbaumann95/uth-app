@@ -1,0 +1,74 @@
+<!-- PURCHASES -->
+
+<section class="dashboard-main-section">
+  <section class="dashboard-primary-section">
+    <div class="dashboard-containers">
+
+      <div class="container-upcoming-dashboards margin-top-80" >
+        <div class="container-header-section">
+          <div class="container-header-text">
+            <span class="results-query">
+              Here are your purchases
+            </span>
+            <span class="results-location-query">
+              <strong><%=  @current_user.first_name %></strong>
+            </span>
+
+          </div>
+
+          <div class="dropdown-select-sort-container">
+            <div class="dropdown-select-sort">
+              <div class="dropdown-select-option-picked">
+                <div class="dropdown-select-option-picked-text">
+                  Date
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container-body">
+
+          <div class="dashboard-grouped-container">
+
+            <div class="dashboard-group-unique">
+              <% @bookings.each do |booking| %>
+              <div class="dashboard-left">
+                <div class="dashboard-left-container">
+                  <%= link_to ticket_file_path(photo: booking.ticket.photo )  do %>
+                  <p class="voucher-photo"><i class="far fa-file fa-4x"></i></p>
+                  <% end %>
+                </div>
+              </div>
+
+              <div class="dashboard-description">
+                <div class="dashboard-description-container">
+                  <div class="dashboard-link-to-show-page">
+                    <p><%= booking.ticket.event.name %> @ <%= booking.ticket.event.location %></p>
+                  </div>
+                  <div class="dashboard-details">
+                    <p><%=booking.ticket.event.date_and_time.strftime('%a %d %b') %></p>
+                    <p><%= booking.ticket.description %></p>
+                  </div>
+                </div>
+
+              </div>
+
+
+              <div class="dashboard-price">
+                <div class='booking-ticket-date'><%=booking.ticket.created_at.to_date.strftime('%d %b')%></div>
+                <div class="price-at">
+                  Bought for
+                </div>
+                <div class="price">
+                  £<%= booking.ticket.price %>
+                </div>
+              </div>
+              <%end%>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</section>
