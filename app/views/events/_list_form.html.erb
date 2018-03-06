@@ -1,12 +1,69 @@
-<%= simple_form_for event do |e| %>
-  <%= e.input :name, label: 'Event Name' %>
-  <%= e.input :location, label: 'Event Location' %>
-  <%= e.input :date_and_time, label: 'Event Date and Time' %>
-  <%= e.input :category, collection: ["Club night","Concert","Festival","Travel","Sport","Society","Socials"], label: 'Event Category' %>
-  <%= e.simple_fields_for :ticket do |t| %>
-    <%= t.input :price, label: 'Price' %>
-    <%= t.input :description, label: 'Description' %>
-    <%= t.input :photo, as: :file, label: 'Upload Ticket' %>
-  <% end %>
-  <%= e.submit "List Ticket" %>
+
+<div class="create-container">
+  <div class="title-holder">
+
+    <h3 class="list-ticket-title text-center">List a ticket</h3>
+  </div>
+
+  <%= simple_form_for event do |e| %>
+
+  <div class="content-holder">
+
+    <div class="form-100">
+      <%= e.input :name, label: 'Event name' %>
+    </div>
+
+    <div class="form-100">
+      <div class="location-pin">
+      </div>
+      <%= e.input :location, placeholder: 'seshlehem', label: 'Where' %>
+    </div>
+
+    <div class="form-100">
+      <div class="date-style">
+
+        <%= e.input :date_and_time, label: 'When' %>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-70">
+        <div class="flex-row">
+          <%= e.input :category, collection: ["Club night","Concert","Festival","Travel","Sport","Society","Socials"], label: 'Type' %>
+        </div>
+      </div>
+
+      <%= e.simple_fields_for :ticket do |t| %>
+      <div class="form-30">
+        <%= t.input :price, placeholder: '£', label: 'Price' %>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="flex-row">
+        <%= t.input :description, label: 'Description', id: 'form-description' %>
+      </div>
+    </div>
+
+
+    <div class="form-row margin-10">
+      <div class="flex-row">
+        <div class="photo-row">
+          <%= t.input :photo, as: :file, label: 'Upload Ticket' %>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+
+  <div class="btns-holder">
+    <div class="done-btn">
+      <%= e.submit "List Ticket", class: 'done-btn' %>
+    </div>
+  </div>
+
+</div>
+<% end %>
 <% end %>
