@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   root to: 'events#index'
 
   get 'dashboard', to: 'pages#dashboard'
-  get 'about', to: 'pages#dashboard'
+  get 'about', to: 'pages#about'
 
   resources :events, only: [:index, :show, :create, :new]
     resources :tickets do
