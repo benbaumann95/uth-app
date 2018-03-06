@@ -1,0 +1,9 @@
+<h1><%= @event.name %> @ <%= @event.location %></h1>
+
+<% @tickets.each do |ticket| %>
+  <p>User ID: <%= ticket.user_id %></p>
+  <p>Description: <%= ticket.description %></p>
+  <p>Price: <%= ticket.price %></p>
+
+  <%= link_to 'Buy Ticket', ticket_bookings_path(ticket.id), method: :post %>
+<% end %>

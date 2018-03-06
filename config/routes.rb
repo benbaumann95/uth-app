@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get 'dashboard', to: 'pages#dashboard'
   get 'about', to: 'pages#dashboard'
 
-  resources :events, only: [:show, :create, :new]
+  resources :events, only: [:index, :show, :create, :new]
     resources :tickets do
       resources :bookings, only: [:create]
     end
