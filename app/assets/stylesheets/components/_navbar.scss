@@ -1,18 +1,29 @@
 /* Main navbar */
 .navbar-wagon {
-  box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
-  background: white;
-  transition: all 0.3s ease;
-  height: 70px;
+  background: transparent;
+  min-height: 70px;
   padding: 0px 30px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  transition: 1s background-color ease;
+}
+.navbar-wagon-black{
+  background: #262626;
+  // box-shadow: 10px 15px 40px 0 rgba(0,0,0,.05);
 }
 
 /* Logo */
+
+@media (max-width: 767px) {
+  .navbar-wagon-brand img {
+    height: 30px;
+    margin: 10px 10px 10px 0;
+  }
+}
 .navbar-wagon-brand img {
   height: 50px;
+  margin: 10px 10px 10px 0;
 }
 
 /* User Avatar */
@@ -37,12 +48,16 @@
 
 /* Navbar link */
 .navbar-wagon-link {
-  color: #616668;
-  font-size: 14px;
+  color: $green;
+  font-size: 18px;
+  font-weight: bold;
+  text-shadow: #000 0px 0px 0.01px;
+  -webkit-font-smoothing: antialiased;
 }
 .navbar-wagon-link:hover {
-  color: #da552f;
-  text-decoration: none;
+ color: $white;
+ opacity: 0.7;
+ text-decoration: none;
 }
 
 /* Dropdown menu */
@@ -74,4 +89,28 @@
   transform: rotate(45deg);
   border-left: 1px solid #E6E6E6;
   border-top: 1px solid #E6E6E6;
+}
+
+.opaque-navbar {
+  min-height: 70px;
+  border-bottom: 0px;
+  transition: background-color .5s ease 0s;
+}
+.opaque-navbar.opaque {
+  background-color: black;
+  height: 60px;
+  transition: background-color .5s ease 0s;
+}
+ul.dropdown-menu {
+  background-color: black;
+}
+
+
+@media (max-width: 992px) {
+  .opaque-navbar {
+    background-color: black;
+    height: 60px;
+    transition: background-color .5s ease 0s;
+  }
+
 }

@@ -1,2 +1,33 @@
-<h1>Events#index</h1>
-<p>Find me in app/views/events/index.html.erb</p>
+ <div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.5) 50%), url('https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=b5ecaef0464fc50a866e74a6176c3fdc&auto=format&fit=crop&w=1650&q=80');">
+
+  <div class="banner-content-container">
+    <div class="banner-content">
+      <p>
+        <span id="banner-typed-text"></span>
+      </p>
+
+
+      <div class="banner-search">
+
+        <%= submit_tag("Search", class: 'btn-home-search', id: 'search-button') %>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="event-index-container event-index-layout">
+  <div class="row">
+    <h1>Events</h1>
+    <% @events.each do |event| %>
+    <div class="col-sm-6 col-md-4">
+
+      <div class="event-index-card-by-venue">
+        <div class="venue-name-link"><%= link_to event.name, event_path(event) %></div>
+        <p><%= event.category %></p>
+      </div>
+
+    </div>
+    <% end %>
+  </div>
+</div>
