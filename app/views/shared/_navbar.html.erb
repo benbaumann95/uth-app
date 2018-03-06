@@ -10,10 +10,11 @@
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
-      <%= link_to "Find out more", tickets_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Explore", tickets_path, class: "navbar-wagon-item navbar-wagon-link" %>
+
       <%= link_to "List a Ticket", new_event_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Dashboard", dashboard_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Find out more", tickets_path, class: "navbar-wagon-item navbar-wagon-link" %>
+
 
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
@@ -21,6 +22,9 @@
         <div class="dropdown" id="menu-trigger">
           <%= image_tag "student_avatar.png", class: "avatar dropdown-toggle", "data-toggle" => "dropdown" %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu" id="menu-drop-down">
+          <li>
+            <%= link_to "Dashboard", dashboard_path, class: "navbar-wagon-item navbar-wagon-link" %>
+          </li>
           <li>
             <%= link_to destroy_user_session_path, method: :delete do %>
               <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
@@ -68,7 +72,7 @@
 </div>
 
 
-<!-- <script>
+ <script>
 
   const trigger = document.getElementById("menu-trigger");
   const menu = document.getElementById("menu-drop-down");
@@ -94,7 +98,7 @@
 
   });
 
-</script> -->
+</script>
 <!--
 <script>
 
