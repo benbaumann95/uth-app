@@ -1,4 +1,7 @@
 class BookingsController < ApplicationController
+  # creates and saves a booking
+  # updates the quantity of tix in event
+  # mark ticket as sold
   def create
     @booking = Booking.new
     @booking.user = current_user
@@ -6,8 +9,13 @@ class BookingsController < ApplicationController
     @booking.ticket = @ticket
     @booking.save
 
+    @event = @ticket.event
+    @event.quantity -= 1
+    @event.save
+
     @ticket.sold = true
     @ticket.save
+
     redirect_to dashboard_path
   end
 end

@@ -14,4 +14,13 @@ class Event < ApplicationRecord
     "Socials"
   ] }
   validates :date_and_time, presence: true
+
+  include AlgoliaSearch
+
+  algoliasearch do
+    attribute :name, :location
+    searchableAttributes ['name']
+  end
+
+  index = Algolia::Index.new('events')
 end
