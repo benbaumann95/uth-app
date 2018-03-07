@@ -11,6 +11,7 @@ gem 'redis'
 gem 'jquery-rails'
 gem 'cloudinary'
 gem 'carrierwave', '~> 1.2'
+gem 'pundit'
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.3'
