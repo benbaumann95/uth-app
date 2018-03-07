@@ -1,5 +1,50 @@
+<div class="container" style="color: black;">
+  <%= form_tag(new_event_path, method: 'get') do %>
+    <%= text_field_tag :search_event, params[:search_event], placeholder: "Check if your event exists...", class: "form-inline" %>
+    <%= submit_tag 'Add Ticket for this Event', search_event: nil %>
+  <% end %>
+
+  <div class="search-results">
+    <% if @events == nil %>
+    <h3></h3>
+      <% if @events.length == 0 %>
+        <h3>Tickets for this event have sold out!</h3>
+      <% end %>
+      <% @events.each do |event| %>
+        <li><%= event.name %></li>
+        <li><%= event.location %></li>
+        <li><%= event.category %></li>
+        <li><%= event.date_and_time %></li>
+        <li><%= event.quantity %> tickets are currently listed</li>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
 <div class="container" style=" padding-top: 30px">
   <%= render 'list_form', event: @event, ticket: @ticket %>
 </div>
 
+<!-- Include AlgoliaSearch JS Client and autocomplete.js library -->
+<script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
+<script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.min.js"></script>
+<!-- Initialize autocomplete menu -->
+<script>
+var client = algoliasearch('34J3CD22N1', 'a3c9a51b10d2e20663956f322782527f');
+var index = client.initIndex('Event');
+//initialize autocomplete on search input (ID selector must match)
+autocomplete('#search_event', { hint: false }, {
+  source: autocomplete.sources.hits(index, { hitsPerPage: 5 }),
+  //value to be displayed in input control after user's suggestion selection
+  displayKey: 'name',
+  //hash of templates used when rendering dataset
+  templates: {
+    //'suggestion' templating function used to render a single suggestion
+    suggestion: function(suggestion) {
+      return '<span>' +
+        suggestion._highlightResult.name.value ;
+    }
+  }
+});
+</script>
 

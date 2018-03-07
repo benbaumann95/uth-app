@@ -2,10 +2,14 @@ class EventsController < ApplicationController
   skip_before_action :authenticate_user!, except: [:create, :new]
 
   def index
-    @events = policy_scope(Event).where("quantity > 0")
+    @events = policy_scope(Event)
+    # .where("quantity > 0")
   end
 
   def new
+    if params[:search_event] != nil
+      @events = Event.search(params[:search_event])
+    end
     @event = Event.new
     @ticket = Ticket.new
     authorize @event
