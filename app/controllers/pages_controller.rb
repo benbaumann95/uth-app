@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:home]
+  skip_before_action :authenticate_user!, only: :about
 
   def about
   end
@@ -10,5 +10,7 @@ class PagesController < ApplicationController
     @number_purchases = current_user.bookings.all.count
   end
   def ticket_file
+  end
+  def profile
   end
 end
