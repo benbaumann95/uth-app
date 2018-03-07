@@ -22,7 +22,7 @@
     <div class="form-100">
       <div class="date-style">
 
-        <%= e.input :date_and_time, label: 'When' %>
+        <%= e.input :date_and_time, as: :date, label: 'When' %>
       </div>
     </div>
 
@@ -46,7 +46,7 @@
     </div>
 
 
-    <div class="form-row margin-10">
+    <div class="form-row">
       <div class="flex-row">
         <div class="photo-row">
           <%= t.input :photo, as: :file, label: 'Upload Ticket' %>

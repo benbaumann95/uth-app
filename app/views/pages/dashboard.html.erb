@@ -1,22 +1,43 @@
+<%= render 'dashboard_nav' %>
 
-<h1> Listings </h1>
-<% @tickets.each do |ticket| %>
-<p><%= ticket.description %></p>
-<p><%= ticket.price %></p>
-<p><%= ticket.event.name %></p>
-<p><%= ticket.event.location %></p>
-<p><%= ticket.created_at.to_date.strftime('%D')%> </p>
-<% end %>
+<div class="dashboard-tabs">
+  <a class="dashboardtab active" id="listings-tab" href="#listings-list">
+    <div class="dashboard-tab-text">
+      <h3><%= @number_listings %></h3>
+      <p>Listings</p>
+    </div>
+  </a>
+  <a class="dashboardtab" id="bookings-tab" href="#purchases-list">
+    <div class="dashboard-tab-text">
+      <h3><%= @number_purchases %></h3>
+      <p>Purchased</p>
+    </div>
+  </a>
+  <a class="dashboardtab" id="watching-tab" href="#watching-list">
+    <div class="dashboard-tab-text">
+      <h3> <%= @number_watching %></h3>
+      <p>Watching</p>
+    </div>
+  </a>
+</div>
 
-<h1> Bookings </h1>
-<% @bookings.each do |booking| %>
-<p><%=booking.ticket.event.name%></p>
-<p><%=booking.ticket.price %></p>
-<p><%=booking.ticket.description %></p>
-<p><%=booking.ticket.created_at.to_date.strftime('%D')%> </p>
-<p><%=booking.ticket.event.date_and_time %></p>
-<%= link_to ticket_file_path(photo: booking.ticket.photo )  do %>
-  <p class="voucher-photo"> <i class="far fa-file"></i> </p>
-  <% end %>
-<%end %>
+<!-- PURCHASES -->
+
+<%= render 'dashboard-purchases' %>
+
+<!-- LISTINGS -->
+
+<%= render 'dashboard-listings' %>
+
+<!-- WATCHLIST -->
+
+<%= render 'dashboard-watching' %>
+
+<%= javascript_pack_tag "dashboard" %>
+
+
+
+
+
+
 
