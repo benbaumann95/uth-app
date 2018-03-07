@@ -8,4 +8,16 @@ class TicketPolicy < ApplicationPolicy
   def new?
     return true
   end
+
+  def create?
+    return true
+  end
+
+  def show?
+    return true
+  end
+
+  def destroy?
+    record.user == user
+  end
 end
