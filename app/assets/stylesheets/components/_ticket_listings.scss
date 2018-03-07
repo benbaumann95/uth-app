@@ -16,14 +16,14 @@
   margin: auto;
   padding: 0 20px 0 20px;
 }
-@media (min-width: 1024px){
+@media (min-width: 924px){
   .show-ticket-container{
     padding: 0 0 0 20px;
     width: 100%;
     display: flex;
   }
 }
-@media (max-width: 1023px){
+@media (max-width: 923px){
   .show-ticket-container{
     padding: 0 0 0 0px;
     width: 100%;
@@ -77,13 +77,14 @@
 }
 .container-upcoming-tickets{
   border: 0.5px solid #E7EAEC;
-  background-color: #fffffe;
+  background-color: whitesmoke;
+  opacity: 0.85;
   position: relative;
   display: block;
   border-radius: 80px;
   box-shadow: 0 1px 1px rgba(0,0,0,0.1);
   align-self: flex-start;
-  margin: 20px;
+  margin: 20px 30px 30px 10px;
 }
 .container-header-section{
   padding: 20px 10px;
@@ -116,8 +117,6 @@
   display: table-cell;
   vertical-align: middle;
   text-align: center;
-
-  padding-top: 30px;
 }
 .ticket-description{
   padding: 0 20px;
@@ -128,6 +127,7 @@
 }
 .ticket-description-container{
   vertical-align: top;
+  margin-top: 10px;
 }
 .ticket-link-to-show-page{
   color: #4cb289;
@@ -144,36 +144,16 @@
   max-height: 45px;
   line-height: 15px;
 }
-@media (min-width: 768px) {
-  .ticket-price{
-    min-width: 80px;
-    height: 80px;
-    width: 80px;
-    border-radius: 80px;
-    padding-right: 10px;
-    vertical-align: top;
-    font-size: 12px;
-    text-align: center;
-    display: table-cell;
-    border: 0.5px solid #E7EAEC;
-    padding-top: 15px;
-  }
-}
-@media (max-width: 767px) {
-  .ticket-price{
-    min-width: 80px;
-    height: 80px;
-    width: 80px;
-    border-radius: 80px;
-    vertical-align: top;
-    font-size: 12px;
-    text-align: center;
-    display: table-cell;
-    border: 0.5px solid #E7EAEC;
-    padding-top: 15px;
-    /* padding-left: 10px; */
-    padding-right: 10px;
-  }
+.ticket-price{
+  min-width: 80px;
+  height: 80px;
+  width: 80px;
+  border-radius: 80px;
+  vertical-align: top;
+  font-size: 12px;
+  text-align: center;
+  display: table-cell;
+  padding: 15px 15px 0 15px;
 }
 .ticket-price .cop-it{
   color: #535353;
@@ -198,3 +178,9 @@
     color: darkslategray;
   }
 }
+.available-tickets-text{
+  text-align: center;
+  padding: 10px;
+  color: lightgreen;
+}
+
