@@ -17,6 +17,7 @@ class EventsController < ApplicationController
     @event.quantity = 1
     @event.save
     authorize @event
+
     @ticket = Ticket.new(ticket_params)
     authorize @ticket
     @ticket.event = @event
