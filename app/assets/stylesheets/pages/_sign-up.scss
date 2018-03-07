@@ -1,12 +1,12 @@
 body{
-  background: #FFF;
+  background: #F4F4f4;
 }
 .sign-up-container{
   padding-top: 20px;
   margin: auto;
   margin-top: 90px;
   border: 1px solid;
-  border-radius: 30px;
+  border-radius: 10px;
   padding: 20px;
   background: #FFF;
 }
@@ -34,7 +34,7 @@ body{
 .sign-up-text{
   text-align: center;
   margin-top: 0;
-  border-bottom: 0.3px solid rgba(0,0,0,0.8);
+  // border-bottom: 0.3px solid rgba(0,0,0,0.8);
   padding-bottom: 15px;
   color: $dark-gray;
   font-weight: lighter;
@@ -46,13 +46,18 @@ body{
   margin: 15px !important;
 }
 .form-control{
-  border-radius: 10px !important;
+  border-radius: 5px !important;
 }
 .log-in-button{
-  padding: 5px 0 20px 20px;
+  padding: 15px 0 20px 20px;
 }
 
 .help-block{
   color: $dark-gray !important;
   font-size: 14px !important;
+}
+
+.form-50-log-in{
+  padding-top: 10px;
+  padding-left: 80px;
 }
