@@ -23,9 +23,11 @@ class EventsController < ApplicationController
     @ticket.user = current_user
     @ticket.display_flag = true
     @ticket.sold = false
-    @ticket.save
-
-    redirect_to root_path
+    if @ticket.save
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 
   def update
