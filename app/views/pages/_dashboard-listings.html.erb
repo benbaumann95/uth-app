@@ -1,0 +1,72 @@
+<!-- LISTINGS -->
+
+<section class="dashboard-main-section">
+  <section class="dashboard-primary-section">
+    <div class="dashboard-containers">
+
+      <div class="container-upcoming-dashboards">
+        <div class="container-header-section">
+          <div class="container-header-text">
+            <span class="results-query">
+              Here are your listings
+            </span>
+            <span class="results-location-query">
+              <strong><%=  @current_user.first_name %></strong>
+            </span>
+
+          </div>
+
+          <div class="dropdown-select-sort-container">
+            <div class="dropdown-select-sort">
+              <div class="dropdown-select-option-picked">
+                <div class="dropdown-select-option-picked-text">
+                  Date
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container-body">
+
+          <div class="dashboard-grouped-container">
+
+            <div class="dashboard-group-unique">
+              <% @tickets.each do |ticket| %>
+              <div class="dashboard-left">
+                <div class="dashboard-left-container">
+                  <div>
+                    <p class='posted-on-text'>Posted on <%=ticket.created_at.to_date.strftime('%d %b')%> </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="dashboard-description">
+                <div class="dashboard-description-container">
+                  <div class="dashboard-link-to-show-page">
+                    <p><%= ticket.event.name %> @ <%= ticket.event.location %></p>
+                  </div>
+                  <div class="dashboard-details">
+                    <p><%= ticket.description %></p>
+                  </div>
+                </div>
+
+              </div>
+
+
+              <div class="dashboard-price">
+                <div class="price-at">
+                  Listed at
+                </div>
+                <div class="price">
+                  <p>£<%= ticket.price %></p>
+                </div>
+              </div>
+              <%end%>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</section>

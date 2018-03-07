@@ -2,20 +2,23 @@ class EventsController < ApplicationController
   skip_before_action :authenticate_user!
 
   def index
-    @events = Event.all.where("quantity > 0")
+    @events = policy_scope(Event).where("quantity > 0")
   end
 
   def new
     @event = Event.new
     @ticket = Ticket.new
+    authorize @event
+    authorize @ticket
   end
 
   def create
     @event = Event.new(event_params)
     @event.quantity = 1
     @event.save
-
+    authorize @event
     @ticket = Ticket.new(ticket_params)
+    authorize @ticket
     @ticket.event = @event
     @ticket.user = current_user
     @ticket.display_flag = true
@@ -32,6 +35,7 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    authorize @event
     @tickets = @event.tickets.where("sold = false")
     @booking = Booking.new
   end

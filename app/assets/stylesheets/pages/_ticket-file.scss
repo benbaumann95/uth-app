@@ -1,0 +1,16 @@
+.ticket-file{
+  text-align: center;
+}
+.download-button{
+  text-align: center;
+  padding: 20px;
+}
+.fa-cloud-download-alt{
+  text-decoration: none;
+  color: $green;
+  &:hover{
+    opacity:0.9;
+    text-decoration: none;
+    color: $green;
+  }
+}

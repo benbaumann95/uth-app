@@ -8,8 +8,19 @@
 
 
       <div class="banner-search">
+        <p>
+          <%= form_tag events_path, method: :get, class: 'form-inline search-form' do %>
+          <div class="search-bar-position">
+            <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+              placeholder: "discover what's hot in town"
+              %>
+          </div>
+        </p>
 
         <%= submit_tag("Search", class: 'btn-home-search', id: 'search-button') %>
+        <% end %>
 
       </div>
     </div>

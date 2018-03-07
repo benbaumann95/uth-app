@@ -1,4 +1,4 @@
-<div class="navbar-wagon navbar-inverse navbar-fixed-top ">
+<div class="navbar-wagon-fixed navbar-inverse navbar-fixed-top ">
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
     <%= image_tag "unitix-navbar-logo.png", height: 70 %>
@@ -10,7 +10,7 @@
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
-      <%= link_to "Explore", events_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Explore", tickets_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
       <%= link_to "List a Ticket", new_event_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Find out more", about_path, class: "navbar-wagon-item navbar-wagon-link" %>
@@ -53,7 +53,7 @@
           <%= link_to "Explore", tickets_path, class: "navbar-wagon-item navbar-wagon-link" %>
         </li>
         <li>
-          <%= link_to "List a Ticket", new_event_path, class: "navbar-wagon-item navbar-wagon-link" %>
+          <%= link_to "List a Ticket", new_ticket_path, class: "navbar-wagon-item navbar-wagon-link" %>
         </li>
         <% if user_signed_in? %>
         <li>
@@ -70,6 +70,3 @@
     </div>
   </div>
 </div>
-
-
-
