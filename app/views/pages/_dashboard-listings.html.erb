@@ -1,5 +1,6 @@
 <!-- LISTINGS -->
 
+<% unless @number_listings == 0 %>
 <section class="dashboard-main-section">
   <section class="dashboard-primary-section">
     <div class="dashboard-containers">
@@ -71,3 +72,25 @@
     </div>
   </section>
 </section>
+<% else %>
+
+<section class="dashboard-main-section">
+  <section class="dashboard-primary-section">
+    <div class="dashboard-containers">
+      <div class="container-upcoming-dashboards" >
+        <div class="container-header-section">
+          <div class="container-header-text">
+            <span class="results-query">
+              You have no listings
+            </span>
+            <span class="results-location-query">
+              <strong><%=  @current_user.first_name %></strong>
+            </span>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</section>
+<% end %>
