@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'dashboard', to: 'pages#dashboard'
   get 'about', to: 'pages#about'
   get 'ticket_file', to: 'pages#ticket_file'
+  get 'profile', to: 'pages#profile'
 
   resources :events, only: [:index, :show, :create, :new]
     resources :tickets , only: [:index, :show, :create, :destroy] do
