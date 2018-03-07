@@ -24,6 +24,4 @@ class Event < ApplicationRecord
     attribute :name, :address
     searchableAttributes ['name']
   end
-
-  index = Algolia::Index.new('events')
 end
