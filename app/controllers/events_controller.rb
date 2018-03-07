@@ -2,7 +2,7 @@ class EventsController < ApplicationController
   skip_before_action :authenticate_user!
 
   def index
-    @events = policy_scope(Event)
+    @events = policy_scope(Event).where("quantity > 0")
   end
 
   def new
@@ -14,16 +14,23 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
+    @event.quantity = 1
     @event.save
     authorize @event
     @ticket = Ticket.new(ticket_params)
     authorize @ticket
     @ticket.event = @event
     @ticket.user = current_user
-    @ticket.display_flag = @ticket.sold = false
+    @ticket.display_flag = true
+    @ticket.sold = false
     @ticket.save
 
     redirect_to root_path
+  end
+
+  def update
+    @event = Event.find(params[:id])
+    @event.quantity += 1
   end
 
   def show
