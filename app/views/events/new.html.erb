@@ -12,7 +12,7 @@
       <% end %>
       <% @events.each do |event| %>
         <li><%= event.name %></li>
-        <li><%= event.location %></li>
+        <li><%= event.address %></li>
         <li><%= event.category %></li>
         <li><%= event.date_and_time %></li>
         <li><%= event.quantity %> tickets are currently listed</li>
@@ -20,6 +20,26 @@
     <% end %>
   </div>
 </div>
+
+<% if current_user[:photo] == nil  %>
+  <h1>*********************</h1>
+  <h1> Please upload a profile photo</h1>
+  <%= render 'edit_form' %>
+<% else %>
+  <% if @event.errors.any? %>
+    <ul>
+      <% @event.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+  <% if @ticket.errors.any? %>
+    <ul>
+      <% @ticket.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
+    <% end %>
 
 <div class="container" style=" padding-top: 30px">
   <%= render 'list_form', event: @event, ticket: @ticket %>

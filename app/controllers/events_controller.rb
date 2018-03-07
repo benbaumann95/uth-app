@@ -28,9 +28,11 @@ class EventsController < ApplicationController
     @ticket.user = current_user
     @ticket.display_flag = true
     @ticket.sold = false
-    @ticket.save
-
-    redirect_to root_path
+    if @ticket.save
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 
   def update
@@ -43,12 +45,15 @@ class EventsController < ApplicationController
     authorize @event
     @tickets = @event.tickets.where("sold = false")
     @booking = Booking.new
+
+    @markers = { lat: @event.latitude, lng: @event.longitude }
+
   end
 
   private
 
   def event_params
-    params.require(:event).permit(:name, :quantity, :location, :date_and_time, :category)
+    params.require(:event).permit(:name, :quantity, :address, :date_and_time, :category, :latitude, :longitude)
   end
 
   def ticket_params

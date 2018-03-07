@@ -2,8 +2,11 @@ class Event < ApplicationRecord
   has_many :tickets
   accepts_nested_attributes_for :tickets
 
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
+
   validates :name, presence: true
-  validates :location, presence: true
+  validates :address, presence: true
   validates :category, inclusion: { in: [
     "Club night",
     "Concert",
@@ -18,6 +21,7 @@ class Event < ApplicationRecord
   include AlgoliaSearch
 
   algoliasearch do
-    attribute :name, :location
+    attribute :name, :address
+    searchableAttributes ['name']
   end
 end

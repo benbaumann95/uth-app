@@ -1,5 +1,6 @@
 <!-- PURCHASES -->
 
+<% unless @number_listings == 0 %>
 <section class="dashboard-main-section">
   <section class="dashboard-primary-section">
     <div class="dashboard-containers">
@@ -26,7 +27,7 @@
             </div>
           </div>
         </div>
-         <% @bookings.each do |booking| %>
+        <% @bookings.each do |booking| %>
         <div class="container-body">
 
           <div class="dashboard-grouped-container">
@@ -73,3 +74,25 @@
     </div>
   </section>
 </section>
+<% else %>
+
+<section class="dashboard-main-section">
+  <section class="dashboard-primary-section">
+    <div class="dashboard-containers">
+      <div class="container-upcoming-dashboards margin-top-80" >
+        <div class="container-header-section">
+          <div class="container-header-text">
+            <span class="results-query">
+              You have no tickets
+            </span>
+            <span class="results-location-query">
+              <strong><%=  @current_user.first_name %></strong>
+            </span>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</section>
+<% end %>
