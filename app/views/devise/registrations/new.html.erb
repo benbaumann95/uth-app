@@ -17,14 +17,21 @@
     </div>
 
 
+    <div class="form-row">
+      <div class="form-50">
+        <div class="form-actions" style="margin-left: 15px;">
+          <%= f.button :submit, "Sign up" %>
+        </div>
+        <% end %>
+      </div>
 
-    <div class="form-actions">
-      <%= f.button :submit, "Sign up" %>
+      <div class="form-50-log-in">
+        <div class="log-in-button-sing-up">
+        <%= render "devise/shared/links" %>
+      </div>
     </div>
-    <% end %>
   </div>
 </div>
-
-<div class="log-in-button">
-  <%= render "devise/shared/links" %>
 </div>
+
+
