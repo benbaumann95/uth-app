@@ -9,8 +9,7 @@ class PagesController < ApplicationController
     @number_listings = current_user.tickets.all.count
     @number_purchases = current_user.bookings.all.count
   end
+
   def ticket_file
-  end
-  def profile
   end
 end
