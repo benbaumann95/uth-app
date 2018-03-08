@@ -8,8 +8,10 @@ Rails.application.routes.draw do
   get 'ticket_file', to: 'pages#ticket_file'
   get 'profile', to: 'pages#profile'
 
-  resources :events, only: [:index, :show, :create, :new]
-    resources :tickets , only: [:index, :show, :create, :destroy] do
-      resources :bookings, only: [:create]
-    end
+  resources :events, only: [:index, :show, :create, :new] do
+    resources :tickets, only: [:create]
+  end
+  resources :tickets , only: [:index, :show, :destroy, :new] do
+    resources :bookings, only: [:create]
+  end
 end
