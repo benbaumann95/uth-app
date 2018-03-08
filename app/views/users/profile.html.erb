@@ -1,5 +1,20 @@
-<h1> <%= current_user.first_name %> </h1> <%= link_to 'edit', edit_first_name_path %>
-<h2><%= current_user.last_name %></h2> <%= link_to 'edit', edit_last_name_path %>
-<h2><%= current_user.email %></h2> <%= link_to 'edit', edit_email_path %>
-<h2><%= current_user.bio %></h2> <%= link_to 'edit', edit_bio_path %>
-<h2><%= cl_image_tag current_user.photo, height: 40, width: 40 %></h2> <%= link_to 'edit', edit_profile_pic_path %>
+<table>
+  <th>Profile</th>
+  <tbody>
+    <tr>
+      <td><strong>First Name:</strong>   <%= current_user.first_name %> <%= link_to 'edit', edit_first_name_path %></td>
+    </tr>
+    <tr>
+       <td><strong>Last Name:</strong>   <%= current_user.last_name %> <%= link_to 'edit', edit_last_name_path %> </td>
+    </tr>
+    <tr>
+      <td><strong>Email:</strong>   <%= current_user.email %> <%= link_to 'edit', edit_email_path %></td>
+    </tr>
+    <tr>
+      <td><strong>Bio:</strong>   <%= current_user.bio %> <%= link_to 'edit', edit_bio_path %> </td>
+    </tr>
+    <tr>
+      <td><strong>Profile Pic:</strong> <%= cl_image_tag current_user.photo, height: 40, width: 40 %>  <%= link_to 'edit', edit_profile_pic_path %>  </td>
+    </tr>
+  </tbody>
+</table>
