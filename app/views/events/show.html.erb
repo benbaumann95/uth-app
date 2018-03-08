@@ -37,35 +37,27 @@
 
         <div class="container-upcoming-tickets">
           <% @tickets.each do |ticket| %>
-          <!-- <div class="container-body"> -->
             <div class="ticket-container">
-                <!-- <div class="ticket-unique"> -->
-                  <div class="ticket-profile">
-                    <%= cl_image_tag current_user.photo, width: 80, height: 80, class: 'circle-avatar' %>
-                    <div class="ticket-left-container"></div>
-                  </div>
-                  <div class="ticket-description">
-                  <div class="ticket-description-container">
-                    <div class="ticket-link-to-show-page">
-                      <%= ticket.event.name %>
-                    </div>
-                    <div class="ticket-details">
-                      <%= ticket.description %>
-                    </div>
-                  </div>
-                  </div>
-                  <div class="ticket-price">
-                    <div class="price">
-                    <strong>£<%= ticket.price %></strong>
-                    <%= link_to ticket_bookings_path(ticket.id), method: :post do %>
-                      <i class="fas fa-shopping-cart"></i>
-                    <% end %>
-                  </div>
-                  </div>
-
-                <!-- </div> -->
+              <div class="ticket-profile">
+                <%= cl_image_tag current_user.photo, width: 80, height: 80, class: 'circle-avatar' %>
+              </div>
+              <div class="ticket-description">
+                <div class="ticket-link-to-show-page">
+                  <%= ticket.event.name %>
+                </div>
+                <div class="ticket-details">
+                  <%= ticket.description %>
+                </div>
+              </div>
+              <div class="ticket-price">
+                <div class="price">
+                  <strong>£<%= ticket.price %></strong>
+                  <%= link_to ticket_bookings_path(ticket.id), method: :post do %>
+                    <i class="fas fa-shopping-cart"></i>
+                  <% end %>
+                </div>
+              </div>
             </div>
-          <!-- </div> -->
           <% end %>
         </div>
       <% end %>
