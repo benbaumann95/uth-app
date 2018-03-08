@@ -36,23 +36,29 @@
   margin-left: 10px;
 }
 .ticket-container {
-  // position: relative;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  // color: #2F343B;
-  // font-size: 14px;
   display: flex;
   align-items: center;
+  padding: 5px 5px;
+  border-bottom: 2px solid $black;
+  background-color: $light-gray;
+  opacity: 0.85;
+  border-radius: 5px;
+  &:hover {
+    transition: all .25s ease-in-out;
+    -ms-transform: scale(1.02);
+    -webkit-transform: scale(1.02);
+    transform: scale(1.02);
+  }
+}
+.container-upcoming-tickets *:hover {
+  text-decoration: none;
+  .fa-shopping-cart {
+    color: $black;
+  }
 }
 .container-upcoming-tickets{
-  // border: 0.5px dotted $green;
-  background-color: whitesmoke;
-  opacity: 0.85;
-  // position: relative;
-  // display: block;
-  border-radius: 80px;
-  // box-shadow: 0 1px 1px rgba(0,0,0,0.1);
-  // align-self: flex-start;
   margin: 20px 10px;
 }
 .container-header-section{
@@ -62,13 +68,13 @@
   color: #2F343B;
   display: block;
 }
-@media (max-width: 767px) {
-  .ticket-unique{
-    position: relative;
-    padding: 0;
-    // border-top: 1px solid #E7EAEC;
-  }
-}
+// @media (max-width: 767px) {
+//   .ticket-unique{
+//     position: relative;
+//     padding: 0;
+//     // border-top: 1px solid #E7EAEC;
+//   }
+// }
 // .ticket-unique{
 //   position: relative;
 //   padding: 10px 0;
@@ -87,31 +93,26 @@
 //   vertical-align: middle;
 //   text-align: center;
 // }
-.ticket-profile {
-
-}
 .ticket-description{
-  padding: 0 20px;
+  padding: 10px 20px;
   vertical-align: top;
   width: 100%;
   display: table-cell;
-  /*  border-right: 0.5px solid #CFD4D9;*/
-}
-.ticket-description-container{
-  vertical-align: top;
-  margin-top: 10px;
+  border-right: 0.5px solid #CFD4D9;
+  text-align: left;
 }
 .ticket-link-to-show-page{
-  color: #4cb289;
-  font-size: 16px;
+  color: $green;
+  font-size: 18px;
   text-decoration: none;
   cursor: pointer;
   font-weight: bolder;
+  margin: 5px 0;
 }
 .ticket-details{
-  margin-top: 12px;
-  font-size: 12px;
-  color: #828282;
+  margin: 12px 0;
+  font-size: 16px;
+  color: $black;
   overflow: hidden;
   max-height: 45px;
   line-height: 15px;
@@ -144,18 +145,14 @@
 }
 .fa-shopping-cart{
   padding: 3px;
-  color: lightslategrey;
-  opacity: 0.5;
-  &:hover{
-    color: darkslategray;
-  }
+  color: $dark-gray;
 }
 .available-tickets-text{
   text-align: center;
   padding: 10px;
-  color: lightgreen;
+  color: $light-green;
+  font-size: 22px;
 }
-
 @media (min-width: 924px){
   .container-no-upcoming-tickets{
     background-color: whitesmoke;
@@ -169,15 +166,14 @@
   }
 }
 @media (max-width: 923px){
- .container-no-upcoming-tickets{
-  background-color: whitesmoke;
-  opacity: 0.95;
-  position: relative;
-  display: block;
-  border-radius: 5px;
-  box-shadow: 0 1px 1px rgba(0,0,0,0.1);
-  margin: 20px;
-}
-
+  .container-no-upcoming-tickets{
+    background-color: whitesmoke;
+    opacity: 0.95;
+    position: relative;
+    display: block;
+    border-radius: 5px;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+    margin: 20px;
+  }
 }
 
