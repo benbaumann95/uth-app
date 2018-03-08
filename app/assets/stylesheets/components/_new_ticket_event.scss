@@ -1,3 +1,4 @@
+// Algolia stuff - do not touch!!
 .aa-dropdown-menu {
   background-color: $white;
   border: 1px solid rgba(228, 228, 228, 0.6);
@@ -24,9 +25,27 @@
   padding: 2px 0 2px 2px;
 }
 
-.list-ticket-form {
-  display: flex;
-  padding: 10px 10px;
-  align-items: center;
+// Search bar for adding ticket to event
+.new-ticket-container {
+  padding: 50px 50px;
+  color: $black;
 }
 
+.list-ticket-form {
+  display: flex;
+  max-width: 700px;
+}
+
+.algolia-autocomplete {
+  flex-grow: 1;
+  padding-right: 20px;
+  min-width: 200px;
+}
+
+//search results cards
+.event-card {
+  border: 1px solid $dark-gray;
+  border-radius: 5px;
+  padding: 20px 20px;
+  // margin: 5px 5px;
+}
