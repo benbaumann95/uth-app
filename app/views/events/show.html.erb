@@ -4,95 +4,74 @@
   <div class="show-ticket-container">
     <div class="banner-venue">
       <h1><%= @event.name %> @ <%= @event.address.capitalize %></h1>
-      <%= @event.date_and_time.strftime('%a %d %b').upcase %>
-      <div class="banner-event-quantity-tickets">
-
-          <div class="available-tickets-text">
-            <% if @event.quantity == 0 %>
-            <p>
-              Sorry, there are no tickets currently available!
-            </p>
-            <% elsif @event.quantity == 1 %>
-            <p>
-              Only <strong><%= @event.quantity %></strong> ticket remaining!
-            </p>
-            <% else %>
-            <p>
-              There are <strong><%= @event.quantity %></strong> tickets for this event remaining
-            </p>
-            <% end %>
-          </div>
-
+      <p><%= @event.date_and_time.strftime('%a %d %b').upcase %></p>
+      <div class="available-tickets-text">
+        <% if @event.quantity == 0 %>
+          <p>Sorry, there are no tickets currently available!</p>
+        <% elsif @event.quantity == 1 %>
+          <p>Only <strong><%= @event.quantity %></strong> ticket remaining!</p>
+        <% else %>
+          <p>There are <strong><%= @event.quantity %></strong> tickets for this event remaining.</p>
+        <% end %>
       </div>
 
       <% if @event.quantity == 0 %>
-
         <div class="container-no-upcoming-tickets">
-          <div class="container-body">
+          <!-- <div class="container-body"> -->
             <div class="ticket-container">
-              <div class="ticket-unique">
+              <!-- <div class="ticket-unique"> -->
                 <p>Bookmark the event to be notified when tickets are available</p>
-                <div class="ticket-left">
+<!--                 <div class="ticket-profile">
                 </div>
                 <div class="ticket-description">
                 </div>
                 <div class="ticket-price">
-                </div>
-              </div>
+                </div> -->
+              <!-- </div> -->
             </div>
-          </div>
+          <!-- </div> -->
         </div>
 
       <% else %>
 
-      <% @tickets.each do |ticket| %>
 
-      <div class="container-upcoming-tickets">
-        <div class="container-body">
-          <div class="ticket-container">
-            <div class="ticket-unique">
-              <div class="ticket-left">
-                <%= cl_image_tag current_user.photo, width: 80, height: 80, class: 'circle-avatar' %>
-                <div class="ticket-left-container">
-
-                </div>
-              </div>
-              <div class="ticket-description">
-                <div class="ticket-description-container">
-                  <div class="ticket-link-to-show-page">
-                    <%= ticket.event.name %>
+        <div class="container-upcoming-tickets">
+          <% @tickets.each do |ticket| %>
+          <!-- <div class="container-body"> -->
+            <div class="ticket-container">
+                <!-- <div class="ticket-unique"> -->
+                  <div class="ticket-profile">
+                    <%= cl_image_tag current_user.photo, width: 80, height: 80, class: 'circle-avatar' %>
+                    <div class="ticket-left-container"></div>
                   </div>
-                  <div class="ticket-details">
-                    <%= ticket.description %>
+                  <div class="ticket-description">
+                  <div class="ticket-description-container">
+                    <div class="ticket-link-to-show-page">
+                      <%= ticket.event.name %>
+                    </div>
+                    <div class="ticket-details">
+                      <%= ticket.description %>
+                    </div>
                   </div>
-                </div>
+                  </div>
+                  <div class="ticket-price">
+                    <div class="price">
+                    <strong>£<%= ticket.price %></strong>
+                    <%= link_to ticket_bookings_path(ticket.id), method: :post do %>
+                      <i class="fas fa-shopping-cart"></i>
+                    <% end %>
+                  </div>
+                  </div>
 
-              </div>
-
-              <div class="ticket-price">
-                <div class="price">
-                  <strong>£<%= ticket.price %></strong>
-                  <%= link_to ticket_bookings_path(ticket.id), method: :post do %>
-                  <i class="fas fa-shopping-cart"></i>
-                  <% end %>
-
-                  <% end %>
-                </div>
-              </div>
-
+                <!-- </div> -->
             </div>
-          </div>
+          <!-- </div> -->
+          <% end %>
         </div>
-      </div>
-
       <% end %>
     </div>
 
-    <div
-    id="map"
-    data-markers="<%= @markers.to_json %>"
-    ></div>
-
+    <div id="map" data-markers="<%= @markers.to_json %>"></div>
   </div>
 </div>
 
