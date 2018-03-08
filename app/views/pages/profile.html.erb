@@ -1,7 +1,39 @@
-<h1> <%=current_user.first_name %></h1>
-<h2><%=current_user.last_name %></h2>
-<h2> <%=current_user.first_name %></h2>
-<h2><%= current_user.email %></h2>
-<p><%= current_user.bio %></p>
 
-<%= link_to "Edit Details",  edit_user_registration_path %>
+<div class="profile-container">
+  <div class="profile-top-section">
+    <div class="profile-header-section">
+
+    </div>
+    <div class="profile-avatar">
+      <%= cl_image_tag current_user.photo, height: 120, width: 120, class: 'circle-border' %>
+    </div>
+    <div class="profile-name">
+      <h1><%=current_user.first_name%><%=current_user.last_name %></h1>
+    </div>
+    <div class="profile-uni">
+      <h2><%= current_user.email %></h2>
+    </div>
+    <div class="profile-bio">
+      <p><%= current_user.bio %></p>
+    </div>
+  </div>
+
+  <div class="profile-lower-section">
+    <div class="profile-edit-btn">
+      <%= link_to "Edit Details",  edit_user_registration_path %>
+    </div>
+
+  </div>
+  <div class="profile-dashboard-summary">
+
+  </div>
+  <div class="footer-section">
+    <div class="profile-back-btn">
+
+    </div>
+    <div class="profile-home-btn">
+
+    </div>
+  </div>
+
+</div>

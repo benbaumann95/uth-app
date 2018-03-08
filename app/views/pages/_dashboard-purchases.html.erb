@@ -5,7 +5,7 @@
   <section class="dashboard-primary-section">
     <div class="dashboard-containers">
 
-      <div class="container-upcoming-dashboards margin-top-80" >
+      <div class="container-upcoming-dashboards" >
         <div class="container-header-section">
           <div class="container-header-text">
             <span class="results-query">
@@ -21,7 +21,7 @@
             <div class="dropdown-select-sort">
               <div class="dropdown-select-option-picked">
                 <div class="dropdown-select-option-picked-text">
-                  Date
+
                 </div>
               </div>
             </div>
@@ -48,7 +48,7 @@
                     <p><%= booking.ticket.event.name %> @ <%= booking.ticket.event.address %></p>
                   </div>
                   <div class="dashboard-details">
-                    <p><%=booking.ticket.event.date_and_time.strftime('%a %d %b') %></p>
+                    <p><strong><%=booking.ticket.event.date_and_time.strftime('%a %d %b') %></strong></p>
                     <p><%= booking.ticket.description %></p>
                   </div>
                 </div>
@@ -57,13 +57,14 @@
 
 
               <div class="dashboard-price">
-                <div class='booking-ticket-date'><%=booking.ticket.created_at.to_date.strftime('%d %b')%></div>
+
                 <div class="price-at">
                   Bought for
                 </div>
                 <div class="price">
                   £<%= booking.ticket.price %>
                 </div>
+                 <div class='booking-ticket-date'>on <%=booking.ticket.created_at.to_date.strftime('%b %d')%></div>
               </div>
               <%end%>
             </div>

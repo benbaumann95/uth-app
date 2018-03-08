@@ -1,54 +1,62 @@
 
 <div class="ticket-banner-container" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.5) 50%), url('http://res.cloudinary.com/uthabc/image/upload/v1520422012/zrwmgtopq6fgwgn7pvqs.jpg');">
-  <div class="banner-venue">
-    <h1><%= @event.name %> @ <%= @event.address %></h1>
-    <%= @event.date_and_time.strftime('%a %d %b').upcase %>
-    <div class="banner-event-name">
 
-    </div>
+  <div class="show-ticket-container">
+    <div class="banner-venue">
+      <h1><%= @event.name %> @ <%= @event.address.capitalize %></h1>
+      <%= @event.date_and_time.strftime('%a %d %b').upcase %>
+      <div class="banner-event-quantity-tickets">
 
-  </div>
-
-</div>
-
-
-<!--
-    <div class="container-header-section">
-      <div class="container-header-text">
-        <span class="results-query">
-          Cop your -ticket!
-        </span>
+          <div class="available-tickets-text">
+            <% if @event.quantity == 0 %>
+            <p>
+              Sorry, there are no tickets currently available!
+            </p>
+            <% elsif @event.quantity == 1 %>
+            <p>
+              Only <strong><%= @event.quantity %></strong> ticket remaining!
+            </p>
+            <% else %>
+            <p>
+              There are <strong><%= @event.quantity %></strong> tickets for this event remaining
+            </p>
+            <% end %>
+          </div>
 
       </div>
 
-      <div class="dropdown-select-sort-container">
-        <div class="dropdown-select-sort">
-          <div class="dropdown-select-option-picked">
-            <div class="dropdown-select-option-picked-text">
-              Price
+      <% if @event.quantity == 0 %>
+
+        <div class="container-no-upcoming-tickets">
+          <div class="container-body">
+            <div class="ticket-container">
+              <div class="ticket-unique">
+                <p>Bookmark the event to be notified when tickets are available</p>
+                <div class="ticket-left">
+                </div>
+                <div class="ticket-description">
+                </div>
+                <div class="ticket-price">
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </div> -->
 
-    <% @tickets.each do |ticket| %>
-    <div class="show-ticket-container">
+      <% else %>
 
+      <% @tickets.each do |ticket| %>
 
       <div class="container-upcoming-tickets">
         <div class="container-body">
-
           <div class="ticket-container">
-
             <div class="ticket-unique">
-
               <div class="ticket-left">
+                <%= cl_image_tag current_user.photo, width: 80, height: 80, class: 'circle-avatar' %>
                 <div class="ticket-left-container">
-                  <%= ticket.user_id %>
+
                 </div>
               </div>
-
               <div class="ticket-description">
                 <div class="ticket-description-container">
                   <div class="ticket-link-to-show-page">
@@ -61,36 +69,35 @@
 
               </div>
 
-
               <div class="ticket-price">
-
                 <div class="price">
-                  £<%= ticket.price %>
+                  <strong>£<%= ticket.price %></strong>
                   <%= link_to ticket_bookings_path(ticket.id), method: :post do %>
                   <i class="fas fa-shopping-cart"></i>
                   <% end %>
+
                   <% end %>
                 </div>
-
               </div>
 
             </div>
           </div>
         </div>
-
       </div>
 
-      <div
-      id="map"
-      style="width: 100%;
-      height: 500px;"
-      data-markers="<%= @markers.to_json %>"
-      ></div>
-
+      <% end %>
     </div>
 
-    <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js" %>
-    <%= javascript_pack_tag "map" %>
+    <div
+    id="map"
+    data-markers="<%= @markers.to_json %>"
+    ></div>
+
+  </div>
+</div>
+
+<%= javascript_include_tag "https://maps.googleapis.com/maps/api/js" %>
+<%= javascript_pack_tag "map" %>
 
 
 

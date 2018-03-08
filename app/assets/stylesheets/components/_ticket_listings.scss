@@ -16,16 +16,15 @@
   margin: auto;
   padding: 0 20px 0 20px;
 }
-@media (min-width: 1024px){
+@media (min-width: 924px){
   .show-ticket-container{
     padding: 0 0 0 20px;
     width: 100%;
     display: flex;
   }
 }
-@media (max-width: 1023px){
+@media (max-width: 923px){
   .show-ticket-container{
-    padding: 0 0 0 0px;
     width: 100%;
   }
 }
@@ -40,32 +39,6 @@
   display: block;
   margin-left: 10px;
 }
-.dropdown-select-sort-container{
-  display: block;
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 120px;
-}
-.dropdown-select-sort{
-  position: relative;
-  width: 100%;
-  box-sizing: border-box;
-  background: inherit;
-}
-.dropdown-select-option-picked{
-  padding-bottom: 3px;
-  display: block;
-  margin-left: 20px;
-}
-.dropdown-select-option-picked-text{
-  padding: 19px;
-  font-family: HelveticaNeue, "Helvetica Neue";
-  font-weight: 700;
-  font-size: 14px;
-  color: #585858;
-  text-align: left;
-}
 .ticket-container {
   position: relative;
   -webkit-font-smoothing: antialiased;
@@ -76,14 +49,15 @@
   align-items: center;
 }
 .container-upcoming-tickets{
-  border: 0.5px solid #E7EAEC;
-  background-color: #fffffe;
+  border: 0.5px dotted $green;
+  background-color: whitesmoke;
+  opacity: 0.85;
   position: relative;
   display: block;
   border-radius: 80px;
   box-shadow: 0 1px 1px rgba(0,0,0,0.1);
   align-self: flex-start;
-  margin: 20px;
+  margin: 20px 10px 30px 5px;
 }
 .container-header-section{
   padding: 20px 10px;
@@ -116,8 +90,6 @@
   display: table-cell;
   vertical-align: middle;
   text-align: center;
-
-  padding-top: 30px;
 }
 .ticket-description{
   padding: 0 20px;
@@ -128,6 +100,7 @@
 }
 .ticket-description-container{
   vertical-align: top;
+  margin-top: 10px;
 }
 .ticket-link-to-show-page{
   color: #4cb289;
@@ -144,36 +117,16 @@
   max-height: 45px;
   line-height: 15px;
 }
-@media (min-width: 768px) {
-  .ticket-price{
-    min-width: 80px;
-    height: 80px;
-    width: 80px;
-    border-radius: 80px;
-    padding-right: 10px;
-    vertical-align: top;
-    font-size: 12px;
-    text-align: center;
-    display: table-cell;
-    border: 0.5px solid #E7EAEC;
-    padding-top: 15px;
-  }
-}
-@media (max-width: 767px) {
-  .ticket-price{
-    min-width: 80px;
-    height: 80px;
-    width: 80px;
-    border-radius: 80px;
-    vertical-align: top;
-    font-size: 12px;
-    text-align: center;
-    display: table-cell;
-    border: 0.5px solid #E7EAEC;
-    padding-top: 15px;
-    /* padding-left: 10px; */
-    padding-right: 10px;
-  }
+.ticket-price{
+  min-width: 80px;
+  height: 80px;
+  width: 80px;
+  border-radius: 80px;
+  vertical-align: top;
+  font-size: 12px;
+  text-align: center;
+  display: table-cell;
+  padding: 10px 15px 0 15px;
 }
 .ticket-price .cop-it{
   color: #535353;
@@ -198,3 +151,34 @@
     color: darkslategray;
   }
 }
+.available-tickets-text{
+  text-align: center;
+  padding: 10px;
+  color: lightgreen;
+}
+
+@media (min-width: 924px){
+  .container-no-upcoming-tickets{
+    background-color: whitesmoke;
+    opacity: 0.95;
+    position: relative;
+    display: block;
+    border-radius: 5px;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+    margin: 80px;
+
+  }
+}
+@media (max-width: 923px){
+ .container-no-upcoming-tickets{
+  background-color: whitesmoke;
+  opacity: 0.95;
+  position: relative;
+  display: block;
+  border-radius: 5px;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+  margin: 20px;
+}
+
+}
+
