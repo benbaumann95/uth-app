@@ -7,9 +7,6 @@ class EventsController < ApplicationController
   end
 
   def new
-    if params[:search_event] != nil
-      @events = Event.search(params[:search_event])
-    end
     @event = Event.new
     @ticket = Ticket.new
     authorize @event
@@ -29,7 +26,7 @@ class EventsController < ApplicationController
     @ticket.display_flag = true
     @ticket.sold = false
     if @ticket.save
-      redirect_to root_path
+      redirect_to event_path(@event.id)
     else
       render :new
     end
