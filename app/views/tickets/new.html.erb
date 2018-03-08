@@ -1,4 +1,4 @@
-<div class="container">
+<div class="new-ticket-container">
   <% if current_user[:photo] == nil  %>
     <h1>*********************</h1>
     <h1> Please upload a profile photo</h1>
@@ -12,31 +12,33 @@
       </ul>
     <% end %>
 
-    <div class="container" style="color: black;">
-      <%= form_tag(new_ticket_path, method: 'get', class: 'list-ticket-form') do %>
-        <%= text_field_tag :search_event, params[:search_event], placeholder: "Check if your event exists...", class: "form-control" %>
-        <%= submit_tag 'Find My Event', search_event: nil, class: "btn btn-primary" %>
-        <%= link_to "Can't Find Your Event?", new_event_path %>
-      <% end %>
+    <%= form_tag(new_ticket_path, method: 'get', class: 'list-ticket-form') do %>
+      <%= text_field_tag :search_event, params[:search_event], placeholder: "Check if your event exists...", class: "form-control" %>
+      <%= submit_tag 'Find My Event', search_event: nil, class: "btn btn-primary" %>
+    <% end %>
 
-      <div class="search-results">
-        <% if @events != nil %>
-          <% @events.each do |event| %>
-            <h3><%= event.name %> @ <%= event.address %></h3>
-            <li><%= event.category %></li>
-            <li><%= event.date_and_time %><%= link_to "(My event is on another date)", new_event_path %></li>
+    <h3><%= link_to "Can't Find Your Event?", new_event_path %></h3>
 
-            <% if event.quantity == 0 %>
-              <li>Tickets for this event have sold out!</li>
-            <% else %>
-              <li><%= event.quantity %> tickets are currently listed</li>
-            <% end %>
+    <div class="search-results">
+      <% if @events != nil %>
+      <div class="row">
+        <% @events.each do |event| %>
+        <div class="col-lg-6 event-card">
+          <h3><%= event.name %> @ <%= event.address %></h3>
+          <li><%= event.category %></li>
+          <li><%= event.date_and_time %><%= link_to "(My event is on another date)", new_event_path(content: "hello") %></li>
 
-            <%= render 'list_ticket_form', event: event, ticket: @ticket %>
-
+          <% if event.quantity == 0 %>
+            <li>Tickets for this event have sold out!</li>
+          <% else %>
+            <li><%= event.quantity %> tickets are currently listed</li>
           <% end %>
+
+          <%= render 'list_ticket_form', event: event, ticket: @ticket %>
+        </div>
         <% end %>
       </div>
+      <% end %>
     </div>
   <% end %>
 </div>

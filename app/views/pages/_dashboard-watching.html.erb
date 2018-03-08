@@ -1,5 +1,6 @@
 <!-- WATCHLIST -->
 
+<% unless @number_watching == 0 %>
 <section class="dashboard-main-section">
   <section class="dashboard-primary-section">
     <div class="dashboard-containers">
@@ -18,22 +19,21 @@
             <div class="dropdown-select-sort">
               <div class="dropdown-select-option-picked">
                 <div class="dropdown-select-option-picked-text">
-                  Date
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="container-body" >
 
+        <% @watchlists.each do |watch|  %>
+        <div class="container-body">
           <div class="dashboard-grouped-container">
-
             <div class="dashboard-group-unique">
-
               <div class="dashboard-left">
                 <div class="dashboard-left-container">
                   <div>
-
+                    <p class='posted-on-text'><%= watch.event.date_and_time.strftime('%a').upcase %></p>
+                    <p><%= watch.event.date_and_time.strftime('%d %b') %></p>
                   </div>
                 </div>
               </div>
@@ -41,10 +41,10 @@
               <div class="dashboard-description">
                 <div class="dashboard-description-container">
                   <div class="dashboard-link-to-show-page">
-
+                    <%= watch.event.name %>
                   </div>
                   <div class="dashboard-details">
-
+                    <%= watch.event.address %>
                   </div>
                 </div>
 
@@ -53,12 +53,32 @@
 
               <div class="dashboard-price">
                 <div class="cop-it">
+                  <% if watch.event.quantity == 0 %>
+                  <% else %>
+                  cop it
+                  <% end %>
 
                 </div>
                 <div class="price">
+                  <% ticket_price_array = [] %>
+                  <% watch.event.tickets.each do |ticket| %>
+                  <% ticket_price_array << ticket.price %>
+                  <% end %>
+                  <% if ticket_price_array.count >= 1 %>
+                  £<strong><%= ticket_price_array.min %></strong>
+                  <% else %>
+                  <% end %>
+                  <div class="events-left">
+                    <% if watch.event.quantity == 0 %>
+                    Sold out
+                    <% else %>
+                    <%= watch.event.quantity %> tix left
+                    <% end %>
+                  </div>
 
                 </div>
               </div>
+              <% end %>
 
             </div>
           </div>
@@ -68,3 +88,34 @@
     </div>
   </section>
 </section>
+
+<% else %>
+
+<section class="dashboard-main-section">
+  <section class="dashboard-primary-section">
+    <div class="dashboard-containers">
+      <div class="container-upcoming-dashboards margin-top-80" >
+        <div class="container-header-section">
+          <div class="container-header-text">
+            <span class="results-query">
+              You have no saved events
+            </span>
+            <span class="results-location-query">
+              <strong><%=  @current_user.first_name %></strong>
+            </span>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</section>
+<% end %>
+
+
+
+
+
+
+
+

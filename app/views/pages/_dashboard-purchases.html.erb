@@ -1,6 +1,6 @@
 <!-- PURCHASES -->
 
-<% unless @number_listings == 0 %>
+<% unless @number_purchases == 0 %>
 <section class="dashboard-main-section">
   <section class="dashboard-primary-section">
     <div class="dashboard-containers">
@@ -28,12 +28,10 @@
           </div>
         </div>
         <% @bookings.each do |booking| %>
-        <div class="container-body" >
 
+        <div class="container-body">
           <div class="dashboard-grouped-container">
-
             <div class="dashboard-group-unique">
-
               <div class="dashboard-left">
                 <div class="dashboard-left-container">
                   <%= link_to ticket_file_path(photo: booking.ticket.photo )  do %>

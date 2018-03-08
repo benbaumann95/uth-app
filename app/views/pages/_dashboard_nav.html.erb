@@ -11,7 +11,7 @@
 
       <!-- Links when logged in -->
        <%= link_to "Explore", events_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "List a Ticket", new_event_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "List a Ticket", new_ticket_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Help", about_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
       <!-- Avatar with dropdown menu -->
@@ -39,7 +39,7 @@
     <% else %>
       <!-- Login link (when logged out) -->
       <%= link_to "Find out more", tickets_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "List a Ticket", new_event_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "List a Ticket", new_ticket_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <% end %>
   </div>
@@ -54,7 +54,7 @@
           <%= link_to "Explore", events_path, class: "navbar-wagon-item navbar-wagon-link" %>
         </li>
         <li>
-          <%= link_to "List a Ticket", new_event_path, class: "navbar-wagon-item navbar-wagon-link" %>
+          <%= link_to "List a Ticket", new_ticket_path, class: "navbar-wagon-item navbar-wagon-link" %>
         </li>
         <% if user_signed_in? %>
         <li>
