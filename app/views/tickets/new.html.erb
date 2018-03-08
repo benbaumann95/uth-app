@@ -4,13 +4,6 @@
     <h1> Please upload a profile photo</h1>
     <%= render 'edit_form' %>
   <% else %>
-    <% if @event.errors.any? %>
-      <ul>
-        <% @event.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-        <% end %>
-      </ul>
-    <% end %>
     <% if @ticket.errors.any? %>
       <ul>
         <% @ticket.errors.full_messages.each do |message| %>
@@ -19,8 +12,31 @@
       </ul>
     <% end %>
 
-    <div class="container" style=" padding-top: 30px">
-      <%= render 'list_form', event: @event, ticket: @ticket %>
+    <div class="container" style="color: black;">
+      <%= form_tag(new_ticket_path, method: 'get', class: 'list-ticket-form') do %>
+        <%= text_field_tag :search_event, params[:search_event], placeholder: "Check if your event exists...", class: "form-control" %>
+        <%= submit_tag 'Find My Event', search_event: nil, class: "btn btn-primary" %>
+        <%= link_to "Can't Find Your Event?", new_event_path %>
+      <% end %>
+
+      <div class="search-results">
+        <% if @events != nil %>
+          <% @events.each do |event| %>
+            <h3><%= event.name %> @ <%= event.address %></h3>
+            <li><%= event.category %></li>
+            <li><%= event.date_and_time %><%= link_to "(My event is on another date)", new_event_path %></li>
+
+            <% if event.quantity == 0 %>
+              <li>Tickets for this event have sold out!</li>
+            <% else %>
+              <li><%= event.quantity %> tickets are currently listed</li>
+            <% end %>
+
+            <%= render 'list_ticket_form', event: event, ticket: @ticket %>
+
+          <% end %>
+        <% end %>
+      </div>
     </div>
   <% end %>
 </div>
