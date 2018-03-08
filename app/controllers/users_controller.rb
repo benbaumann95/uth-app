@@ -2,7 +2,6 @@ class UsersController < ApplicationController
   def edit_email
   end
 
-
   def profile
     @user = current_user
     authorize @user
