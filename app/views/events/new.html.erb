@@ -1,6 +1,5 @@
 <div class="container">
   <% if current_user[:photo] == nil  %>
-    <h1>*********************</h1>
     <h1> Please upload a profile photo</h1>
     <%= render 'edit_form' %>
   <% else %>
@@ -18,6 +17,7 @@
         <% end %>
       </ul>
     <% end %>
+
 
     <div class="container" style=" padding-top: 30px">
       <%= render 'list_form', event: @event, ticket: @ticket %>
