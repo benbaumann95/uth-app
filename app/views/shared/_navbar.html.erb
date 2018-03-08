@@ -100,4 +100,38 @@
 </div>
 
 
+<script>
 
+  const trigger = document.getElementById("menu-trigger");
+  const menu = document.getElementById("menu-drop-down");
+
+  trigger.addEventListener("mouseover", () => {
+   menu.style.display = "block";
+    }
+
+  );
+
+   menu.addEventListener("mouseout", () => {
+   if (menu.style.display == "block")
+    menu.style.display = "none";
+    }
+
+  );
+
+  const mobtrigger = document.getElementById("mobile-trigger");
+  const mobmenu = document.getElementById("mobile-drop-down");
+
+  mobtrigger.addEventListener("mouseover", () => {
+      mobmenu.style.display = "block";
+    }
+
+  );
+
+  mobmenu.addEventListener("mouseout", () => {
+   if (mobmenu.style.display == "block")
+    mobmenu.style.display = "none";
+    }
+
+  );
+
+</script>
