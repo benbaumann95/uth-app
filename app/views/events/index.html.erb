@@ -48,7 +48,9 @@
         <div class="event-watch">
           <div class="event-watch-container">
             <div class="event-watch-bookmark-toggle">
-              <i class="fas fa-heart"></i>
+              <%= link_to event_watchlists_path(event), method: :post  do %>
+                <i class="fas fa-heart"></i>
+              <% end %>
             </div>
           </div>
         </div>
@@ -56,8 +58,8 @@
         <div class="event-price">
           <div class="cop-it">
             <% if event.quantity == 0 %>
-              cop it
             <% else %>
+            cop it
             <% end %>
           </div>
           <div class="price">
