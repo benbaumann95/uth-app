@@ -1,15 +1,12 @@
 
 <div class="ticket-banner-container" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.5) 50%), url('http://res.cloudinary.com/uthabc/image/upload/v1520422012/zrwmgtopq6fgwgn7pvqs.jpg');">
 
-
-
-
   <div class="show-ticket-container">
     <div class="banner-venue">
       <h1><%= @event.name %> @ <%= @event.address.capitalize %></h1>
       <%= @event.date_and_time.strftime('%a %d %b').upcase %>
       <div class="banner-event-quantity-tickets">
-        <div class="available-tickets-container">
+
           <div class="available-tickets-text">
             <% if @event.quantity == 0 %>
             <p>
@@ -25,8 +22,28 @@
             </p>
             <% end %>
           </div>
-        </div>
+
       </div>
+
+      <% if @event.quantity == 0 %>
+
+        <div class="container-no-upcoming-tickets">
+          <div class="container-body">
+            <div class="ticket-container">
+              <div class="ticket-unique">
+                <p>Bookmark the event to be notified when tickets are available</p>
+                <div class="ticket-left">
+                </div>
+                <div class="ticket-description">
+                </div>
+                <div class="ticket-price">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      <% else %>
 
       <% @tickets.each do |ticket| %>
 
@@ -54,7 +71,7 @@
 
               <div class="ticket-price">
                 <div class="price">
-                  £<%= ticket.price %>
+                  <strong>£<%= ticket.price %></strong>
                   <%= link_to ticket_bookings_path(ticket.id), method: :post do %>
                   <i class="fas fa-shopping-cart"></i>
                   <% end %>
@@ -68,26 +85,16 @@
         </div>
       </div>
 
-
-
-
-
+      <% end %>
     </div>
+
     <div
     id="map"
     data-markers="<%= @markers.to_json %>"
     ></div>
 
   </div>
-
-
-
 </div>
-
-
-
-
-
 
 <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js" %>
 <%= javascript_pack_tag "map" %>
