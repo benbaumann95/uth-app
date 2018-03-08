@@ -7,11 +7,11 @@
 
       <div class="container-upcoming-dashboards" >
         <div class="container-header-section">
-          <div class="container-header-text">
+          <div class="container-header-text" id="purchases-list">
             <span class="results-query">
               Here are your purchases
             </span>
-            <span class="results-location-query">
+            <span class="results-location-query" >
               <strong><%=  @current_user.first_name %></strong>
             </span>
 
@@ -28,6 +28,7 @@
           </div>
         </div>
         <% @bookings.each do |booking| %>
+
         <div class="container-body">
           <div class="dashboard-grouped-container">
             <div class="dashboard-group-unique">
