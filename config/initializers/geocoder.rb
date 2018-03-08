@@ -21,9 +21,8 @@ Geocoder.configure(
   # distances: :linear          # :spherical or :linear
   units: :km,
   lookup: :google,
-  api_key: ENV['GOOGLE_API_SERVER_KEY'],
-  use_https: true,
-  )
+  api_key: ENV['GEOCODE']
+)
 
 # push key to heroku: figaro heroku:set -e production
 
