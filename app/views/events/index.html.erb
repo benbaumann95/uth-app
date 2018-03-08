@@ -1,28 +1,90 @@
-<!--
-<p>search bar</p>
-<p>filters (location/ name) </p>
-<p>default: most recent events</p>
 
-info:
-Date
-Name of event
-Full Location
-quantity of tickets
-lowest price of ticket available
--->
+<div class="search-bar-query-container">
+  <div class="search-bar">
 
-<% @events.each do |event| %>
-<h3>Event:</h3>
-<%= event.date_and_time %>
-<%= event.name %>
-<%= event.address %>
-<%= event.quantity %>
+  </div>
+</div>
 
-  <% ticket_price_array = [] %>
-  <% event.tickets.each do |ticket| %>
-  <% ticket_price_array << ticket.price  %>
+<div class="container-upcoming-events">
+
+  <div class="container-header-section">
+    <div class="container-header-text">
+      <span class="results-query">
+        Take a peak at results for
+      </span>
+      <span class="results-location-query">
+        <strong>"user-search-query"</strong>
+      </span>
+    </div>
+  </div>
+
+  <% @events.each do |event| %>
+
+  <div class="container-body">
+    <div class="event-grouped-container">
+      <div class="event-group-unique">
+        <div class="event-date">
+          <div class="event-date-container">
+            <div class="date-event-day">
+              <%= event.date_and_time.strftime('%a') %>
+            </div>
+            <div class="date-event-month-date">
+              <%= event.date_and_time.strftime('%d %b') %>
+            </div>
+          </div>
+        </div>
+
+        <div class="event-description">
+          <div class="event-description-container">
+            <div class="event-link-to-show-page">
+              <%= event.name %>
+            </div>
+            <div class="event-details">
+              <%= event.address %>
+            </div>
+          </div>
+        </div>
+
+        <div class="event-watch">
+          <div class="event-watch-container">
+            <div class="event-watch-bookmark-toggle">
+              <i class="fas fa-heart"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="event-price">
+          <div class="cop-it">
+            <% if event.quantity == 0 %>
+              cop it
+            <% else %>
+            <% end %>
+          </div>
+          <div class="price">
+            <% ticket_price_array = [] %>
+            <% event.tickets.each do |ticket| %>
+            <% ticket_price_array << ticket.price %>
+            <% end %>
+            <% if ticket_price_array.count >= 1 %>
+              £<strong><%= ticket_price_array.min %></strong>
+            <% else %>
+            <% end %>
+          </div>
+          <div class="events-left">
+            <% if event.quantity == 0%>
+            Sold out
+            <% else %>
+            <%= event.quantity %> tix left
+            <% end %>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
   <% end %>
+</div>
 
-  <%= ticket_price_array.min %>
 
-<% end %>
+

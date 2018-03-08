@@ -9,22 +9,27 @@
 
   <div class="content-holder">
 
-    <div class="form-100">
-      <%= e.input :name, label: 'Event Name', placeholder: 'Name of event' %>
-    </div>
-
-    <div class="form-100">
-      <div class="location-pin">
+    <div class="form-row">
+      <div class="form-50">
+        <%= e.input :name, label: 'Event Name', placeholder: 'e.g. Dusky' %>
       </div>
-      <%= e.input :address, placeholder: 'Location', label: 'Where', id: 'event_address' %>
-    </div>
 
-    <div class="form-100">
-      <div class="date-style">
+      <div class="form-50">
+        <div class="date-style">
 
-        <%= e.input :date_and_time, as: :date, label: 'When' %>
+          <%= e.input :date_and_time, as: :date, label: 'When' %>
+        </div>
       </div>
     </div>
+
+      <div class="form-100">
+        <div class="location-pin">
+        </div>
+        <%= e.input :address, placeholder: 'Venue', label: 'Where', id: 'event_address' %>
+      </div>
+
+
+
 
     <div class="form-row">
       <div class="form-70">
