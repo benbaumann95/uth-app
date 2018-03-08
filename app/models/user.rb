@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :tickets
   has_many :bookings
+  has_many :watchlists
 
   validates :email, format: { with: Devise.email_regexp, message: "invalid email" }
   validates :first_name, presence: true
