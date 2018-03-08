@@ -1,1 +1,28 @@
-<h1>this is the events index page</h1>
+<!--
+<p>search bar</p>
+<p>filters (location/ name) </p>
+<p>default: most recent events</p>
+
+info:
+Date
+Name of event
+Full Location
+quantity of tickets
+lowest price of ticket available
+-->
+
+<% @events.each do |event| %>
+<h3>Event:</h3>
+<%= event.date_and_time %>
+<%= event.name %>
+<%= event.address %>
+<%= event.quantity %>
+
+  <% ticket_price_array = [] %>
+  <% event.tickets.each do |ticket| %>
+  <% ticket_price_array << ticket.price  %>
+  <% end %>
+
+  <%= ticket_price_array.min %>
+
+<% end %>
