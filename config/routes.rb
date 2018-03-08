@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 
   resources :events, only: [:index, :show, :create, :new] do
     resources :tickets, only: [:create]
+    resources :watchlists, only: [:create, :destroy]
   end
   resources :tickets , only: [:index, :show, :destroy, :new] do
     resources :bookings, only: [:create]

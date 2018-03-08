@@ -9,6 +9,7 @@ class PagesController < ApplicationController
     @bookings = current_user.bookings
     @number_listings = current_user.tickets.all.count
     @number_purchases = current_user.bookings.all.count
+    @watchlists = current_user.watchlists
   end
 
   def ticket_file
