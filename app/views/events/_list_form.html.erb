@@ -11,7 +11,7 @@
 
     <div class="form-row">
       <div class="form-50">
-        <%= e.input :name, label: 'Event Name', placeholder: 'e.g. Dusky' %>
+        <%= e.input :name, label: 'Event Name', placeholder: 'e.g. Dusky', input_html: {value: params[:content]} %>
       </div>
 
       <div class="form-50">

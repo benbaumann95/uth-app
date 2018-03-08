@@ -4,10 +4,10 @@
   <div class="show-ticket-container">
     <div class="banner-venue">
       <h1><%= @event.name %> @ <%= @event.address.capitalize %></h1>
-      <p><%= @event.date_and_time.strftime('%a %d %b').upcase %></p>
+      <h4><%= @event.date_and_time.strftime('%a %d %b').upcase %></h4>
       <div class="available-tickets-text">
         <% if @event.quantity == 0 %>
-          <p>Sorry, there are no tickets currently available!</p>
+          <p>Sorry, there are no tickets currently available! </p>
         <% elsif @event.quantity == 1 %>
           <p>Only <strong><%= @event.quantity %></strong> ticket remaining!</p>
         <% else %>
@@ -16,25 +16,8 @@
       </div>
 
       <% if @event.quantity == 0 %>
-        <div class="container-no-upcoming-tickets">
-          <!-- <div class="container-body"> -->
-            <div class="ticket-container">
-              <!-- <div class="ticket-unique"> -->
-                <p>Bookmark the event to be notified when tickets are available</p>
-<!--                 <div class="ticket-profile">
-                </div>
-                <div class="ticket-description">
-                </div>
-                <div class="ticket-price">
-                </div> -->
-              <!-- </div> -->
-            </div>
-          <!-- </div> -->
-        </div>
-
+        <p class="available-tickets-text">Bookmark the event to be notified when tickets are available</p>
       <% else %>
-
-
         <div class="container-upcoming-tickets">
           <% @tickets.each do |ticket| %>
             <%= link_to ticket_bookings_path(ticket.id), method: :post do %>
