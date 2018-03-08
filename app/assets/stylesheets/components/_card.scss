@@ -34,6 +34,10 @@
   }
 }
 
-.venue-name-link{
+.venue-name-link-text{
   color: $green !important;
+  text-decoration: none;
+  &:hover{
+    text-decoration: none;
+  }
 }
