@@ -33,7 +33,7 @@
     <% @events.each do |event| %>
     <div class="col-sm-6 col-md-4">
 
-      <div class="event-index-card-by-venue">
+      <div class="event-index-card-by-venue" style="background-image: url(<%= cl_image_path(event.photo_file, crop: :fill) %>)">
         <div class="venue-name-link"><%= link_to event.name, event_path(event) %></div>
         <p><%= event.category %></p>
       </div>
