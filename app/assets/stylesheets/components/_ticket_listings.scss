@@ -2,9 +2,7 @@
   position: relative;
   top: 100px;
 }
-.container-body{
 
-}
 .ticket-primary-section{
  display: block;
  margin: 0 auto;
@@ -18,8 +16,6 @@
 }
 @media (min-width: 924px){
   .show-ticket-container{
-    padding: 0 0 0 20px;
-    width: 100%;
     display: flex;
   }
 }
@@ -40,24 +36,24 @@
   margin-left: 10px;
 }
 .ticket-container {
-  position: relative;
+  // position: relative;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #2F343B;
-  font-size: 14px;
+  // color: #2F343B;
+  // font-size: 14px;
   display: flex;
   align-items: center;
 }
 .container-upcoming-tickets{
-  border: 0.5px dotted $green;
+  // border: 0.5px dotted $green;
   background-color: whitesmoke;
   opacity: 0.85;
-  position: relative;
-  display: block;
+  // position: relative;
+  // display: block;
   border-radius: 80px;
-  box-shadow: 0 1px 1px rgba(0,0,0,0.1);
-  align-self: flex-start;
-  margin: 20px 10px 30px 5px;
+  // box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+  // align-self: flex-start;
+  margin: 20px 10px;
 }
 .container-header-section{
   padding: 20px 10px;
@@ -73,23 +69,26 @@
     // border-top: 1px solid #E7EAEC;
   }
 }
-.ticket-unique{
-  position: relative;
-  // padding: 10px 0;
-  // border-top: 1px solid #E7EAEC;
-}
-.ticket-left{
-  display: table-cell;
-  vertical-align: top;
-}
+// .ticket-unique{
+//   position: relative;
+//   padding: 10px 0;
+//   border-top: 1px solid #E7EAEC;
+// }
+// .ticket-left{
+//   display: table-cell;
+//   vertical-align: top;
+// }
 
-.ticket-left-container{
-  width: 80px;
-  min-width: 80px;
-  // border-right: 0.5px solid #CFD4D9;
-  display: table-cell;
-  vertical-align: middle;
-  text-align: center;
+// .ticket-left-container{
+//   width: 80px;
+//   min-width: 80px;
+//   // border-right: 0.5px solid #CFD4D9;
+//   display: table-cell;
+//   vertical-align: middle;
+//   text-align: center;
+// }
+.ticket-profile {
+
 }
 .ticket-description{
   padding: 0 20px;
