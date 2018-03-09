@@ -1,50 +1,50 @@
-<div class="new-ticket-container">
-  <% if current_user[:photo] == nil  %>
-    <h1>*********************</h1>
-    <h1> Please upload a profile photo</h1>
-    <%= render 'edit_form' %>
-  <% else %>
-    <% if @ticket.errors.any? %>
-      <ul>
-        <% @ticket.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-        <% end %>
-      </ul>
-    <% end %>
-
-    <%= form_tag(new_ticket_path, method: 'get', class: 'list-ticket-form') do %>
-      <%= text_field_tag :search_event, params[:search_event], placeholder: "Check if your event exists...", class: "form-control" %>
-      <%= submit_tag 'Find My Event', search_event: nil, class: "btn btn-primary" %>
-    <% end %>
-
-    <h3><%= link_to "Can't Find Your Event?", new_event_path %></h3>
-
-    <div class="search-results">
-      <% if @events != nil %>
-      <div class="row">
-        <% @events.each do |event| %>
-        <div class="col-lg-6 event-card">
-          <h3><%= event.name %> @ <%= event.address %></h3>
-          <li><%= event.category %></li>
-          <li><%= event.date_and_time %><%= link_to "(My event is on another date)", new_event_path(content: "hello") %></li>
-
-          <% if event.quantity == 0 %>
-            <li>Tickets for this event have sold out!</li>
-          <% else %>
-            <li><%= event.quantity %> tickets are currently listed</li>
+<div class="add-navbar-padding">
+  <div class="new-ticket-container">
+    <% if current_user[:photo] == nil  %>
+      <h1>*********************</h1>
+      <h1> Please upload a profile photo</h1>
+      <%= render 'edit_form' %>
+    <% else %>
+      <% if @ticket.errors.any? %>
+        <ul>
+          <% @ticket.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
           <% end %>
+        </ul>
+      <% end %>
 
-          <%= render 'list_ticket_form', event: event, ticket: @ticket %>
-        </div>
+      <%= form_tag(new_ticket_path, method: 'get', class: 'list-ticket-form') do %>
+        <%= text_field_tag :search_event, params[:search_event], placeholder: "Check if your event exists...", class: "form-control", :onchange => "this.form.submit();" %>
+      <% end %>
+
+      <h6><%= link_to "Can't Find Your Event?", new_event_path %></h6>
+
+      <div class="search-results">
+        <% if @events != nil %>
+          <div class="row">
+            <% @events.each do |event| %>
+              <div class="col-xs-12 col-md-6 col-lg-6">
+                <div class="event-card" style="background-image: url(<%= cl_image_path(event.photo_file, crop: :fill) %>)">
+                  <h3><%= event.name %> @ <%= event.address %></h3>
+                  <li><%= event.category %></li>
+                  <li><%= event.date_and_time.strftime('%a %d %b %Y') %><%= link_to " (My event is on another date)", new_event_path(content: "hello") %></li>
+
+                  <% if event.quantity == 0 %>
+                    <li>Tickets for this event have sold out!</li>
+                  <% else %>
+                    <li><%= event.quantity %> tickets are currently listed</li>
+                  <% end %>
+
+                  <%= render 'list_ticket_form', event: event, ticket: @ticket %>
+                </div>
+              </div>
+            <% end %>
+          </div>
         <% end %>
       </div>
-      <% end %>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
-
-
-
 
 
 <!-- Include AlgoliaSearch JS Client and autocomplete.js library -->
@@ -68,5 +68,32 @@ autocomplete('#search_event', { hint: false }, {
     }
   }
 });
+
+const allInputs = document.querySelectorAll('.form-control');
+
+const allInputsArr = Array.from(allInputs);
+
+const french = new RegExp('^(F-)?d{5}$', 'g');
+const button = document.querySelector('.btn');
+const checkbox = document.querySelector('#tos');
+
+const isFilled = input => input.value;
+
+const allFilled = () => allInputsArr.every(isFilled);
+
+console.log(allInputsArr.every(isFilled));
+
+const enableButton = () => {
+  const all = allFilled();
+  console.log(all);
+  const checkboxChecked = checkbox.checked;
+  if (all && checkboxChecked) {
+    button.disabled = false;
+  }
+};
+
+allInputs.forEach(input => input.addEventListener('blur', enableButton));
+
+checkbox.addEventListener('click', enableButton);
 </script>
 
