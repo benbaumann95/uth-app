@@ -6,12 +6,11 @@ $('.heart').on('animationend', function(){
 });
 
 const heart = document.querySelectorAll(".heart")
-console.log(heart[0]);
 heart.forEach(heart_element => {
   heart_element.addEventListener("click", () => {
     if (heart_element.hasAttribute("style", "background-position:right;"))
       heart_element.removeAttribute ("style", "background-position:right;");
     else
-    heart_element.setAttribute("style", "background-position:right;");
+    heart_element.classList.toggle("heart-clicked");
   });
 });

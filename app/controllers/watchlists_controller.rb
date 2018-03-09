@@ -11,7 +11,7 @@ class WatchlistsController < ApplicationController
     @watchlist.save(event: event, user: user)
 
 
-    redirect_to events_path
+
   end
 
   def destroy

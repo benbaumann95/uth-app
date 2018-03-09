@@ -36,6 +36,9 @@ class EventsController < ApplicationController
     @ticket = Ticket.new(ticket_params)
     authorize @ticket
 
+    # @watchlists = Watchlist.where(user: current_user)
+
+    # event = Watchlist.find(event.id)
 
     @ticket.event = @event
     @ticket.user = current_user
