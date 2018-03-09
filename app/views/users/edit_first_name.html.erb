@@ -6,6 +6,7 @@
         <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
       <% end %>
       <%= f.input :first_name, label: 'First Name' %>
+      <%= f.input :last_name, label: 'Last Name' %>
       <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true %>
     </div>
 

@@ -30,6 +30,7 @@
 <div class="event-index-container event-index-layout">
   <h2>Popular Locations</h2>
   <div class="row">
+
     <% @cities.each do |city| %>
       <div class="col-xs-6 col-sm-4 col-md-3">
         <%= link_to events_path(search_city: city) do %>
