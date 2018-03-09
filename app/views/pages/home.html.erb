@@ -44,7 +44,7 @@
     <% @categories.each do |category| %>
       <div class="col-xs-12 col-sm-6 col-md-3">
         <%= link_to events_path(search_category: category) do %>
-          <h3 class="home-page-card"><%= category %></h3>
+          <div class="home-page-card" style="background-image: url(<%= cl_image_path category_picture(category) %>)" ><%= category %></div>
         <% end %>
       </div>
     <% end %>
