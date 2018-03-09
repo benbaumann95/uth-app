@@ -16,16 +16,18 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     @event.quantity = 1
-    @event.save
-    authorize @event
 
     @ticket = Ticket.new(ticket_params)
     authorize @ticket
+
+
     @ticket.event = @event
     @ticket.user = current_user
     @ticket.display_flag = true
     @ticket.sold = false
     if @ticket.save
+      @event.save
+      authorize @event
       redirect_to event_path(@event.id)
     else
       render :new

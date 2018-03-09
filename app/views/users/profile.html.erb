@@ -2,10 +2,8 @@
   <th>Profile</th>
   <tbody>
     <tr>
-      <td><strong>First Name:</strong>   <%= current_user.first_name %> <%= link_to 'edit', edit_first_name_path %></td>
-    </tr>
-    <tr>
-       <td><strong>Last Name:</strong>   <%= current_user.last_name %> <%= link_to 'edit', edit_last_name_path %> </td>
+      <td><strong>First Name:</strong> <%= current_user.first_name %> <strong>Last Name:</strong><%= current_user.last_name %> <%= link_to 'edit', edit_first_name_path %>
+      <td>
     </tr>
     <tr>
       <td><strong>Email:</strong>   <%= current_user.email %> <%= link_to 'edit', edit_email_path %></td>
