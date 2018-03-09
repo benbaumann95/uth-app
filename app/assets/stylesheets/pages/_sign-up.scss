@@ -41,6 +41,8 @@ body{
 }
 .form-inputs{
   color: $green !important;
+  max-width: 600px;
+  margin: auto;
 }
 .form-group{
   margin: 15px !important;

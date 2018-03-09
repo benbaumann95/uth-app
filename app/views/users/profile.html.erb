@@ -1,18 +1,35 @@
-<table>
-  <th>Profile</th>
-  <tbody>
-    <tr>
-      <td><strong>First Name:</strong> <%= current_user.first_name %> <strong>Last Name:</strong><%= current_user.last_name %> <%= link_to 'edit', edit_first_name_path %>
-      <td>
-    </tr>
-    <tr>
-      <td><strong>Email:</strong>   <%= current_user.email %> <%= link_to 'edit', edit_email_path %></td>
-    </tr>
-    <tr>
-      <td><strong>Bio:</strong>   <%= current_user.bio %> <%= link_to 'edit', edit_bio_path %> </td>
-    </tr>
-    <tr>
-      <td><strong>Profile Pic:</strong> <%= cl_image_tag current_user.photo, height: 40, width: 40 %>  <%= link_to 'edit', edit_profile_pic_path %>  </td>
-    </tr>
-  </tbody>
-</table>
+
+<div class="profile-container">
+  <div class="profile-top-section">
+    <div class="profile-header-section">
+    </div>
+    <div class="profile-avatar">
+      <%= link_to cl_image_tag current_user.photo, height: 120, width: 120, class: 'circle-border' %>
+      <p><%= link_to 'edit', edit_profile_pic_path %></p>
+    </div>
+    <div class="profile-name text-center">
+      <p><%= current_user.first_name %><%=current_user.last_name %><%= link_to 'edit', edit_first_name_path, class: 'small-edit-text' %></p>
+    </div>
+    <div class="profile-uni text-center">
+      <p><%= current_user.email %> <%= link_to 'edit', edit_email_path, class: 'small-edit-text' %></p>
+    </div>
+    <div class="profile-bio text-center">
+      <p><%= current_user.bio %> <%= link_to 'edit', edit_bio_path, class: 'small-edit-text' %></p>
+    </div>
+  </div>
+  <div class="profile-lower-section">
+
+  </div>
+  <div class="profile-dashboard-summary">
+    <div class="profile-edit-btn text-center">
+       <p><%= link_to "Edit Details", edit_user_registration_path %></p>
+     </div>
+  </div>
+  <div class="footer-section">
+     <div class="profile-back-btn">
+     </div>
+     <div class="profile-home-btn">
+     </div>
+  </div>
+</div>
+

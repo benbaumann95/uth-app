@@ -2,6 +2,11 @@ class EventsController < ApplicationController
   skip_before_action :authenticate_user!, except: [:create, :new]
 
   def index
+
+    @watchlist = Watchlist.new
+    @events = policy_scope(Event)
+    # .where("quantity > 0")
+
     if !params[:search_category].nil?
       # @events = policy_scope(Event).search(params[:search])
       @events = policy_scope(Event).where("category = ?", params[:search_category])
@@ -12,6 +17,7 @@ class EventsController < ApplicationController
     else
       @events = policy_scope(Event).where("date_and_time > ?", DateTime.now)
     end
+
   end
 
   def new

@@ -57,30 +57,41 @@
             </div>
           </div>
 
-          <div class="event-price">
-            <div class="cop-it">
-              <% if event.quantity == 0 %>
-              <% else %>
-              cop it
-              <% end %>
-            </div>
-            <div class="price">
-              <% ticket_price_array = [] %>
-              <% event.tickets.each do |ticket| %>
-              <% ticket_price_array << ticket.price %>
-              <% end %>
-              <% if ticket_price_array.count >= 1 %>
-                £<strong><%= ticket_price_array.min %></strong>
-              <% else %>
-              <% end %>
-            </div>
-            <div class="events-left">
-              <% if event.quantity == 0%>
-              Sold out
-              <% else %>
-              <%= event.quantity %> tix left
-              <% end %>
-            </div>
+
+        <div class="event-watch">
+
+          <div class="event-watch-container">
+            <div class="event-watch-bookmark-toggle">
+              <%= link_to event_watchlists_path(event), remote: true, method: :post  do %>
+                  <div class="heart"></div>
+
+
+        
+
+
+        <div class="event-price">
+          <div class="cop-it">
+            <% if event.quantity == 0 %>
+            <% else %>
+            cop it
+            <% end %>
+          </div>
+          <div class="price">
+            <% ticket_price_array = [] %>
+            <% event.tickets.each do |ticket| %>
+            <% ticket_price_array << ticket.price %>
+            <% end %>
+            <% if ticket_price_array.count >= 1 && event.quantity != 0 %>
+            £<strong><%= ticket_price_array.min %></strong>
+            <% else %>
+            <% end %>
+          </div>
+          <div class="events-left">
+            <% if event.quantity == 0%>
+            <p class="sold-out-text"> Sold out </p>
+            <% else %>
+            <%= event.quantity %> tix left
+            <% end %>
           </div>
 
         </div>
@@ -90,6 +101,10 @@
     <% end %>
   </div>
 </div>
+
+<%= javascript_pack_tag "event-index" %>
+
+
 
 
 

@@ -7,11 +7,12 @@
       <% end %>
        <%= f.input :bio, Label: 'bio', autofocus: true %>
       <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true %>
-    </div>
 
-    <div class="form-actions">
+    <div class="form-actions text-center">
       <%= link_to profile_path do %>
       <%= f.button :submit, "Update" %>
       <% end %>
     </div>
+    </div>
+
   <% end %>
