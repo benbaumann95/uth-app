@@ -1,6 +1,14 @@
 <%= simple_form_for([event, ticket]) do |t| %>
-  <%= t.input :price, placeholder: '£', label: 'Price'%>
-  <%= t.input :description, label: 'Description' %>
-  <%= t.input :photo, as: :file %>
-  <%= t.submit "Add My Ticket", class: 'btn btn-primary' %>
+<%= t.input :description, label: 'Description', class: 'opacity09' %>
+  <div class="form-row">
+    <div class="form-50">
+      <%= t.input :photo, as: :file %>
+    </div>
+    <div class="form-50">
+      <%= t.input :price, placeholder: '£', label: 'Price'%>
+    </div>
+  </div>
+  <div class="add-ticket-container">
+    <%= t.submit "Add My Ticket", class: 'btn btn-primary' %>
+  </div>
 <% end %>
