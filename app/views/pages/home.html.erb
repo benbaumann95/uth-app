@@ -28,22 +28,26 @@
 </div>
 
 <div class="event-index-container event-index-layout">
+  <h2>Popular Locations</h2>
   <div class="row">
-    <h1>Events</h1>
-    <% @events.each do |event| %>
-    <div class="col-sm-6 col-md-4">
-
-
-      <div class="event-index-card-by-venue" style="background-image: url(<%= cl_image_path(event.photo_file, crop: :fill) %>)">
-        <div class="venue-name-link"><%= link_to event.name, event_path(event), class: 'venue-name-link-text' %></div>
-
-        <p><%= event.category %></p>
+    <% @cities.each do |city| %>
+      <div class="col-xs-6 col-sm-4 col-md-3">
+        <%= link_to events_path(search_city: city) do %>
+          <h3 class="home-page-card"><%= city %></h3>
+        <% end %>
       </div>
-
-    </div>
+    <% end %>
+  </div>
+  <h2>Type</h2>
+  <div class="row">
+    <% @categories.each do |category| %>
+      <div class="col-xs-12 col-sm-6 col-md-3">
+        <%= link_to events_path(search_category: category) do %>
+          <h3 class="home-page-card"><%= category %></h3>
+        <% end %>
+      </div>
     <% end %>
   </div>
 </div>
-
 
  <%= javascript_pack_tag "typejs" %>
