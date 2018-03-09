@@ -1,47 +1,54 @@
 <div class="add-navbar-padding">
   <div class="new-ticket-container">
     <% if current_user[:photo] == nil  %>
-      <h1>*********************</h1>
-      <h1> Please upload a profile photo</h1>
-      <%= render 'events/edit_form' %>
+       <%= render 'edit_form' %>
     <% else %>
-      <% if @ticket.errors.any? %>
-        <ul>
-          <% @ticket.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-          <% end %>
-        </ul>
+    <% if @ticket.errors.any? %>
+    <ul>
+      <% @ticket.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
       <% end %>
+    </ul>
+    <% end %>
 
-      <%= form_tag(new_ticket_path, method: 'get', class: 'list-ticket-form') do %>
-        <%= text_field_tag :search_event, params[:search_event], placeholder: "Check if your event exists...", class: "form-control", :onchange => "this.form.submit();" %>
-      <% end %>
+    <%= form_tag(new_ticket_path, method: 'get', class: 'list-ticket-form') do %>
+    <%= text_field_tag :search_event, params[:search_event], placeholder: "Check if your event exists...", class: "form-control", :onchange => "this.form.submit();" %>
+    <% end %>
 
-      <h6><%= link_to "Can't Find Your Event?", new_event_path %></h6>
+    <h6><%= link_to "Can't Find Your Event?", new_event_path %></h6>
 
-      <div class="search-results">
-        <% if @events != nil %>
-          <div class="row">
-            <% @events.each do |event| %>
-              <div class="col-xs-12 col-md-6 col-lg-6">
-                <div class="event-card" style="background-image: url(<%= cl_image_path(event.photo_file, crop: :fill) %>)">
-                  <h3><%= event.name %> @ <%= event.address %></h3>
-                  <li><%= event.category %></li>
-                  <li><%= event.date_and_time.strftime('%a %d %b %Y') %><%= link_to " (My event is on another date)", new_event_path(content: "hello") %></li>
+    <div class="search-results">
+      <% if @events != nil %>
+      <div class="row">
+        <% @events.each do |event| %>
+        <div class="col-xs-12 col-md-6 col-lg-6">
+          <div class="event-card" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.3) 0%, rgba(0,36,61,0.5) 50%), url(<%= cl_image_path(event.photo_file, crop: :fill, ) %>)">
+            <p><strong><%= event.name %></strong> @ <%= event.address %></p>
+            <p><%= event.date_and_time.strftime('%a %d %b %Y') %><%= link_to " (My event is on another date)", new_event_path(content: "hello"), class: 'font-size-12' %></p>
 
-                  <% if event.quantity == 0 %>
-                    <li>Tickets for this event have sold out!</li>
-                  <% else %>
-                    <li><%= event.quantity %> tickets are currently listed</li>
-                  <% end %>
-
-                  <%= render 'list_ticket_form', event: event, ticket: @ticket %>
-                </div>
-              </div>
+            <% if event.quantity == 0 %>
+              <p class='font-size-12'>Tickets for this event have sold out!</p>
+            <% elsif event.quantity == 1 %>
+              <p class='font-size-12'><%= event.quantity %> ticket is currently
+              listed, lowest from
+            <% ticket_price_array = [] %>
+              <% event.tickets.each do |ticket| %>
+            <% ticket_price_array << ticket.price %>
             <% end %>
+            <% if ticket_price_array.count >= 1 && event.quantity != 0 %>
+            £<strong><%= ticket_price_array.min %></strong></p>
+            <% end %>
+            <% else %>
+            <p class='font-size-12'><%= event.quantity %> tickets are currently listed</p>
+            <% end %>
+
+            <%= render 'list_ticket_form', event: event, ticket: @ticket %>
           </div>
+        </div>
         <% end %>
       </div>
+      <% end %>
+    </div>
     <% end %>
   </div>
 </div>
@@ -52,8 +59,8 @@
 <script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.min.js"></script>
 <!-- Initialize autocomplete menu -->
 <script>
-var client = algoliasearch('34J3CD22N1', 'a3c9a51b10d2e20663956f322782527f');
-var index = client.initIndex('Event');
+  var client = algoliasearch('34J3CD22N1', 'a3c9a51b10d2e20663956f322782527f');
+  var index = client.initIndex('Event');
 //initialize autocomplete on search input (ID selector must match)
 autocomplete('#search_event', { hint: false }, {
   source: autocomplete.sources.hits(index, { hitsPerPage: 5 }),
@@ -64,7 +71,7 @@ autocomplete('#search_event', { hint: false }, {
     //'suggestion' templating function used to render a single suggestion
     suggestion: function(suggestion) {
       return '<span>' +
-        suggestion._highlightResult.name.value ;
+      suggestion._highlightResult.name.value ;
     }
   }
 });
