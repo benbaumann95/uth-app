@@ -1,7 +1,7 @@
 <div class="container add-navbar-padding">
   <% if current_user[:photo] == nil  %>
     <h1> Please upload a profile photo</h1>
-    <%= render 'edit_form' %>
+    <% render 'edit_form' %>
   <% else %>
     <% if @event.errors.any? %>
       <ul>

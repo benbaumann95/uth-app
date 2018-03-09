@@ -3,7 +3,7 @@
     <% if current_user[:photo] == nil  %>
       <h1>*********************</h1>
       <h1> Please upload a profile photo</h1>
-      <%= render 'edit_form' %>
+      <%= render 'events/edit_form' %>
     <% else %>
       <% if @ticket.errors.any? %>
         <ul>

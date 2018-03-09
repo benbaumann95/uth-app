@@ -14,7 +14,6 @@ class WatchlistsController < ApplicationController
       @watchlist = Watchlist.new
       @watchlist.event = event
       @watchlist.user = user
-
       authorize @watchlist
       @watchlist.save(event: event, user: user)
     end
