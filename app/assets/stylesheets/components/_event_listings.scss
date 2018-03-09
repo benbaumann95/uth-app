@@ -95,17 +95,20 @@
 }
 .event-link-to-show-page{
   color: #4cb289;
-  font-size: 16px;
+  font-size: 18px;
   text-decoration: none;
   cursor: pointer;
   font-weight: bolder;
   &:hover{
     opacity: 0.9;
   }
+  a:hover {
+    text-decoration: none;
+  }
 }
 .event-details{
   margin-top: 12px;
-  font-size: 12px;
+  font-size: 16px;
   color: #828282;
   overflow: hidden;
   max-height: 45px;
@@ -139,20 +142,21 @@
 }
 .event-price .cop-it{
   color: #535353;
-  font-size: 12px;
+  font-size: 14px;
   text-align: right;
 }
 .event-price .price{
-  font-size: 20px;
+  font-size: 22px;
   color: #65B891;
 }
 .event-price .events-left{
-  font-size: 12px;
+  font-size: 14px;
   color: #D26478;
   letter-spacing: 0.4px;
   font-weight: bolder;
 }
 .sold-out-text{
   margin-top: 20px;
+  font-size: 14px;
 }
 

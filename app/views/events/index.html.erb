@@ -71,7 +71,7 @@
               <% ticket_price_array << ticket.price %>
             <% end %>
             <% if ticket_price_array.count >= 1 && event.quantity != 0 %>
-            £<strong><%= ticket_price_array.min %></strong>
+            <strong>£<%= ticket_price_array.min %></strong>
             <% else %>
             <% end %>
           </div>
