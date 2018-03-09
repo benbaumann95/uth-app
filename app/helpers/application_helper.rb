@@ -16,4 +16,17 @@ module ApplicationHelper
     @devise_mapping ||= Devise.mappings[:user]
   end
 
+
+  def category_picture(name)
+    case name
+      when "Club night" then 'club-pic'
+      when "Concert" then 'club-rave-pic'
+      when "Festival" then 'festival-sitting-down'
+      when "Travel" then 'travel-pic'
+      when "Sport" then 'sports-rugby'
+      when "Society" then 'electronics'
+      when "Socials" then 'prosecco-ball'
+    end
+  end
+
 end
