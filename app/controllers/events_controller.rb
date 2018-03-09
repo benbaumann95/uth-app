@@ -5,7 +5,6 @@ class EventsController < ApplicationController
 
     @watchlist = Watchlist.new
     @events = policy_scope(Event)
-    # .where("quantity > 0")
 
     if !params[:search_category].nil?
       # @events = policy_scope(Event).search(params[:search])
@@ -35,7 +34,6 @@ class EventsController < ApplicationController
 
     @ticket = Ticket.new(ticket_params)
     authorize @ticket
-
     # @watchlists = Watchlist.where(user: current_user)
 
     # event = Watchlist.find(event.id)
@@ -44,6 +42,7 @@ class EventsController < ApplicationController
     @ticket.user = current_user
     @ticket.display_flag = true
     @ticket.sold = false
+
     if @ticket.save
       @event.save
       authorize @event

@@ -41,7 +41,7 @@
               <div class="dashboard-description">
                 <div class="dashboard-description-container">
                   <div class="dashboard-link-to-show-page">
-                    <p><%= watch.event.name %></p>
+                    <p><%= link_to watch.event.name, event_path(watch.event_id) %></p>
                   </div>
                   <div class="dashboard-details">
                     <p><%= watch.event.address %></p>

@@ -22,7 +22,7 @@ class Event < ApplicationRecord
 
   algoliasearch do
     attribute :name, :city, :category
-    searchableAttributes ['name']
+    searchableAttributes ['name', 'city', 'category']
   end
 
    def photo_file
