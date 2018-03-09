@@ -14,7 +14,7 @@
 }
 
 .aa-suggestion:hover, .aa-suggestion.aa-cursor {
-  background-color: $dark-gray;
+  background-color: $black;
   color: $white;
 }
 
@@ -29,6 +29,13 @@
 .new-ticket-container {
   padding: 50px 50px;
   color: $black;
+  a {
+    color: $green;
+  }
+  a:hover {
+    text-decoration: none;
+    color: $light-green;
+  }
 }
 
 .list-ticket-form {
@@ -40,12 +47,14 @@
   flex-grow: 1;
   padding-right: 20px;
   min-width: 200px;
+  color: $black;
 }
 
 //search results cards
 .event-card {
-  border: 1px solid $dark-gray;
   border-radius: 5px;
-  padding: 20px 20px;
-  // margin: 5px 5px;
+  padding: 20px 40px;
+  margin: 20px 10px;
+  background-color: $white;
+  background-size: cover;
 }

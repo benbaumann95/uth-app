@@ -2,8 +2,16 @@ class EventsController < ApplicationController
   skip_before_action :authenticate_user!, except: [:create, :new]
 
   def index
-    @events = policy_scope(Event)
-    # .where("quantity > 0")
+    if !params[:search_category].nil?
+      # @events = policy_scope(Event).search(params[:search])
+      @events = policy_scope(Event).where("category = ?", params[:search_category])
+    elsif !params[:search_city].nil?
+      @events = policy_scope(Event).where("city = ?", params[:search_city])
+    elsif !params[:search].nil?
+      @events = policy_scope(Event).search(params[:search])
+    else
+      @events = policy_scope(Event).where("date_and_time > ?", DateTime.now)
+    end
   end
 
   def new
@@ -16,6 +24,7 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     @event.quantity = 1
+    @event.city = @event.address.split(',')[-2].strip
     @event.save
     authorize @event
 

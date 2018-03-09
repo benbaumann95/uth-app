@@ -21,7 +21,7 @@ class Event < ApplicationRecord
   include AlgoliaSearch
 
   algoliasearch do
-    attribute :name, :address
+    attribute :name, :city, :category
     searchableAttributes ['name']
   end
 
