@@ -34,7 +34,7 @@
     <% @cities.each do |city| %>
       <div class="col-xs-6 col-sm-4 col-md-3">
         <%= link_to events_path(search_city: city) do %>
-          <h3 class="home-page-card"><%= city %></h3>
+          <div class="event-index-card-by-venue" style="background-image: url(<%= cl_image_path city_picture(city) %>)"><%= city %></div>
         <% end %>
       </div>
     <% end %>
@@ -44,11 +44,12 @@
     <% @categories.each do |category| %>
       <div class="col-xs-12 col-sm-6 col-md-3">
         <%= link_to events_path(search_category: category) do %>
-          <div class="home-page-card" style="background-image: url(<%= cl_image_path category_picture(category) %>)" ><%= category %></div>
+          <div class="event-index-card-by-venue" style="background-image: url(<%= cl_image_path category_picture(category) %>)" ><%= category %></div>
         <% end %>
       </div>
     <% end %>
   </div>
 </div>
+
 
  <%= javascript_pack_tag "typejs" %>
