@@ -21,19 +21,26 @@
   align-items: center;
   justify-content: space-between;
   transition: 1s background-color ease;
+  text-decoration: none;
 }
 
 /* Logo */
+
+.navbar-wagon-brand{
+  text-decoration:none !important;
+}
 
 @media (max-width: 767px) {
   .navbar-wagon-brand img {
     height: 30px;
     margin: 10px 10px 10px 0;
+    text-decoration: none;
   }
 }
 .navbar-wagon-brand img {
   height: 50px;
   margin: 10px 10px 10px 0;
+  text-decoration: none;
 }
 
 /* User Avatar */

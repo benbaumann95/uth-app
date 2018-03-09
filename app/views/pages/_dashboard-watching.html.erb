@@ -32,8 +32,8 @@
               <div class="dashboard-left">
                 <div class="dashboard-left-container">
                   <div>
-                    <p class='posted-on-text'><%= watch.event.date_and_time.strftime('%a').upcase %></p>
-                    <p><%= watch.event.date_and_time.strftime('%d %b') %></p>
+                    <p class='date-event-day'><%= watch.event.date_and_time.strftime('%a').upcase %></p>
+                    <p class='date-event-month-date'><%= watch.event.date_and_time.strftime('%d %b') %></p>
                   </div>
                 </div>
               </div>
@@ -41,10 +41,10 @@
               <div class="dashboard-description">
                 <div class="dashboard-description-container">
                   <div class="dashboard-link-to-show-page">
-                    <%= watch.event.name %>
+                    <p><%= watch.event.name %></p>
                   </div>
                   <div class="dashboard-details">
-                    <%= watch.event.address %>
+                    <p><%= watch.event.address %></p>
                   </div>
                 </div>
 
@@ -59,20 +59,20 @@
                   <% end %>
 
                 </div>
-                <div class="price">
+                <div class=" price">
                   <% ticket_price_array = [] %>
                   <% watch.event.tickets.each do |ticket| %>
                   <% ticket_price_array << ticket.price %>
                   <% end %>
-                  <% if ticket_price_array.count >= 1 %>
+                  <% if ticket_price_array.count >= 1 && watch.event.quantity != 0 %>
                   £<strong><%= ticket_price_array.min %></strong>
                   <% else %>
                   <% end %>
                   <div class="events-left">
                     <% if watch.event.quantity == 0 %>
-                    Sold out
+                    <p class="sold-out-text"> Sold out </p>
                     <% else %>
-                    <%= watch.event.quantity %> tix left
+                    <p><%= watch.event.quantity %> tix left</p>
                     <% end %>
                   </div>
 
