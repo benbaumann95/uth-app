@@ -13,7 +13,7 @@
           Take a peek at results for
         </span>
         <span class="results-location-query">
-          <strong>"user-search-query"</strong>
+          <strong><%= params[:search]%></strong>
         </span>
       </div>
     </div>
@@ -48,8 +48,10 @@
         <div class="event-watch">
           <div class="event-watch-container">
             <div class="event-watch-bookmark-toggle">
+
               <%= link_to event_watchlists_path(event), method: :post  do %>
-                <div class="heart"></div>
+
+                <div class="heart <%= 'heart-clicked' if !@watchlists.where(event: event).first.blank? %>"></div>
               <% end %>
             </div>
           </div>
