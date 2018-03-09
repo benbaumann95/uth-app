@@ -106,7 +106,9 @@
   vertical-align: top;
   width: 100%;
   display: table-cell;
-  /*  border-right: 0.5px solid #CFD4D9;*/
+  a:hover {
+    text-decoration: none;
+  }
 }
 .dashboard-description-container{
   vertical-align: top;

@@ -1,10 +1,8 @@
 <div class="add-navbar-padding">
   <div class="search-bar-query-container">
-    <div class="search-bar">
-      <%= form_tag(new_ticket_path, method: 'get', class: 'list-ticket-form') do %>
-        <%= text_field_tag :search_event, params[:search_event], placeholder: "Check if your event exists...", class: "form-control", :onchange => "this.form.submit();"%>
-      <% end %>
-    </div>
+    <%= form_tag(events_path(params[:search]), method: 'get', class: 'events-search-bar') do %>
+      <%= text_field_tag :search, params[:search], placeholder: "Search events by name / city / category...", class: "form-control", :onchange => "this.form.submit();"%>
+    <% end %>
   </div>
 
   <div class="container-upcoming-events">
@@ -47,26 +45,15 @@
             </div>
           </div>
 
-
-
-
         <div class="event-watch">
-
           <div class="event-watch-container">
             <div class="event-watch-bookmark-toggle">
-              <%= link_to event_watchlists_path(event), remote: true, method: :post  do %>
-                  <div class="heart"></div>
-                <% end %>
-              </div>
+              <%= link_to event_watchlists_path(event), method: :post  do %>
+                <div class="heart"></div>
+              <% end %>
             </div>
           </div>
-
-
-                <% end %>
-              </div>
-            </div>
-          </div>
-
+        </div>
 
 
         <div class="event-price">
