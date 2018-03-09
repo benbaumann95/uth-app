@@ -1,8 +1,7 @@
 <div class="add-navbar-padding">
   <div class="new-ticket-container">
     <% if current_user[:photo] == nil  %>
-    <h1>Please upload a profile photo before you continue</h1>
-    <%= render 'events/edit_form' %>
+       <%= render 'edit_form' %>
     <% else %>
     <% if @ticket.errors.any? %>
     <ul>
