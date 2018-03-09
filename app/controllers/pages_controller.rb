@@ -21,7 +21,7 @@ class PagesController < ApplicationController
 
   def home
     # @events = policy_scope(Event)
-    @cities = Event.distinct.pluck(:city)
+    @cities = Event.distinct.pluck(:city)[0..5]
     @categories = Event.distinct.pluck(:category)
   end
 end

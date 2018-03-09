@@ -1,7 +1,7 @@
 .banner {
   color: white;
   text-align: center;
-  height: 100vh;
+  height: calc(100vh - 60px);
   background-size: cover !important;
   .banner-content-container {
     display: flex;
