@@ -9,6 +9,14 @@
   margin: auto;
   padding: 0 20px 0 20px;
 }
+
+@media (max-width: 767px)  {
+  .dashboard-main-section{
+  max-width: 1000px;
+  margin: auto;
+  padding: 0 5px 0 5px;
+  }
+}
 .container-header-section{
   padding: 20px 10px;
   border-bottom: 1.5px solid #E7EAEC;
@@ -74,13 +82,7 @@
   color: #2F343B;
   display: block;
 }
-@media (max-width: 767px) {
-  .dashboard-group-unique{
-    position: relative;
-    padding: 25px 0;
-    border-top: 1px solid #E7EAEC;
-  }
-}
+
 .dashboard-group-unique{
   position: relative;
   border-top: 1px solid #E7EAEC;
