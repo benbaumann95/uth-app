@@ -8,7 +8,7 @@ class WatchlistsController < ApplicationController
     @watchlist.user = user
 
     authorize @watchlist
-    Watchlist.create(event: event, user: user)
+    @watchlist.save(event: event, user: user)
 
 
     redirect_to events_path

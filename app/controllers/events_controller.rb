@@ -2,6 +2,7 @@ class EventsController < ApplicationController
   skip_before_action :authenticate_user!, except: [:create, :new]
 
   def index
+    @watchlist = Watchlist.new
     @events = policy_scope(Event)
     # .where("quantity > 0")
   end
