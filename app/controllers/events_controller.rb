@@ -7,6 +7,8 @@ class EventsController < ApplicationController
       @events = policy_scope(Event).where("category = ?", params[:search_category])
     elsif !params[:search_city].nil?
       @events = policy_scope(Event).where("city = ?", params[:search_city])
+    elsif !params[:search].nil?
+      @events = policy_scope(Event).search(params[:search])
     else
       @events = policy_scope(Event).where("date_and_time > ?", DateTime.now)
     end

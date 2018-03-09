@@ -11,15 +11,15 @@
         <p>
           <%= form_tag events_path, method: :get, class: 'form-inline search-form' do %>
           <div class="search-bar-position">
-            <%= text_field_tag :query,
-            params[:query],
+            <%= text_field_tag :search,
+            params[:search],
             class: "form-control",
-              placeholder: "discover what's hot in town"
+              placeholder: "Discover what's hot in town"
               %>
           </div>
         </p>
 
-        <%= submit_tag("Search", class: 'btn-home-search', id: 'search-button') %>
+        <%= submit_tag("Search", class: 'btn btn-primary btn-home-search', id: 'search-button') %>
         <% end %>
 
       </div>

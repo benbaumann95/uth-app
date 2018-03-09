@@ -2,7 +2,7 @@
 .navbar-wagon {
   // background: transparent;
   background: #262626;
-  min-height: 70px;
+  height: 60px;
   padding: 0px 30px;
   display: flex;
   align-items: center;
@@ -15,7 +15,7 @@
 }
 .navbar-wagon-fixed{
   background: #262626;
-  min-height: 70px;
+  height: 60px;
   padding: 0px 30px;
   display: flex;
   align-items: center;
@@ -34,6 +34,9 @@
 .navbar-wagon-brand img {
   height: 50px;
   margin: 10px 10px 10px 0;
+}
+.navbar-wagon-brand:hover {
+  text-decoration: none;
 }
 
 /* User Avatar */
