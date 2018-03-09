@@ -1,49 +1,62 @@
-
-<div class="search-bar-query-container">
-  <div class="search-bar">
-
-  </div>
-</div>
-
-<div class="container-upcoming-events">
-
-  <div class="container-header-section">
-    <div class="container-header-text">
-      <span class="results-query">
-        Take a peak at results for
-      </span>
-      <span class="results-location-query">
-        <strong>"user-search-query"</strong>
-      </span>
+<div class="add-navbar-padding">
+  <div class="search-bar-query-container">
+    <div class="search-bar">
+      <%= form_tag(new_ticket_path, method: 'get', class: 'list-ticket-form') do %>
+        <%= text_field_tag :search_event, params[:search_event], placeholder: "Check if your event exists...", class: "form-control", :onchange => "this.form.submit();"%>
+      <% end %>
     </div>
   </div>
 
-  <% @events.each do |event| %>
+  <div class="container-upcoming-events">
 
-  <div class="container-body">
-    <div class="event-grouped-container">
-      <div class="event-group-unique">
-        <div class="event-date">
-          <div class="event-date-container">
-            <div class="date-event-day">
-              <%= event.date_and_time.strftime('%a') %>
-            </div>
-            <div class="date-event-month-date">
-              <%= event.date_and_time.strftime('%d %b') %>
+    <div class="container-header-section">
+      <div class="container-header-text">
+        <span class="results-query">
+          Take a peek at results for
+        </span>
+        <span class="results-location-query">
+          <strong>"user-search-query"</strong>
+        </span>
+      </div>
+    </div>
+
+    <% @events.each do |event| %>
+
+    <div class="container-body">
+      <div class="event-grouped-container">
+        <div class="event-group-unique">
+          <div class="event-date">
+            <div class="event-date-container">
+              <div class="date-event-day">
+                <%= event.date_and_time.strftime('%a') %>
+              </div>
+              <div class="date-event-month-date">
+                <%= event.date_and_time.strftime('%d %b') %>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="event-description">
-          <div class="event-description-container">
-            <div class="event-link-to-show-page">
-              <%= event.name %>
-            </div>
-            <div class="event-details">
-              <%= event.address %>
+          <div class="event-description">
+            <div class="event-description-container">
+              <div class="event-link-to-show-page">
+                <%= link_to event.name, event_path(event.id) %>
+              </div>
+              <div class="event-details">
+                <%= event.address %>
+              </div>
             </div>
           </div>
-        </div>
+
+          <div class="event-watch">
+            <div class="event-watch-container">
+              <div class="event-watch-bookmark-toggle">
+                <%= link_to event_watchlists_path(event), method: :post  do %>
+                  <i class="fas fa-heart"></i>
+                <% end %>
+              </div>
+            </div>
+          </div>
+
 
         <div class="event-watch">
 
@@ -52,10 +65,9 @@
               <%= link_to event_watchlists_path(event), remote: true, method: :post  do %>
                   <div class="heart"></div>
 
-              <% end %>
-            </div>
-          </div>
-        </div>
+
+        
+
 
         <div class="event-price">
           <div class="cop-it">
@@ -81,16 +93,14 @@
             <%= event.quantity %> tix left
             <% end %>
           </div>
-        </div>
 
+        </div>
       </div>
     </div>
+
+    <% end %>
   </div>
-
-  <% end %>
 </div>
-
-
 
 <%= javascript_pack_tag "event-index" %>
 

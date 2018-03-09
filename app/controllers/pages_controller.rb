@@ -20,6 +20,8 @@ class PagesController < ApplicationController
   end
 
   def home
-    @events = policy_scope(Event)
+    # @events = policy_scope(Event)
+    @cities = Event.distinct.pluck(:city)
+    @categories = Event.distinct.pluck(:category)
   end
 end
