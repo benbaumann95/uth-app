@@ -27,7 +27,7 @@
 
 // Search bar for adding ticket to event
 .new-ticket-container {
-  padding: 10px 10px;
+  padding: 50px 50px;
   color: $black;
   a {
     color: $green;
@@ -57,13 +57,16 @@
   margin: 20px 10px;
   background-color: $white;
   background-size: cover;
-  max-height: 400px;
+  max-height: 450px;
 }
 
 .event-card{
-  color:$green;
+  color:$white;
   position: relative;
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  p {
+    font-size: 16px;
+  }
 }
 @media (min-width: 768px){
   .event-card{
@@ -88,9 +91,10 @@
 }
 .add-ticket-container{
   text-align: right;
+  margin-right: 15px;
 }
-.font-size-12{
-  font-size: 12px;
+.event-text {
+  margin: 15px 15px;
 }
 
 
