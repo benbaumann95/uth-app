@@ -8,5 +8,5 @@
 // layout file, like app/views/layouts/application.html.erb
 
 
-import { initUpdateNavbarOnScroll } from '../components/navbar';
-initUpdateNavbarOnScroll();
+// import { initUpdateNavbarOnScroll } from '../components/navbar';
+// initUpdateNavbarOnScroll();

@@ -29,25 +29,30 @@
 
 <div class="event-index-container event-index-layout">
   <h2>Popular Locations</h2>
-  <div class="row">
-
-    <% @cities.each do |city| %>
-      <div class="col-xs-6 col-sm-4 col-md-3">
-        <%= link_to events_path(search_city: city) do %>
-          <div class="event-index-card-by-venue" style="background-image: url(<%= cl_image_path city_picture(city) %>)"><%= city %></div>
-        <% end %>
-      </div>
-    <% end %>
+  <div class="cards-home-container">
+    <div class="row">
+      <% @cities.each do |city| %>
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+          <%= link_to events_path(search_city: city) do %>
+            <div class="event-index-card-by-venue" style="background-image: url(<%= cl_image_path city_picture(city), crop: :fill; %>)"><%= city %></div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
   </div>
-  <h2>Type</h2>
-  <div class="row">
-    <% @categories.each do |category| %>
-      <div class="col-xs-12 col-sm-6 col-md-3">
-        <%= link_to events_path(search_category: category) do %>
-          <div class="event-index-card-by-venue" style="background-image: url(<%= cl_image_path category_picture(category) %>)" ><%= category %></div>
-        <% end %>
-      </div>
-    <% end %>
+
+
+  <h2>Categories</h2>
+  <div class="cards-home-container">
+    <div class="row">
+      <% @categories.each do |category| %>
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+          <%= link_to events_path(search_category: category) do %>
+            <div class="event-index-card-by-venue" style="background-image: url(<%= cl_image_path category_picture(category) %>)" ><%= category %></div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
 
