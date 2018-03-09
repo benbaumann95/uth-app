@@ -19,9 +19,17 @@ module ApplicationHelper
 
   def city_picture(name)
     case name
-      when "London" then 'club-pic'
-      when "Bristol" then 'club-rave-pic'
+      when "London" then 'london'
+      when "Bristol" then 'bristol'
+      when 'Sheffield' then 'sheffield'
+      when 'Leeds' then 'leeds'
+      when 'Manchester' then 'manchester'
+      when 'Edinburgh' then 'edinburgh'
+      when 'Cardiff' then 'cardiff'
+      when 'Leicester' then 'leicester'
+      when 'Nottingham' then 'Nottingham'
       when nil then 'festival-sitting-down'
+      else 'sports-rugby'
     end
   end
 
