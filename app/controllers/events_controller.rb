@@ -14,7 +14,7 @@ class EventsController < ApplicationController
     elsif !params[:search].nil?
       @events = policy_scope(Event).search(params[:search])
     else
-      @events = policy_scope(Event).where("date_and_time > ?", DateTime.now)
+      @events = policy_scope(Event).where("date_and_time > ?", (DateTime.now - 24))
     end
 
   end
