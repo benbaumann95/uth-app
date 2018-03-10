@@ -12,7 +12,7 @@
               Here are your purchases
             </span>
             <span class="results-location-query" >
-              <strong><%=  @current_user.first_name %></strong>
+              <strong><%=  @current_user.first_name.capitalize %></strong>
             </span>
 
           </div>
@@ -63,7 +63,7 @@
                 <div class="price">
                   £<%= booking.ticket.price %>
                 </div>
-                 <div class='booking-ticket-date'>on <%=booking.ticket.created_at.to_date.strftime('%b %d')%></div>
+                <div class='booking-ticket-date'>on <%=booking.ticket.created_at.to_date.strftime('%b %d')%></div>
               </div>
               <%end%>
             </div>
@@ -74,25 +74,14 @@
     </div>
   </section>
 </section>
+
 <% else %>
 
-<section class="dashboard-main-section">
-  <section class="dashboard-primary-section">
-    <div class="dashboard-containers">
-      <div class="container-upcoming-dashboards margin-top-80" >
-        <div class="container-header-section">
-          <div class="container-header-text">
-            <span class="results-query">
-              You have no tickets
-            </span>
-            <span class="results-location-query">
-              <strong><%=  @current_user.first_name %></strong>
-            </span>
+<div class="dashboard-main-section">
+  <div class="no-dashboard-info-container">
+    <p>You have no tickets<strong><%= @current_user.first_name.capitalize%></strong></p>
+  </div>
+</div>
 
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-</section>
 <% end %>
+

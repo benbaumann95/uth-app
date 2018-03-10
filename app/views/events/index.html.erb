@@ -1,7 +1,7 @@
 <div class="add-navbar-padding">
   <div class="search-bar-query-container">
     <%= form_tag(events_path(params[:search]), method: 'get', class: 'events-search-bar') do %>
-      <%= text_field_tag :search, params[:search], placeholder: "Search events by name / city / category...", class: "form-control", :onchange => "this.form.submit();"%>
+      <%= text_field_tag :search, params[:search], placeholder: "Search by name / city / category...", class: "form-control", :onchange => "this.form.submit();"%>
     <% end %>
   </div>
 
@@ -10,11 +10,15 @@
     <div class="container-header-section">
       <div class="container-header-text">
         <span class="results-query">
-          Take a peek at results for
+        <% if params[:search].blank? %>
+          Take a peek
         </span>
         <span class="results-location-query">
-          <strong><%= params[:search]%></strong>
+        <% else %>
+          Take a peek at results for
+        <strong><%= params[:search]%></strong>
         </span>
+        <% end %>
       </div>
     </div>
 

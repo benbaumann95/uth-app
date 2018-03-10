@@ -9,19 +9,10 @@
         <div class="container-header-section">
           <div class="container-header-text" id="watching-list">
             <span class="results-query">
-              Keep an eye on your watchlist
+              Keep an eye on your saved events
               <i class="fas fa-heart" style= 'color:red'></i>
             </span>
 
-          </div>
-
-          <div class="dropdown-select-sort-container">
-            <div class="dropdown-select-sort">
-              <div class="dropdown-select-option-picked">
-                <div class="dropdown-select-option-picked-text">
-                </div>
-              </div>
-            </div>
           </div>
         </div>
 
@@ -91,25 +82,12 @@
 
 <% else %>
 
-<section class="dashboard-main-section">
-  <section class="dashboard-primary-section">
-    <div class="dashboard-containers">
-      <div class="container-upcoming-dashboards margin-top-80" >
-        <div class="container-header-section">
-          <div class="container-header-text">
-            <span class="results-query">
-              You have no saved events
-            </span>
-            <span class="results-location-query">
-              <strong><%=  @current_user.first_name %></strong>
-            </span>
+<div class="dashboard-main-section">
+  <div class="no-dashboard-info-container">
+    <p>You have no saved events <strong><%= @current_user.first_name.capitalize%></strong></p>
+  </div>
+</div>
 
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-</section>
 <% end %>
 
 

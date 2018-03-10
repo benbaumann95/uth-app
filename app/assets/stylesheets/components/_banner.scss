@@ -60,13 +60,32 @@
     width: 500px;
   }
 }
-.banner-venue{
-  padding: 110px 50px 50px 50px;
-  text-align: center;
-  color: white;
-  opacity: 0.95;
-  flex-grow: 1;
+@media (min-width: 924px) {
+  .banner-venue{
+    padding: 110px 50px 50px 50px;
+    text-align: center;
+    color: white;
+    opacity: 0.95;
+    flex-grow: 1;
+  }
 }
+@media (max-width: 923px) {
+  .banner-venue{
+    padding: 110px 10px 50px 10px;
+    text-align: center;
+    color: white;
+    opacity: 0.95;
+    flex-grow: 1;
+  }
+}
+
+@media (max-width: 767px) {
+  .search-bar-position{
+    padding: 0 10px 0 10px;
+  }
+}
+
+
 .circle-avatar{
   border-radius: 50%;
   padding-bottom: 1px;

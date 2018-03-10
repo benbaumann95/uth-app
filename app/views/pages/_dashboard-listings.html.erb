@@ -11,7 +11,7 @@
               Here are your listings
             </span>
             <span class="results-location-query">
-              <strong><%=  @current_user.first_name %></strong>
+              <strong><%=  @current_user.first_name.capitalize %></strong>
             </span>
 
           </div>
@@ -69,25 +69,13 @@
     </div>
   </section>
 </section>
+
 <% else %>
 
-<section class="dashboard-main-section">
-  <section class="dashboard-primary-section">
-    <div class="dashboard-containers">
-      <div class="container-upcoming-dashboards" >
-        <div class="container-header-section">
-          <div class="container-header-text">
-            <span class="results-query">
-              You have no listings
-            </span>
-            <span class="results-location-query">
-              <strong><%=  @current_user.first_name %></strong>
-            </span>
+<div class="dashboard-main-section">
+  <div class="no-dashboard-info-container">
+    <p>You have no listings, <strong><%=  @current_user.first_name.capitalize %></strong></p>
+  </div>
+</div>
 
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-</section>
 <% end %>

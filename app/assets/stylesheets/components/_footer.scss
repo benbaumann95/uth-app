@@ -29,3 +29,8 @@
 .footer-text{
   color: $green;
 }
+@media (max-width: 767px) {
+  .footer-text{
+    font-size: 12px;
+  }
+}
