@@ -16,6 +16,7 @@
 
       <% if @event.quantity == 0 %>
         <p class="available-tickets-text">Bookmark the event to be notified when tickets are available</p>
+
       <% else %>
         <div class="container-upcoming-tickets">
           <% @tickets.each do |ticket| %>
