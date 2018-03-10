@@ -113,18 +113,32 @@
     text-decoration: none;
   }
 }
+@media (max-width: 767px) {
+  .dashboard-description{
+    padding: 8px 8px;
+  }
+}
 .dashboard-description-container{
   vertical-align: top;
 }
 .dashboard-link-to-show-page{
   color: #4cb289;
-  font-size: 16px;
   text-decoration: none;
   cursor: pointer;
   font-weight: bolder;
   margin-top: 2px;
   &:hover{
     opacity: 0.8;
+  }
+}
+@media (min-width: 767px) {
+  .dashboard-link-to-show-page{
+    font-size: 16px;
+  }
+}
+@media (max-width: 767px) {
+  .dashboard-link-to-show-page{
+    font-size: 12px;
   }
 }
 .dashboard-details{
@@ -194,6 +208,7 @@
 }
 .voucher-photo{
   padding-left: 5px;
+  padding-top: 5px;
 }
 .view-text-ticket{
   text-decoration: none;

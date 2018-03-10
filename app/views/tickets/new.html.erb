@@ -31,7 +31,7 @@
                 <p>Tickets for this event have sold out!</p>
               <% elsif event.quantity == 1 %>
                 <p><%= event.quantity %> ticket is currently
-                listed, lowest from
+                listed at
               <% ticket_price_array = [] %>
                 <% event.tickets.each do |ticket| %>
               <% ticket_price_array << ticket.price %>
@@ -40,7 +40,15 @@
               £<strong><%= ticket_price_array.min %></strong></p>
               <% end %>
               <% else %>
-              <p><%= event.quantity %> tickets are currently listed</p>
+              <p><%= event.quantity %> tickets are currently listed,</p>
+              lowest starting at
+              <% ticket_price_array = [] %>
+                <% event.tickets.each do |ticket| %>
+              <% ticket_price_array << ticket.price %>
+              <% end %>
+              <% if ticket_price_array.count >= 1 && event.quantity != 0 %>
+              £<strong><%= ticket_price_array.min %></strong></p>
+              <% end %>
               <% end %>
             </div>
 

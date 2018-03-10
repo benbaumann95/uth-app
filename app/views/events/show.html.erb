@@ -5,7 +5,7 @@
       <h1><%= @event.name %> @ <%= @event.address.capitalize %></h1>
       <h4><%= @event.date_and_time.strftime('%a %d %b').upcase %></h4>
       <div class="available-tickets-text">
-        <% if @event.quantity == 0 %>
+        <% if @event.quantity <= 0 %>
           <p>Sorry, there are no tickets currently available! </p>
         <% elsif @event.quantity == 1 %>
           <p>Only <strong><%= @event.quantity %></strong> ticket remaining!</p>
@@ -14,7 +14,7 @@
         <% end %>
       </div>
 
-      <% if @event.quantity == 0 %>
+      <% if @event.quantity <= 0 %>
         <p class="available-tickets-text">Bookmark the event to be notified when tickets are available</p>
 
       <% else %>
