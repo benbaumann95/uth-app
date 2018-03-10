@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   get 'edit_profile_pic', to: 'users#edit_profile_pic'
 
   resources :events, only: [:index, :show, :create, :new] do
-    resources :tickets, only: [:create]
+    resources :tickets, only: [:create, :show]
     resources :watchlists, only: [:create, :destroy]
   end
   resources :tickets , only: [:index, :show, :destroy, :new] do

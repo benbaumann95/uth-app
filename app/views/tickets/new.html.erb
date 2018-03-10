@@ -27,7 +27,7 @@
               <h4><strong><%= event.name %></strong> @ <%= event.city %></h4>
               <h5><%= event.date_and_time.strftime('%a %d %b %Y') %><%= link_to " (My event is on another date)", new_event_path(content: "hello") %></h5>
 
-              <% if event.quantity == 0 %>
+              <% if event.quantity <= 0 %>
                 <p>Tickets for this event have sold out!</p>
               <% elsif event.quantity == 1 %>
                 <p><%= event.quantity %> ticket is currently
@@ -46,7 +46,7 @@
                 <% event.tickets.each do |ticket| %>
               <% ticket_price_array << ticket.price %>
               <% end %>
-              <% if ticket_price_array.count >= 1 && event.quantity != 0 %>
+              <% if ticket_price_array.count >= 1 && event.quantity > 0 %>
               £<strong><%= ticket_price_array.min %></strong></p>
               <% end %>
               <% end %>
