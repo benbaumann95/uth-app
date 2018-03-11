@@ -18,7 +18,6 @@
     <h6><%= link_to "Can't Find Your Event?", new_event_path %></h6>
 
     <div class="search-results">
-      <% if @events != nil %>
       <div class="row">
         <% @events.each do |event| %>
         <div class="col-xs-12 col-md-6 col-lg-6">
@@ -49,7 +48,6 @@
         </div>
         <% end %>
       </div>
-      <% end %>
     </div>
     <% end %>
   </div>
@@ -72,8 +70,8 @@ autocomplete('#search_event', { hint: false }, {
   templates: {
     //'suggestion' templating function used to render a single suggestion
     suggestion: function(suggestion) {
-      return '<span>' +
-      suggestion._highlightResult.name.value ;
+      return '<span>' + suggestion._highlightResult.name.value + '</span><span>' +
+        suggestion._highlightResult.city.value + '</span>';
     }
   }
 });

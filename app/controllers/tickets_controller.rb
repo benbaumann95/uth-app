@@ -9,9 +9,7 @@ class TicketsController < ApplicationController
   end
 
   def new
-    if params[:search_event] != nil
-      @events = Event.search(params[:search_event])
-    end
+    @events = Event.search(params[:search_event])
     @ticket = Ticket.new
     authorize @ticket
   end
