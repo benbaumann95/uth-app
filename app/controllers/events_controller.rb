@@ -8,7 +8,6 @@ class EventsController < ApplicationController
     @watchlists = Watchlist.where(user: current_user)
 
     if !params[:search_category].nil?
-      # @events = policy_scope(Event).search(params[:search])
       @events = policy_scope(Event).where("category = ?", params[:search_category])
     elsif !params[:search_city].nil?
       @events = policy_scope(Event).where("city = ?", params[:search_city])
@@ -58,6 +57,7 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    @venue = @event.address.split(',')[0].strip.titleize
     authorize @event
     @tickets = @event.tickets.where("sold = false")
     @booking = Booking.new
