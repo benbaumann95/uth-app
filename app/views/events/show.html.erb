@@ -23,7 +23,7 @@
             <!-- if the current user is the ticket lister, we display it but don't make it a link -->
             <% if current_user != ticket.user %>
               <%= link_to ticket_bookings_path(ticket.id), method: :post do %>
-                <%= render 'ticket_row', ticket: ticket %>
+                <%= render 'ticket_row', ticket: ticket, myclass: '' %>
               <% end %>
             <% else %>
               <%= render 'ticket_row', ticket: ticket, myclass: 'own-ticket' %>
