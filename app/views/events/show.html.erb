@@ -20,26 +20,13 @@
       <% else %>
         <div class="container-upcoming-tickets">
           <% @tickets.each do |ticket| %>
-            <%= link_to ticket_bookings_path(ticket.id), method: :post do %>
-              <div class="ticket-container">
-                <div class="ticket-profile">
-                  <%= cl_image_tag ticket.user.photo, width: 80, height: 80, class: 'circle-avatar' %>
-                </div>
-                <div class="ticket-description">
-                  <div class="ticket-link-to-show-page">
-                    <span><%= ticket.event.name %></span>
-                  </div>
-                  <div class="ticket-details">
-                    <%= ticket.description %>
-                  </div>
-                </div>
-                <div class="ticket-price">
-                  <div class="price">
-                    <strong>£<%= ticket.price %></strong>
-                      <i class="fas fa-shopping-cart"></i>
-                  </div>
-                </div>
-              </div>
+            <!-- if the current user is the ticket lister, we display it but don't make it a link -->
+            <% if current_user != ticket.user %>
+              <%= link_to ticket_bookings_path(ticket.id), method: :post do %>
+                <%= render 'ticket_row', ticket: ticket %>
+              <% end %>
+            <% else %>
+              <%= render 'ticket_row', ticket: ticket, myclass: 'own-ticket' %>
             <% end %>
           <% end %>
         </div>
@@ -54,8 +41,4 @@
 <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?libraries=places&key=#{ENV['GOOGLE_API_BROWSER_KEY']}" %>
 <%= javascript_pack_tag "map" %>
 
-
-
-
-
-
+<%= javascript_pack_tag "event-show" %>
