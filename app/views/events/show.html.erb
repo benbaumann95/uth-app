@@ -2,7 +2,7 @@
 
   <div class="show-ticket-container">
     <div class="banner-venue">
-      <h1><%= @event.name %> @ <%= @event.address.capitalize %></h1>
+      <h1><%= @event.name %> @ <%= @venue %>, <%= @event.city %></h1>
       <h4><%= @event.date_and_time.strftime('%a %d %b').upcase %></h4>
       <div class="available-tickets-text">
         <% if @event.quantity <= 0 %>
