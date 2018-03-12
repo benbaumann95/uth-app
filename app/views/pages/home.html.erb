@@ -13,7 +13,7 @@
           <div class="search-bar-position">
             <%= text_field_tag :search,
             params[:search],
-            class: "form-control",
+            class: "form-control algolia-search",
               placeholder: "Know your event?"
               %>
           </div>
@@ -68,4 +68,12 @@
   </div>
 </div>
 
+ <!-- Include AlgoliaSearch JS Client and autocomplete.js library -->
+<script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
+<script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.min.js"></script>
+
  <%= javascript_pack_tag "typejs" %>
+ <%= javascript_pack_tag "ticket-search" %>
+
+
+
