@@ -1,0 +1,19 @@
+<div class="ticket-container <%= myclass %>">
+  <div class="ticket-profile">
+    <%= cl_image_tag ticket.user.photo, width: 80, height: 80, class: 'circle-avatar' %>
+  </div>
+  <div class="ticket-description">
+    <div class="ticket-link-to-show-page">
+      <span><%= ticket.event.name %></span>
+    </div>
+    <div class="ticket-details">
+      <%= ticket.description %>
+    </div>
+  </div>
+  <div class="ticket-price">
+    <div class="price">
+      <strong>£<%= ticket.price %></strong>
+        <i class="fas fa-shopping-cart"></i>
+    </div>
+  </div>
+</div>

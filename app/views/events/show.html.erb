@@ -2,10 +2,10 @@
 
   <div class="show-ticket-container">
     <div class="banner-venue">
-      <h1><%= @event.name %> @ <%= @event.address.capitalize %></h1>
+      <h1><%= @event.name %> @ <%= @venue %>, <%= @event.city %></h1>
       <h4><%= @event.date_and_time.strftime('%a %d %b').upcase %></h4>
       <div class="available-tickets-text">
-        <% if @event.quantity <= 0 %>
+        <% if @event.quantity == 0 %>
           <p>Sorry, there are no tickets currently available! </p>
         <% elsif @event.quantity == 1 %>
           <p>Only <strong><%= @event.quantity %></strong> ticket remaining!</p>
@@ -14,32 +14,19 @@
         <% end %>
       </div>
 
-      <% if @event.quantity <= 0 %>
+      <% if @event.quantity == 0 %>
         <p class="available-tickets-text">Bookmark the event to be notified when tickets are available</p>
 
       <% else %>
         <div class="container-upcoming-tickets">
           <% @tickets.each do |ticket| %>
-            <%= link_to ticket_bookings_path(ticket.id), method: :post do %>
-              <div class="ticket-container">
-                <div class="ticket-profile">
-                  <%= cl_image_tag ticket.user.photo, width: 80, height: 80, class: 'circle-avatar' %>
-                </div>
-                <div class="ticket-description">
-                  <div class="ticket-link-to-show-page">
-                    <span><%= ticket.event.name %></span>
-                  </div>
-                  <div class="ticket-details">
-                    <%= ticket.description %>
-                  </div>
-                </div>
-                <div class="ticket-price">
-                  <div class="price">
-                    <strong>£<%= ticket.price %></strong>
-                      <i class="fas fa-shopping-cart"></i>
-                  </div>
-                </div>
-              </div>
+            <!-- if the current user is the ticket lister, we display it but don't make it a link -->
+            <% if current_user != ticket.user %>
+              <%= link_to ticket_bookings_path(ticket.id), method: :post do %>
+                <%= render 'ticket_row', ticket: ticket, myclass: '' %>
+              <% end %>
+            <% else %>
+              <%= render 'ticket_row', ticket: ticket, myclass: 'own-ticket' %>
             <% end %>
           <% end %>
         </div>
@@ -54,8 +41,4 @@
 <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?libraries=places&key=#{ENV['GOOGLE_API_BROWSER_KEY']}" %>
 <%= javascript_pack_tag "map" %>
 
-
-
-
-
-
+<%= javascript_pack_tag "event-show" %>

@@ -10,9 +10,9 @@ class TicketsController < ApplicationController
 
   def new
     if params[:search_event] != nil
-      @events = Event.search(params[:search_event])
-      # dont display past events
-      # breaking when submitting with errors
+      @events = Event.where("date_and_time >= ?", DateTime.now).search(params[:search_event])
+    else
+      @events = Event.where("date_and_time >= ?", DateTime.now)
     end
     @ticket = Ticket.new
     authorize @ticket
