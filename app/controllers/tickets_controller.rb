@@ -41,6 +41,14 @@ class TicketsController < ApplicationController
     redirect_to event_path
   end
 
+  def no_display
+    @ticket = Ticket.find(params[:id])
+    authorize @ticket
+    @ticket.update(display_flag: false)
+    @ticket.save
+    redirect_to dashboard_path
+  end
+
   private
 
   def ticket_params

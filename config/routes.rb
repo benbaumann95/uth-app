@@ -20,4 +20,6 @@ Rails.application.routes.draw do
   resources :tickets , only: [:index, :show, :destroy, :new] do
     resources :bookings, only: [:create]
   end
+
+  post 'tickets/no_display/:id', to: 'tickets#no_display', as: 'ticket_no_display'
 end

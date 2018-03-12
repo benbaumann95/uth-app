@@ -19,4 +19,12 @@ class BookingsController < ApplicationController
 
     redirect_to dashboard_path
   end
+
+  def no_display
+    @booking = Booking.find(params[:id])
+    authorize @booking
+    @booking.update(display_flag: false)
+    @booking.save
+    redirect_to dashboard_path
+  end
 end
