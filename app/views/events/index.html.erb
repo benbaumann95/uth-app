@@ -64,7 +64,7 @@
 
         <div class="event-price">
           <div class="cop-it">
-            <% if event.quantity == 0 %>
+            <% if event.quantity <= 0 %>
             <% else %>
             cop it
             <% end %>
@@ -74,13 +74,13 @@
             <% event.tickets.each do |ticket| %>
               <% ticket_price_array << ticket.price %>
             <% end %>
-            <% if ticket_price_array.count >= 1 && event.quantity != 0 %>
+            <% if ticket_price_array.count >= 1 && event.quantity > 0 %>
             <strong>£<%= ticket_price_array.min %></strong>
             <% else %>
             <% end %>
           </div>
           <div class="events-left">
-            <% if event.quantity == 0%>
+            <% if event.quantity <= 0 %>
             <p class="sold-out-text"> Sold out </p>
             <% else %>
             <%= event.quantity %> tix left

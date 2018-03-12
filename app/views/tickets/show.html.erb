@@ -1,0 +1,75 @@
+<div class="back-link">
+  <%= link_to "", event_path(@ticket.name), class:"far fa-arrow-alt-circle-left fa-3x" %>
+</div>
+
+<div class="summary-container">
+  <div class="summary-title-holder">
+    <h3 class="list-summary-ticket-title text-center">Ticket Summary</h3>
+  </div>
+
+  <div class="summary-content-holder">
+    <div class="main-summary-container">
+      <div class="summary-row">
+        <div class="summary-35", class="margin-right-summary">
+          <p>Ticket name</p>
+        </div>
+        <div class="summary-35", class="margin-right-summary">
+          <p class="ticket-name-show"><strong><%= @ticket.name.capitalize %></strong></p>
+        </div>
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-35", class="margin-right-summary">
+          <p>Ticket type</p>
+        </div>
+        <div class="summary-35", class="margin-right-summary">
+          <p><strong><%= @ticket.category.upcase %></strong></p>
+        </div>
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-35", class="margin-right-summary">
+          <p>Date</p>
+        </div>
+        <div class="summary-35", class="margin-right-summary">
+          <p id='valid-date-summary'><strong><%= @ticket.end_date %></strong></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-100">
+        <div class="summary-flex-row">
+          <p>Description</p>
+          <p class="ticket-summary-description"> <%= @ticket.description %></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="secondary-summary-container">
+      <div class="summary-100", class="margin-right-summary">
+
+        <div class="summary-row">
+          <div class="summary-50", class="margin-right-summary">
+            <p>Price</p>
+          </div>
+          <div class="summary-50", class="margin-right-summary">
+            <p id='summary-price'>£<%= @ticket.price %></p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <div class="summary-btns-holder">
+    <div class="buy-btn">
+      Buy
+    </div>
+
+
+  </div>
+
+</div>
+

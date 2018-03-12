@@ -78,11 +78,11 @@
   max-height: 400px;
   }
 }
-@media (min-width: 320px) and (max-width: 767px) {
+@media (max-width: 767px) {
   .event-card{
   border-radius: 5px;
-  padding: 20px 10px;
-  margin: 20px 5px;
+  padding: 20px 0px;
+  margin: 20px 0px;
   background-color: $white;
   background-size: cover;
   max-height: 400px;

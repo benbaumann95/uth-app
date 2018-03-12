@@ -44,7 +44,7 @@
 
               <div class="dashboard-price">
                 <div class="cop-it">
-                  <% if watch.event.quantity == 0 %>
+                  <% if watch.event.quantity <= 0 %>
                   <% else %>
                   cop it
                   <% end %>
@@ -60,7 +60,7 @@
                   <% else %>
                   <% end %>
                   <div class="events-left">
-                    <% if watch.event.quantity == 0 %>
+                    <% if watch.event.quantity <= 0 %>
                     <p class="sold-out-text"> Sold out </p>
                     <% else %>
                     <p><%= watch.event.quantity %> tix left</p>
