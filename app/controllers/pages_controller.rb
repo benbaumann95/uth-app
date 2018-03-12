@@ -5,7 +5,7 @@ class PagesController < ApplicationController
   end
 
   def dashboard
-    @tickets = current_user.tickets
+    @tickets = current_user.tickets.where("display_flag = true")
     @bookings = current_user.bookings
     @watchlists = current_user.watchlists
     @number_listings = current_user.tickets.all.count

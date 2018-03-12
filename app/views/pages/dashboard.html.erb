@@ -1,19 +1,19 @@
 <%= render 'dashboard_nav' %>
 
 <div class="dashboard-tabs">
-  <a class="dashboardtab active" id="listings-tab" href="#listings-list">
+  <a class="dashboardtab active" id="listings-tab">
     <div class="dashboard-tab-text">
       <h3><%= @number_listings %></h3>
       <p>Listings</p>
     </div>
   </a>
-  <a class="dashboardtab" id="bookings-tab" href="#purchases-list">
+  <a class="dashboardtab" id="bookings-tab">
     <div class="dashboard-tab-text">
       <h3><%= @number_purchases %></h3>
       <p>Purchased</p>
     </div>
   </a>
-  <a class="dashboardtab" id="watching-tab" href="#watching-list">
+  <a class="dashboardtab" id="watching-tab">
     <div class="dashboard-tab-text">
       <h3> <%= @number_watching %></h3>
       <p>Watching</p>
@@ -21,15 +21,11 @@
   </a>
 </div>
 
-<!-- PURCHASES -->
+<%= render 'dashboard-listings' %>
+
 
 <%= render 'dashboard-purchases' %>
 
-<!-- LISTINGS -->
-
-<%= render 'dashboard-listings' %>
-
-<!-- WATCHLIST -->
 
 <%= render 'dashboard-watching', watchlists: @watchlists %>
 

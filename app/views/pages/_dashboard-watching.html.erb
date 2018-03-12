@@ -1,13 +1,13 @@
 <!-- WATCHLIST -->
 
-<% unless @number_watching == 0 %>
-<section class="dashboard-main-section">
+<% unless @number_watching <= 0 %>
+<section class="dashboard-main-section dashboard-hidden">
   <section class="dashboard-primary-section">
     <div class="dashboard-containers">
 
       <div class="container-upcoming-dashboards">
         <div class="container-header-section">
-          <div class="container-header-text" id="watching-list">
+          <div class="container-header-text">
             <span class="results-query">
               Keep an eye on your saved events
               <i class="fas fa-heart" style= 'color:red'></i>
@@ -55,7 +55,7 @@
                   <% watch.event.tickets.each do |ticket| %>
                   <% ticket_price_array << ticket.price %>
                   <% end %>
-                  <% if ticket_price_array.count >= 1 && watch.event.quantity != 0 %>
+                  <% if ticket_price_array.count >= 1 && watch.event.quantity > 0 %>
                   £<strong><%= ticket_price_array.min %></strong>
                   <% else %>
                   <% end %>

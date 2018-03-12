@@ -8,7 +8,7 @@
       <p><%= link_to 'edit', edit_profile_pic_path %></p>
     </div>
     <div class="profile-name text-center">
-      <p><%= current_user.first_name %><%=current_user.last_name %><%= link_to 'edit', edit_first_name_path, class: 'small-edit-text' %></p>
+      <p><%= current_user.first_name %> <%=current_user.last_name %><%= link_to 'edit', edit_first_name_path, class: 'small-edit-text' %></p>
     </div>
     <div class="profile-uni text-center">
       <p><%= current_user.email %> <%= link_to 'edit', edit_email_path, class: 'small-edit-text' %></p>

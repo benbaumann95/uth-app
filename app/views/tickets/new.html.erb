@@ -25,7 +25,8 @@
           <div class="event-card" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.3) 0%, rgba(0,36,61,0.5) 50%), url(<%= cl_image_path(event.photo_file, crop: :fill, ) %>)">
             <div class="event-text">
               <h4><strong><%= event.name %></strong> @ <%= event.city %></h4>
-              <h5><%= event.date_and_time.strftime('%a %d %b %Y') %><%= link_to " (My event is on another date)", new_event_path(content: "hello") %></h5>
+              <h5><%= event.date_and_time.strftime('%a %d %b %Y') %></h5>
+              <p><%= link_to " (My event is on another date)", new_event_path(content: "hello") %></p>
 
               <% if event.quantity <= 0 %>
                 <p>Tickets for this event have sold out!</p>

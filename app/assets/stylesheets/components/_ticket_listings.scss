@@ -100,34 +100,34 @@
 //   text-align: center;
 // }
 .ticket-description{
-  padding: 10px 20px;
+  padding-top: 10px;
+  margin: 0px 20px;
   vertical-align: top;
   width: 100%;
   display: table-cell;
   border-right: 0.5px solid #CFD4D9;
   text-align: left;
+
 }
-@media (max-width: 767px){
-  #ticket_description{
+#ticket_description{
   height: 40px !important;
 }
-}
+
 .ticket-link-to-show-page{
   color: $green;
   text-decoration: none;
   cursor: pointer;
   font-weight: bolder;
-  margin: 5px 0;
 }
 @media (min-width: 768px){
   .ticket-link-to-show-page{
-  font-size: 18px;
-}
+    font-size: 18px;
+  }
 }
 @media (max-width: 767px){
   .ticket-link-to-show-page{
-  font-size: 14px;
-}
+    font-size: 14px;
+  }
 }
 .ticket-details{
   margin: 12px 0;
@@ -139,8 +139,8 @@
 }
 @media (max-width: 767px){
   .ticket-details{
-  font-size: 10px;
-}
+    font-size: 10px;
+  }
 }
 .ticket-price{
   min-width: 80px;

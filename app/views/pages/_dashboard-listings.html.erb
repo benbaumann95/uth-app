@@ -1,5 +1,5 @@
 <!-- LISTINGS -->
-<% unless @number_listings == 0 %>
+<% unless @number_listings <= 0 %>
 <section class="dashboard-main-section">
   <section class="dashboard-primary-section">
     <div class="dashboard-containers">
@@ -14,15 +14,6 @@
               <strong><%=  @current_user.first_name.capitalize %></strong>
             </span>
 
-          </div>
-
-          <div class="dropdown-select-sort-container">
-            <div class="dropdown-select-sort">
-              <div class="dropdown-select-option-picked">
-                <div class="dropdown-select-option-picked-text">
-                </div>
-              </div>
-            </div>
           </div>
         </div>
 
@@ -59,13 +50,18 @@
                 <div class="price">
                   <p>£<%= ticket.price %></p>
                 </div>
+                <%= link_to '', ticket_no_display_path(ticket.id), method: 'post', class: "fas fa-trash-alt", data: {confirm: "Remove from Dashboard?"} %>
+
               </div>
-              <%end%>
+
             </div>
           </div>
         </div>
 
+        <% end %>
+
       </div>
+
     </div>
   </section>
 </section>

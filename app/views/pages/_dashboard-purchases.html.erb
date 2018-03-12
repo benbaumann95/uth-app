@@ -1,13 +1,13 @@
 <!-- PURCHASES -->
 
-<% unless @number_purchases == 0 %>
-<section class="dashboard-main-section">
+<% unless @number_purchases <= 0 %>
+<section class="dashboard-main-section dashboard-hidden">
   <section class="dashboard-primary-section">
     <div class="dashboard-containers">
 
       <div class="container-upcoming-dashboards" >
         <div class="container-header-section">
-          <div class="container-header-text" id="purchases-list">
+          <div class="container-header-text">
             <span class="results-query">
               Here are your purchases
             </span>
@@ -16,17 +16,8 @@
             </span>
 
           </div>
-
-          <div class="dropdown-select-sort-container">
-            <div class="dropdown-select-sort">
-              <div class="dropdown-select-option-picked">
-                <div class="dropdown-select-option-picked-text">
-
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
+
         <% @bookings.each do |booking| %>
 
         <div class="container-body">
@@ -64,6 +55,7 @@
                   £<%= booking.ticket.price %>
                 </div>
                 <div class='booking-ticket-date'>on <%=booking.ticket.created_at.to_date.strftime('%b %d')%></div>
+
               </div>
               <%end%>
             </div>

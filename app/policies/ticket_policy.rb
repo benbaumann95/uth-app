@@ -20,4 +20,8 @@ class TicketPolicy < ApplicationPolicy
   def destroy?
     record.user == user
   end
+
+  def no_display?
+    return true
+  end
 end
