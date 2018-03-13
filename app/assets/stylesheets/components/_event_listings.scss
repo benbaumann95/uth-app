@@ -167,4 +167,18 @@
   margin-top: 20px;
   font-size: 14px;
 }
+.buy-sell-tickets-header{
+  color: $dark-gray;
+}
+@media (min-width: 768px) {
+  .buy-sell-tickets-header{
+    font-size: 28px;
+  }
+}
+@media (max-width: 768px) {
+  .buy-sell-tickets-header{
+    font-size: 16px;
+    padding: 5px;
+  }
+}
 

@@ -1,19 +1,33 @@
-<div class="ticket-container <%= myclass %>">
-  <div class="ticket-profile">
-    <%= cl_image_tag ticket.user.photo, width: 80, height: 80, class: 'circle-avatar' %>
-  </div>
-  <div class="ticket-description">
-    <div class="ticket-link-to-show-page">
-      <span><%= ticket.event.name %></span>
+
+    <div class="container-body <%= myclass %> container-upcoming-events ticket-container" style='margin-bottom: 5px;'>
+      <div class="event-grouped-container">
+
+          <div class="event-date" >
+            <div class="ticket-date-container">
+              <div class="date-event-day">
+                <%= cl_image_tag ticket.user.photo, width: 80, height: 80, class: 'circle-avatar' %>
+              </div>
+            </div>
+          </div>
+
+          <div class="ticket-description">
+            <div class="event-description-container">
+              <div class="event-link-to-show-page">
+                <%= ticket.event.name %>
+              </div>
+              <div class="ticket-details">
+                <%= ticket.description %>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="ticket-price price-container">
+            <div class="price">
+            <strong>£<%= ticket.price %></strong>
+            </div>
+            <i class="fas fa-shopping-cart fa-2x"></i>
+          </div>
+
+      </div>
     </div>
-    <div class="ticket-details">
-      <%= ticket.description %>
-    </div>
-  </div>
-  <div class="ticket-price">
-    <div class="price">
-      <strong>£<%= ticket.price %></strong>
-        <i class="fas fa-shopping-cart", style='line-height: inherit;'></i>
-    </div>
-  </div>
-</div>

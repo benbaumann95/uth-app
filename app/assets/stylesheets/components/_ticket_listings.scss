@@ -101,6 +101,7 @@
 // }
 .ticket-description{
   padding-top: 10px;
+  padding-left: 10px;
   margin: 0px 20px;
   vertical-align: top;
   width: 100%;
@@ -200,5 +201,15 @@
     box-shadow: 0 1px 1px rgba(0,0,0,0.1);
     margin: 20px;
   }
+}
+.ticket-date-container{
+    width: 90px;
+    min-width: 90px;
+    height: 65px;
+    display: table-cell;
+    vertical-align: middle;
+}
+.ticket-price .price-container{
+  padding: 0;
 }
 
