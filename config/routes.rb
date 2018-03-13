@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get 'edit_email', to: 'users#edit_email'
   get 'edit_bio', to: 'users#edit_bio'
   get 'edit_profile_pic', to: 'users#edit_profile_pic'
+  get "tickets/add_ticket" => 'tickets#add_ticket', :as => :add_ticket
 
   resources :events, only: [:index, :show, :create, :new] do
     resources :tickets, only: [:create, :show]
@@ -22,6 +23,4 @@ Rails.application.routes.draw do
   end
 
   post 'tickets/no_display/:id', to: 'tickets#no_display', as: 'ticket_no_display'
-
-  get "tickets/new" => 'tickets#new', :as => :add_ticket
 end

@@ -24,4 +24,9 @@ class TicketPolicy < ApplicationPolicy
   def no_display?
     return true
   end
+
+  def add_ticket?
+    return true
+  end
+
 end

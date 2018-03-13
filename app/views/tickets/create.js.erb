@@ -1,0 +1,6 @@
+<% if @ticket.persisted? %>
+  window.location = "<%= event_url(@event.id) %>";
+<% else %>
+  document.getElementById("event-modal-<%= @ticket.event.id %>").innerHTML =
+    "<%= j render 'add_ticket', event: @ticket.event, ticket: @ticket %>";
+<% end %>
