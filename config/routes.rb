@@ -22,4 +22,6 @@ Rails.application.routes.draw do
   end
 
   post 'tickets/no_display/:id', to: 'tickets#no_display', as: 'ticket_no_display'
+
+  get "tickets/new" => 'tickets#new', :as => :add_ticket
 end

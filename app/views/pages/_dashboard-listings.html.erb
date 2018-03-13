@@ -50,7 +50,7 @@
                 <div class="price">
                   <p>£<%= ticket.price %></p>
                 </div>
-                <%= link_to '', ticket_no_display_path(ticket.id), method: 'post', class: "fas fa-trash-alt", data: {confirm: "Remove from Dashboard?"} %>
+                <%= link_to '', ticket_no_display_path(ticket.id), method: 'post', class: "fas fa-trash-alt", data: {confirm: "Remove from Dashboard? This will not delete your ticket listing"} %>
 
               </div>
 
@@ -70,7 +70,7 @@
 
 <div class="dashboard-main-section">
   <div class="no-dashboard-info-container">
-    <p>You have no listings, <strong><%=  @current_user.first_name.capitalize %></strong></p>
+    <p>You have no listings, <strong> <%=  @current_user.first_name.capitalize %></strong></p>
   </div>
 </div>
 

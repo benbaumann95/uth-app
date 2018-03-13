@@ -47,26 +47,31 @@
   color: $black;
   a {
     color: $green;
+    font-weight: bold;
   }
   a:hover {
     text-decoration: none;
-    color: $light-green;
+    opacity: 0.8;
   }
 }
 @media (min-width: 768px) {
   .new-ticket-container{
-    padding: 50px 50px;
+    padding: 30px 50px;
   }
 }
 @media (max-width: 767px) {
   .new-ticket-container{
-    padding: 40px 5px;
+    padding: 20px 5px;
   }
 }
 
 .list-ticket-form {
-  display: flex;
-  max-width: 700px;
+  max-width: 900px;
+  -webkit-font-smoothing: antialiased;
+  margin: auto;
+  border-radius: 10px;
+  margin-bottom: 50px;
+  margin-top: 30px;
 }
 
 .algolia-autocomplete {
@@ -88,22 +93,22 @@
 }
 @media (min-width: 768px){
   .event-card{
-  border-radius: 5px;
-  padding: 20px 10px;
-  margin: 20px 10px;
-  background-color: $white;
-  background-size: cover;
-  max-height: 450px;
+    border-radius: 5px;
+    padding: 20px 10px;
+    margin: 20px 10px;
+    background-color: $white;
+    background-size: cover;
+    max-height: 450px;
   }
 }
 @media (max-width: 767px) {
   .event-card{
-  border-radius: 5px;
-  padding: 20px 0px;
-  margin: 20px 0px;
-  background-color: $white;
-  background-size: cover;
-  max-height: 450px;
+    border-radius: 5px;
+    padding: 20px 0px;
+    margin: 20px 0px;
+    background-color: $white;
+    background-size: cover;
+    max-height: 450px;
 
   }
 }
@@ -133,4 +138,34 @@
   position: absolute;
 }
 
+.list-new-event{
+  text-align: right;
+  margin-top: 0;
+  color: $green;
+  font-size: 28px;
+  padding: 5px;
+}
+
+.fa-plus-circle{
+  color: $green;
+  &:hover {
+    opacity: 0.8;
+    cursor: pointer;
+  }
+}
+.sell-ticket-font{
+  color: #D26478;
+  font-weight: bold;
+}
+@media (min-width: 767px) {
+  .list-new-event{
+    font-size: 24px;
+  }
+}
+@media (max-width: 767px) {
+  .list-new-event{
+    font-size: 18px;
+    margin-top: 5px;
+  }
+}
 
