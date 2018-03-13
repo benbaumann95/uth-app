@@ -1,33 +1,30 @@
-<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.5) 50%), url('https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=b5ecaef0464fc50a866e74a6176c3fdc&auto=format&fit=crop&w=1650&q=80');">
+<!-- <div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.5) 50%), url('https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=b5ecaef0464fc50a866e74a6176c3fdc&auto=format&fit=crop&w=1650&q=80');"> -->
 
+<div class="banner" style="background-image: linear-gradient(-180deg, rgba(38,38,38,1)5%, rgba(255,255,255,0) 100%), url('https://images.unsplash.com/photo-1483101974978-cf266fdf1139?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=250711afae03c79108409b3e0fa17862&auto=format&fit=crop&w=2389&q=80');">
   <div class="banner-content-container">
     <div class="banner-content">
-      <p>
-        <span id="banner-typed-text"></span>
-      </p>
-
-
-      <div class="banner-search">
-        <p>
-          <%= form_tag events_path, method: :get, class: 'form-inline search-form' do %>
-          <div class="search-bar-position">
-            <%= text_field_tag :search,
-            params[:search],
-            class: "form-control algolia-search",
-              placeholder: "Know your event?"
-              %>
-          </div>
-        </p>
-
-        <%= submit_tag("Search", class: 'btn btn-primary btn-home-search', id: 'search-button') %>
-        <% end %>
-
-      </div>
+      <h1>UniTixHub</h1>
+      <h2>Buy and Sell tickets. Exclusively for Uni Students.</h2>
+      <span id="banner-typed-text"></span>
+      <div><%= link_to '', '#', class: "fas fa-chevron-down" %></div>
     </div>
   </div>
 </div>
 
 <div class="event-index-container event-index-layout">
+  <h2>Upcoming Events</h2>
+  <div class="cards-home-container">
+    <div class="row">
+      <% @upcoming_events.each do |event| %>
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+          <%= link_to event_path(event.id) do %>
+            <div class="event-index-card-by-venue" style="background-image: url(<%= cl_image_path category_picture(event.category), crop: :fill; %>)"><%= event.name %></div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
   <h2>Popular Locations</h2>
   <div class="cards-home-container">
     <div class="row">
@@ -40,7 +37,6 @@
       <% end %>
     </div>
   </div>
-
 
   <h2>Categories</h2>
   <div class="cards-home-container">
@@ -55,6 +51,16 @@
     </div>
   </div>
 </div>
+
+<div class="home-search">
+  <%= form_tag events_path, method: :get, class: 'form-inline search-form' do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Know your event?",
+    class: "form-control search-bar-position algolia-search"
+    %>
+    <%= submit_tag("Search", class: 'btn btn-primary btn-home-search', id: 'search-button') %>
+  <% end %>
+</div>
+
 
 <div class="footer">
   <div class="footer-links">
