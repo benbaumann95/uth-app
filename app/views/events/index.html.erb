@@ -1,8 +1,8 @@
 <div class="add-navbar-padding">
 
-<h1 class='buy-sell-tickets-header text-center'>Buy tickets for all your favourite events</h1>
-
   <div class="search-bar-query-container">
+    <h1 class='buy-sell-tickets-header'>Find your event and cop a ticket in seconds</h1>
+
     <%= form_tag(events_path(params[:search]), method: 'get', class: 'events-search-bar') do %>
       <%= text_field_tag :search, params[:search], placeholder: "Search by name / city / category...", class: "form-control algolia-search search", :onchange => "this.form.submit();"%>
     <% end %>

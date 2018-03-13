@@ -5,10 +5,10 @@ class EventsController < ApplicationController
     @watchlist = Watchlist.new
     @watchlists = Watchlist.where(user: current_user)
 
-    if (params[:search] == '')
-      @events = policy_scope(Event).where("date_and_time > ?", DateTime.now.midnight - (24/24))
+    if (params[:search].nil? || params[:search] == '')
+      @events = policy_scope(Event).where("date_and_time > ?", DateTime.now.midnight - (24/24)).order(date_and_time: :asc)
     else
-      @events = policy_scope(Event).where("date_and_time > ?", DateTime.now.midnight - (24/24)).search(params[:search])
+      @events = policy_scope(Event).where("date_and_time > ?", DateTime.now.midnight - (24/24)).search(params[:search]).sort_by &:date_and_time
     end
   end
 
@@ -34,9 +34,12 @@ class EventsController < ApplicationController
     @ticket.sold = false
 
     if @ticket.save
-      @event.save
-      authorize @event
-      redirect_to event_path(@event.id)
+      if @event.save
+        authorize @event
+        redirect_to event_path(@event.id)
+      else
+        render :new
+      end
     else
       render :new
     end
