@@ -1,29 +1,29 @@
-
 <div class="profile-container">
   <div class="profile-top-section">
     <div class="profile-header-section">
     </div>
     <div class="profile-avatar">
-      <%= link_to cl_image_tag current_user.photo, height: 120, width: 120, class: 'circle-border' %>
-      <p><%= link_to 'edit', edit_profile_pic_path %></p>
+      <%= cl_image_tag current_user.photo, height: 300, width: 300, class: 'circle-border' %>
+      <p><%= link_to 'Change profile pic', edit_profile_pic_path, class:'small-edit-text-black' %></p>
     </div>
     <div class="profile-name text-center">
-      <p><%= current_user.first_name %> <%=current_user.last_name %><%= link_to 'edit', edit_first_name_path, class: 'small-edit-text' %></p>
+      <p><%= current_user.first_name %> <%=current_user.last_name %>  <%= link_to 'edit', edit_first_name_path, class: 'small-edit-text' %></p>
     </div>
-    <div class="profile-uni text-center">
-      <p><%= current_user.email %> <%= link_to 'edit', edit_email_path, class: 'small-edit-text' %></p>
+    <div class="profile-name text-center">
+      <p><%= current_user.email %>  <%= link_to 'edit', edit_email_path, class: 'small-edit-text' %></p>
+    </div>
+    <div class="profile-bio-head text-center">
+      <p> <strong> Bio </strong> </p>
     </div>
     <div class="profile-bio text-center">
       <p><%= current_user.bio %> <%= link_to 'edit', edit_bio_path, class: 'small-edit-text' %></p>
     </div>
   </div>
   <div class="profile-lower-section">
-
   </div>
   <div class="profile-dashboard-summary">
     <div class="profile-edit-btn text-center">
-       <p><%= link_to "Edit Details", edit_user_registration_path %></p>
-     </div>
+    </div>
   </div>
   <div class="footer-section">
      <div class="profile-back-btn">

@@ -11,28 +11,32 @@
   // -webkit-filter: blur(5px);
 }
 .profile-lower-section{
-  height: 200px;
+  height: 300px;
   width: 400px;
   margin: auto;
   border-radius: 0 0 10px 10px;
-  background: #262626;
+  background: white;
 }
 .profile-avatar{
   text-align: center;
-  padding-top: 50px;
+  padding-top: 10px;
 }
 .circle-border{
-  border: 5px solid;
   border-radius: 50%;
-  border-color: palevioletred;
 }
 .small-edit-text{
-  font-size: 12px;
+  font-size: 15px;
 }
-.profile-bio{
-  background: floralwhite;
-  margin: 0 50px 0 50px;
-  border-radius: 5px;
-  height: 100px;
-  overflow: scroll;
+.profile-name {
+  color: rgb(0,0,0);
+  padding: 10px;
+}
+.profile-bio {
+  color: rgb(0,0,0);
+}
+.profile-bio-head {
+  color: rgb(0,0,0);
+}
+.small-edit-text-black {
+  color:rgb(0,0,0);
 }
