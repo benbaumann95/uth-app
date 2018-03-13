@@ -57,15 +57,21 @@
 
           <div class="event-price" style='text-align: center; padding: 0;'>
             <p class='sell-ticket-font'>Sell ticket</p>
+            <%= link_to "#", data: {toggle: "modal", target: "#event-modal-#{event.id}"}  do %>
             <i class="fas fa-plus-circle fa-2x"></i>
+            <% end %>
           </div>
         </div>
       </div>
+      <div id="event-modal-<%= event.id %>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+        <%= render "add_ticket", event: event, ticket: Ticket.new %>
+      </div>
       <% end %>
     </div>
+    <%=  %>
     <% end %>
 
-    <%= link_to 'Add ticket', new_ticket_path,  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'}  %>
+
 
 
 

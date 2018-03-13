@@ -213,3 +213,22 @@
   padding: 0;
 }
 
+.tickets-for-event-text{
+  padding: 5px 20px;
+  margin: 10px 20px;
+}
+.display-flex{
+  display: flex;
+  justify-content: space-around;
+}
+.fa-calendar-alt:before{
+  padding: 15px;
+}
+.fa-map-marker:before{
+  padding: 15px;
+}
+.space-around-text{
+  padding-bottom: 10px;
+}
+
+
