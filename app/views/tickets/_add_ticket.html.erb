@@ -1,0 +1,20 @@
+<div class="modal-dialog modal-lg" role="document">
+  <div class="modal-content">
+    <h3 class='text-center'><%= event.name %></h3>
+    <h4 class='text-center'><%= event.address.split(',')[0].strip.titleize %>, <%= event.city %></h4>
+    <h5 class='text-center'><%= event.date_and_time.strftime('%a %d %b').upcase %></h5>
+
+    <%= simple_form_for([event, ticket], remote: true) do |t| %>
+      <div class="form-100">
+       <%= t.input :price, placeholder: '£', label: 'Price'%>
+      </div>
+      <div class="form-100">
+       <%= t.input :photo, as: :file, class: 'font-size-smaller' %>
+      </div>
+      <div class="form-100">
+       <%= t.input :description, label: 'Description'%>
+       <%= t.submit "Sell my ticket", class: 'list-btn' %>
+      </div>
+   <% end %>
+  </div>
+</div>

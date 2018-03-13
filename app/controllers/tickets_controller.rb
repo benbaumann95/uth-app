@@ -17,6 +17,11 @@ class TicketsController < ApplicationController
     @ticket = Ticket.new
     authorize @ticket
 
+  end
+
+  def add_ticket
+    @ticket = Ticket.new
+    authorize @ticket
     respond_to do |format|
       format.html
       format.js
@@ -35,9 +40,6 @@ class TicketsController < ApplicationController
     if @ticket.save
       @event.quantity += 1
       @event.save
-      redirect_to event_path(@event.id)
-    else
-      render 'tickets/new'
     end
   end
 

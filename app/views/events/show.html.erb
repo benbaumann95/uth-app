@@ -1,10 +1,16 @@
-<div class="ticket-banner-container">
-  <!--  style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.5) 50%), url(<%= cl_image_path @event.photo_file %> );" -->
-  <div class="show-ticket-container">
-    <div class="banner-venue">
-      <h1><%= @event.name %></h1>
-      <h2><%= @venue %>, <%= @event.city %></h2>
-      <h3><%= @event.date_and_time.strftime('%a %d %b').upcase %></h3>
+
+<div class="show-ticket-container">
+  <div class="banner-venue">
+    <div class="tickets-for-event-text">
+
+      <h1 class='space-around-text'><%= @event.name %></h1>
+      <p>
+        <i class="fas fa-calendar-alt" style="
+    padding: 5px 40px;"> <%= @event.date_and_time.strftime('%a %d %b').upcase %> </i>
+        <i class="fas fa-map-marker"> <%= @venue %>, <%= @event.city %> </i>
+      </p>
+    </div>
+
       <div class="available-tickets-text">
         <% if @event.quantity == 0 %>
         <p>Sorry, there are no tickets currently available! </p>
@@ -15,28 +21,29 @@
         <% end %>
       </div>
 
-      <% if @event.quantity == 0 %>
-      <p class="available-tickets-text">Bookmark the event to be notified when tickets are available</p>
 
+    <% if @event.quantity == 0 %>
+    <p class="available-tickets-text">Bookmark the event to be notified when tickets are available</p>
+
+    <% else %>
+    <div class="container-upcoming-tickets">
+      <% @tickets.each do |ticket| %>
+      <!-- if the current user is the ticket lister, we display it but don't make it a link -->
+      <% if current_user != ticket.user %>
+      <%= link_to ticket_bookings_path(ticket.id), method: :post do %>
+      <%= render 'ticket_row', ticket: ticket, myclass: '' %>
+      <% end %>
       <% else %>
-      <div class="container-upcoming-tickets">
-        <% @tickets.each do |ticket| %>
-        <!-- if the current user is the ticket lister, we display it but don't make it a link -->
-        <% if current_user != ticket.user %>
-        <%= link_to ticket_bookings_path(ticket.id), method: :post do %>
-        <%= render 'ticket_row', ticket: ticket, myclass: '' %>
-        <% end %>
-        <% else %>
-        <%= render 'ticket_row', ticket: ticket, myclass: 'own-ticket' %>
-        <% end %>
-        <% end %>
-      </div>
+      <%= render 'ticket_row', ticket: ticket, myclass: 'own-ticket' %>
+      <% end %>
       <% end %>
     </div>
-
-    <div id="map" data-markers="<%= @markers.to_json %>"></div>
+    <% end %>
   </div>
+
+  <div id="map" data-markers="<%= @markers.to_json %>"></div>
 </div>
+
 
 
 <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?libraries=places&key=#{ENV['GOOGLE_API_BROWSER_KEY']}" %>

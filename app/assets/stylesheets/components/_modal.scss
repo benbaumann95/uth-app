@@ -1,0 +1,23 @@
+#modal-window {
+  width: 50%;
+  margin: auto;
+  background: white;
+}
+
+.modal-content {
+  border-radius: 10px;
+  margin: auto;
+}
+@media (min-width: 768px) {
+ .modal-content {
+  padding: 20px;
+  width: 500px;
+  height: 550px;
+}
+}
+@media (max-width: 767px) {
+ .modal-content {
+  padding: 5px;
+  height: 450px;
+}
+}
