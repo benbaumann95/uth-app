@@ -2,22 +2,14 @@ class EventsController < ApplicationController
   skip_before_action :authenticate_user!, except: [:create, :new]
 
   def index
-
     @watchlist = Watchlist.new
-    @events = policy_scope(Event)
     @watchlists = Watchlist.where(user: current_user)
 
-    if !params[:search_category].nil?
-      @events = policy_scope(Event).where("category = ?", params[:search_category])
-    elsif !params[:search_city].nil?
-      @events = policy_scope(Event).where("city = ?", params[:search_city])
-    elsif !params[:search].nil?
-      @events = policy_scope(Event).search(params[:search])
+    if (params[:search] == '')
+      @events = policy_scope(Event).where("date_and_time > ?", DateTime.now.midnight - (24/24))
     else
-      @events = policy_scope(Event).where("date_and_time > ?", (DateTime.now - 24))
+      @events = policy_scope(Event).where("date_and_time > ?", DateTime.now.midnight - (24/24)).search(params[:search])
     end
-
-
   end
 
   def new

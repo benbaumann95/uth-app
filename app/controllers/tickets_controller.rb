@@ -9,10 +9,10 @@ class TicketsController < ApplicationController
   end
 
   def new
-    if params[:search_event] != nil
-      @events = Event.where("date_and_time >= ?", DateTime.now - 24).search(params[:search_event])
+    if params[:search_event] != ''
+      @events = Event.where("date_and_time >= ?", DateTime.now.midnight - (24/24)).search(params[:search_event])
     else
-      @events = Event.where("date_and_time >= ?", DateTime.now - 24)
+      @events = Event.where("date_and_time >= ?", DateTime.now.midnight - (24/24))
     end
     @ticket = Ticket.new
     authorize @ticket

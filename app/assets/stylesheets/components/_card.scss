@@ -16,40 +16,69 @@
 
 .event-index-container{
   h2 {
-    text-align: center;
-    margin: 20px 0;
-    color: $black;
+    padding: 20px 20px;
+    margin: 0;
+    color: $navbar-gray;
     font-weight: bold;
+    position: relative;
   }
 }
-.cards-home-container {
-  background-color: $white;
+.event-cards-home-container {
+  a {
+    color: $navbar-gray;
+  }
   a:hover {
     text-decoration: none;
-    color: $light-green;
+  }
+}
+.location-cards-home-container {
+  a {
+    color: $white;
+  }
+  a:hover {
+    text-decoration: none;
   }
 }
 
-.event-index-card-by-venue{
+.home-location-cards {
   background-size: cover;
   opacity: 0.9;
   min-height: 200px;
   min-width: 250px;
   padding: 0 0;
   margin: 20px 10px;
-  border: solid 0.4px $green;
   border-radius: 5px;
   padding: 15px 20px;
-  box-shadow: 10px 15px 40px 0 rgba(0,0,0,.15);
+  box-shadow: 10px 15px 40px 0 rgba(0,0,0,.2);
   font-size: 30px;
   font-weight: bold;
   &:hover{
-    box-shadow: 20px 30px 80px 0 rgba(0, 0, 0, 0.15);
+    box-shadow: 20px 30px 80px 0 rgba(0, 0, 0, 0.2);
     transition: all .15s ease-in-out;
     -ms-transform: scale(1.05);
     -webkit-transform: scale(1.05);
     transform: scale(1.05);
   }
+}
+
+.home-event-cards {
+  background-size: cover;
+  opacity: 0.9;
+  min-height: 200px;
+  min-width: 250px;
+  margin: 20px 0px;
+  border-radius: 5px;
+  box-shadow: 10px 15px 40px 0 rgba(0,0,0,.2);
+  &:hover{
+    box-shadow: 20px 30px 80px 0 rgba(0, 0, 0, 0.2);
+    transition: all .15s ease-in-out;
+    -ms-transform: scale(1.05);
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
+  }
+}
+.event-card-content p {
+  color: $navbar-gray;
 }
 
 .venue-name-link-text{

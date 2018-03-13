@@ -28,6 +28,9 @@
 
 .navbar-wagon-brand{
   text-decoration:none !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @media (max-width: 767px) {
@@ -44,6 +47,7 @@
 }
 .navbar-wagon-brand:hover {
   text-decoration: none;
+  color: $green;
 }
 
 /* User Avatar */
@@ -134,5 +138,6 @@
 
 }
 .unitix-logo-name{
-  height: 25px !important;
+  font-weight: bold;
+  font-size: 24px;
 }
