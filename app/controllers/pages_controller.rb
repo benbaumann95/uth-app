@@ -30,6 +30,6 @@ class PagesController < ApplicationController
     "Society",
     "Socials"
     ]
-    @upcoming_events = Event.order(date_and_time: :desc).limit(4)
+    @upcoming_events = Event.order(date_and_time: :desc).limit(6)
   end
 end

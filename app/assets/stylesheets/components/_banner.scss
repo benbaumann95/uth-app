@@ -1,3 +1,7 @@
+.home-page {
+  background-color: $white;
+}
+
 .banner {
   color: white;
   text-align: center;
@@ -57,7 +61,10 @@
     background-color: $light-green;
   }
 }
-
+.upcoming {
+}
+.popular-cities {
+}
 // Ticket Banner //
 
 .ticket-banner-container {
@@ -81,6 +88,7 @@
     flex-grow: 1;
     height: 200px;
   }
+
 @media (min-width: 924px) {
 
 }

@@ -1,77 +1,80 @@
 <!-- <div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.5) 50%), url('https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=b5ecaef0464fc50a866e74a6176c3fdc&auto=format&fit=crop&w=1650&q=80');"> -->
-
-<div class="banner" style="background-image: linear-gradient(-180deg, rgba(38,38,38,1)5%, rgba(255,255,255,0) 100%), url('https://images.unsplash.com/photo-1483101974978-cf266fdf1139?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=250711afae03c79108409b3e0fa17862&auto=format&fit=crop&w=2389&q=80');">
-  <div class="banner-content-container">
-    <div class="banner-content">
-      <h1>UniTixHub</h1>
-      <h2>Buy and Sell tickets. Exclusively for Uni Students.</h2>
-      <span id="banner-typed-text"></span>
-      <div><%= link_to '', '#', class: "fas fa-chevron-down" %></div>
+<div class="home-page">
+  <div class="banner" style="background-image: linear-gradient(-180deg, rgba(38,38,38,1)5%, rgba(255,255,255,0) 100%), url('https://images.unsplash.com/photo-1483101974978-cf266fdf1139?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=250711afae03c79108409b3e0fa17862&auto=format&fit=crop&w=2389&q=80');">
+    <div class="banner-content-container">
+      <div class="banner-content">
+        <h1>UniTixHub</h1>
+        <h2>Buy and Sell tickets. Exclusively for Uni Students.</h2>
+        <span id="banner-typed-text"></span>
+        <div><%= link_to '', '#home-content', class: "fas fa-chevron-down" %></div>
+      </div>
     </div>
   </div>
-</div>
 
-<div class="event-index-container event-index-layout">
-  <h2>Upcoming Events</h2>
-  <div class="cards-home-container">
-    <div class="row">
-      <% @upcoming_events.each do |event| %>
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-          <%= link_to event_path(event.id) do %>
-            <div class="event-index-card-by-venue" style="background-image: url(<%= cl_image_path category_picture(event.category), crop: :fill; %>)"><%= event.name %></div>
-          <% end %>
+  <div class="event-index-container event-index-layout" id="home-content">
+    <div class="upcoming">
+      <div class="event-cards-home-container">
+        <div class="container">
+          <h2>Upcoming Events</h2>
+          <div class="row">
+            <% @upcoming_events.each do |event| %>
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                <%= link_to event_path(event.id) do %>
+                  <div class="home-event-cards" style="background-image: url(<%= cl_image_path category_picture(event.category), crop: :fill; %>)">
+                  </div>
+                  <div class="event-card-content">
+                    <p><%= event.name %></p>
+                    <p><%= event.date_and_time %></p>
+                    <p><%= event.address %></p>
+                  </div>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
         </div>
-      <% end %>
+      </div>
     </div>
-  </div>
 
-  <h2>Popular Locations</h2>
-  <div class="cards-home-container">
-    <div class="row">
-      <% @cities.each do |city| %>
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-          <%= link_to events_path(search_city: city) do %>
-            <div class="event-index-card-by-venue" style="background-image: url(<%= cl_image_path city_picture(city), crop: :fill; %>)"><%= city %></div>
-          <% end %>
+    <div class="popular-cities">
+      <div class="location-cards-home-container">
+        <div class="container">
+          <h2>Popular Locations</h2>
+          <div class="row">
+            <% @cities.each do |city| %>
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                <%= link_to events_path(search_city: city) do %>
+                  <div class="home-location-cards" style="background-image: linear-gradient(-250deg, rgba(0,0,0,0.4) 31%, rgba(0,0,0,0.1) 85%), url(<%= cl_image_path city_picture(city), crop: :fill; %>)"><%= city %></div>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
         </div>
-      <% end %>
+      </div>
     </div>
   </div>
 
-  <h2>Categories</h2>
-  <div class="cards-home-container">
-    <div class="row">
-      <% @categories.each do |category| %>
-        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
-          <%= link_to events_path(search_category: category) do %>
-            <div class="event-index-card-by-venue" style="background-image: linear-gradient(-250deg, rgba(0,0,0,0.6) 31%, rgba(0,0,0,0.4) 85%), url(<%= cl_image_path category_picture(category) %>)" ><%= category %></div>
-          <% end %>
-        </div>
-      <% end %>
+  <div class="home-search">
+    <%= form_tag events_path, method: :get, class: 'form-inline search-form' do %>
+      <%= text_field_tag :search, params[:search], placeholder: "Looking for a particular event?",
+      class: "form-control search-bar-position algolia-search"
+      %>
+      <%= submit_tag("Search", class: 'btn btn-primary btn-home-search', id: 'search-button') %>
+    <% end %>
+  </div>
+
+
+  <div class="footer">
+    <div class="footer-links">
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+    </div>
+    <div class="footer-copyright">
+      <i class="fa fa-heart"></i>
+      <span class='footer-text'>UniTix © Ben, Amresh, Cheryl 2018</span>
     </div>
   </div>
-</div>
 
-<div class="home-search">
-  <%= form_tag events_path, method: :get, class: 'form-inline search-form' do %>
-    <%= text_field_tag :search, params[:search], placeholder: "Know your event?",
-    class: "form-control search-bar-position algolia-search"
-    %>
-    <%= submit_tag("Search", class: 'btn btn-primary btn-home-search', id: 'search-button') %>
-  <% end %>
-</div>
-
-
-<div class="footer">
-  <div class="footer-links">
-    <a href="#"><i class="fab fa-instagram"></i></a>
-    <a href="#"><i class="fab fa-facebook"></i></a>
-    <a href="#"><i class="fab fa-twitter"></i></a>
-  </div>
-  <div class="footer-copyright">
-    <i class="fa fa-heart"></i>
-    <span class='footer-text'>UniTix © Ben, Amresh, Cheryl 2018</span>
-  </div>
 </div>
 
  <!-- Include AlgoliaSearch JS Client and autocomplete.js library -->
