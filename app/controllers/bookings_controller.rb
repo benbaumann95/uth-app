@@ -11,18 +11,19 @@ class BookingsController < ApplicationController
 
     if @booking.user != @ticket.user
       @booking.ticket = @ticket
-      @booking.save
 
-      @event = @ticket.event
-      @event.quantity -= 1
-      @event.save
+      if @booking.save
+        @event = @ticket.event
+        @event.quantity -= 1
+        @event.save
 
-      @ticket.sold = true
-      @ticket.save
-      UserMailer.ticket_purchased(@ticket).deliver_now
-      UserMailer.purchase(current_user, @ticket).deliver_now
+        @ticket.sold = true
+        @ticket.save
+        UserMailer.ticket_purchased(@ticket).deliver_now
+        UserMailer.purchase(current_user, @ticket).deliver_now
 
-      redirect_to dashboard_path
+        redirect_to dashboard_path
+      end
     end
   end
 

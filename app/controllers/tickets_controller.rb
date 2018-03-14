@@ -40,7 +40,6 @@ class TicketsController < ApplicationController
     if @ticket.save
       @event.quantity += 1
       @event.save
-
     end
   end
 
