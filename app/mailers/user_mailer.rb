@@ -17,9 +17,9 @@ class UserMailer < ApplicationMailer
     mail to: user.email, subject: "Unitix: Thank you for your purchase!"
   end
 
-  def listing(user, ticket)
-    @user = user
-    @ticket2 = ticket
-    mail to: user.email, subject: "Unitix: ticket listing confirmation"
+  def ticket_purchased(ticket)
+    @user = ticket.user
+    @ticket = ticket
+    mail to: @user.email, subject: "Unitix: your ticket has been sold!"
   end
 end
