@@ -26,7 +26,9 @@
             <div class="price">
             <strong>£<%= ticket.price %></strong>
             </div>
+            <%= link_to ticket_bookings_path(ticket.id), method: :post do %>
             <i class="fas fa-shopping-cart fa-2x"></i>
+            <% end %>
           </div>
 
       </div>

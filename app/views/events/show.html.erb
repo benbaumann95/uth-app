@@ -30,9 +30,7 @@
       <% @tickets.each do |ticket| %>
       <!-- if the current user is the ticket lister, we display it but don't make it a link -->
       <% if current_user != ticket.user %>
-      <%= link_to ticket_bookings_path(ticket.id), method: :post do %>
       <%= render 'ticket_row', ticket: ticket, myclass: '' %>
-      <% end %>
       <% else %>
       <%= render 'ticket_row', ticket: ticket, myclass: 'own-ticket' %>
       <% end %>
@@ -50,3 +48,6 @@
 <%= javascript_pack_tag "map" %>
 
 <%= javascript_pack_tag "event-show" %>
+<% if params[:redirect_success] == "true" %>
+  <%= javascript_pack_tag "sweet-alert" %>
+<% end %>

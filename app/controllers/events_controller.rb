@@ -23,7 +23,7 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
     @event.quantity = 1
 
-    @event.city = @event.address.split(',')[-2].strip
+    @event.city = @event.address.split(',')[-2]&.strip
 
     @ticket = Ticket.new(ticket_params)
     authorize @ticket
@@ -36,7 +36,7 @@ class EventsController < ApplicationController
     if @ticket.save
       if @event.save
         authorize @event
-        redirect_to event_path(@event.id)
+        redirect_to event_path(@event.id, redirect_success: "true")
       else
         render :new
       end
