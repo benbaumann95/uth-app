@@ -17,12 +17,14 @@ class Event < ApplicationRecord
     "Socials"
   ] }
   validates :date_and_time, presence: true
+  validates_uniqueness_of :name, scope: [:date_and_time, :address], message: "An event already exists for this date and venue."
 
   include AlgoliaSearch
 
   algoliasearch do
     attribute :name, :city, :category
     searchableAttributes ['name', 'city', 'category']
+    ranking ['asc(date_and_time)']
   end
 
    def photo_file

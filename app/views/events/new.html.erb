@@ -1,23 +1,8 @@
 <div class="container">
   <% if current_user[:photo] == nil  %>
-    <h1> Please upload a profile photo</h1>
+    <h1>Please upload a profile photo</h1>
     <% render 'edit_form' %>
   <% else %>
-    <% if @event.errors.any? %>
-      <ul>
-        <% @event.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-        <% end %>
-      </ul>
-    <% end %>
-    <% if @ticket.errors.any? %>
-      <ul>
-        <% @ticket.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-        <% end %>
-      </ul>
-    <% end %>
-
     <div class="container" style=" padding: 10px 0px 10px 0;">
       <%= render 'list_form', event: @event, ticket: @ticket %>
 
@@ -28,6 +13,5 @@
  <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?libraries=places&key=#{ENV['GOOGLE_API_BROWSER_KEY']}" %>
  <%= javascript_pack_tag "form" %>
 
-<script>
 
 
