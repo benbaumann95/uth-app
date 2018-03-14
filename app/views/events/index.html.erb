@@ -46,7 +46,7 @@
               <div class="event-link-to-show-page">
                 <div class="display-flex">
                 <p><%= link_to event.name, event_path(event.id) %> </p>
-                <p class = 'event-category-box'><%= event.category %></p>
+                  <p class="<%= colour_filter(event.category) %>"><%= event.category %></p>
                 </div>
               </div>
               <div class="event-details">

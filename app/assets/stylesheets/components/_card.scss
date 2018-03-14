@@ -1,22 +1,7 @@
-@media (min-width: 1025px){
-  .event-index-container{
-    // padding: 0 100px;
-  }
-}
-@media (min-width: 768px) and (max-width: 1024px) {
-  .event-index-container{
-    // padding: 0 50px;
-  }
-}
-@media (min-width: 320px) and (max-width: 767px) {
-  .event-index-container{
-    // padding: 0 15px;
-  }
-}
 
 .event-index-container{
   h2 {
-    padding: 20px 20px;
+    padding: 40px 20px;
     margin: 0;
     color: $navbar-gray;
     font-weight: bold;
@@ -55,9 +40,9 @@
   &:hover{
     box-shadow: 20px 30px 80px 0 rgba(0, 0, 0, 0.2);
     transition: all .15s ease-in-out;
-    -ms-transform: scale(1.05);
-    -webkit-transform: scale(1.05);
-    transform: scale(1.05);
+    -ms-transform: scale(1.03);
+    -webkit-transform: scale(1.03);
+    transform: scale(1.03);
   }
 }
 
@@ -66,20 +51,21 @@
   opacity: 0.9;
   min-height: 200px;
   min-width: 250px;
-  margin: 20px 0px;
-  border-radius: 5px;
-  box-shadow: 10px 15px 40px 0 rgba(0,0,0,.2);
-  &:hover{
-    box-shadow: 20px 30px 80px 0 rgba(0, 0, 0, 0.2);
-    transition: all .15s ease-in-out;
-    -ms-transform: scale(1.05);
-    -webkit-transform: scale(1.05);
-    transform: scale(1.05);
-  }
+  margin: 0px 0px;
+  border-radius: 5px 5px 0 0;
+  box-shadow: 10px 15px 40px 0 rgba(0,0,0,0.1);
+
 }
-.event-card-content p {
+.event-card-content {
   color: $navbar-gray;
+  border: 1px solid lightgrey;
+  border-top: none;
+  padding: 0px 20px;
+  border-radius: 0 0 5px 5px;
+  padding-top: 15px;
+  font-size: 16px;
 }
+
 
 .venue-name-link-text{
   color: $green !important;
@@ -87,4 +73,21 @@
   &:hover{
     text-decoration: none;
   }
+}
+
+.event-card-padding{
+  padding-bottom: 20px;
+  &:hover{
+    // box-shadow: 20px 30px 80px 0 rgba(0, 0, 0, 0.2);
+    transition: all .2s ease-in-out;
+    -ms-transform: scale(1.015);
+    -webkit-transform: scale(1.015);
+    transform: scale(1.015);
+    opacity: 0.9;
+  }
+}
+.event-date-padding{
+  padding: 5px;
+  color: #FFF;
+  text-shadow: 1px 1.5px black;
 }

@@ -22,14 +22,17 @@
           <% end %>
           <div class="row">
             <% @upcoming_events.each do |event| %>
-              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 event-card-padding">
                 <%= link_to event_path(event.id) do %>
                   <div class="home-event-cards" style="background-image: url(<%= cl_image_path category_picture(event.category), crop: :fill; %>)">
+                    <div class="display-flex-space-between">
+                      <p class='event-date-padding'><strong><%= event.date_and_time.strftime('%d %b') %></strong></p>
+                      <p class="<%= colour_filter(event.category) %>" style='font-weight:bold; margin: 5px; text-shadow: 0.5px 0.5px black;'><%= event.category %></p>
+                    </div>
                   </div>
-                  <div class="event-card-content">
+                  <div class="event-card-content ">
                     <p><%= event.name %></p>
-                    <p><%= event.date_and_time %></p>
-                    <p><%= event.address %></p>
+                    <p><i class="fas fa-map-marker-alt lightslategrey" style='padding-right:10px;'></i><%= event.city %></p>
                   </div>
                 <% end %>
               </div>

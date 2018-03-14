@@ -3,21 +3,18 @@
   <div class="banner-venue">
     <div class="tickets-for-event-text">
 
-      <h1 class='space-around-text'><%= @event.name %></h1>
-      <p>
-        <i class="fas fa-calendar-alt" style="
-    padding: 5px 40px;"> <%= @event.date_and_time.strftime('%a %d %b').upcase %> </i>
-        <i class="fas fa-map-marker"> <%= @venue %>, <%= @event.city %> </i>
-      </p>
+      <h1 class='space-around-text lightslategrey'><%= @event.name %></h1>
+        <i class="fas fa-calendar-alt"></i><strong><%= @event.date_and_time.strftime('%a %d %b').upcase %></strong>
+        <i class="fas fa-map-marker"></i><strong><%= @venue %>, <%= @event.city %></strong>
     </div>
 
       <div class="available-tickets-text">
         <% if @event.quantity == 0 %>
         <p>Sorry, there are no tickets currently available! </p>
         <% elsif @event.quantity == 1 %>
-        <p>Only <strong><%= @event.quantity %></strong> ticket remaining!</p>
+        <p class='indianred'>Only <strong><%= @event.quantity %></strong> ticket remaining!</p>
         <% else %>
-        <p>There are <strong><%= @event.quantity %></strong> tickets for this event remaining.</p>
+        <p class='cadetblue'>There are <strong><%= @event.quantity %></strong> tickets for this event remaining.</p>
         <% end %>
       </div>
 
