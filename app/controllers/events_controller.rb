@@ -21,7 +21,6 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
-    @event.quantity = 1
 
     @event.city = @event.address.split(',')[-2]&.strip
 
@@ -33,13 +32,12 @@ class EventsController < ApplicationController
     @ticket.display_flag = true
     @ticket.sold = false
 
-    if @ticket.save
-      if @event.save
-        authorize @event
-        redirect_to event_path(@event.id, redirect_success: "true")
-      else
-        render :new
-      end
+    if @event.valid?
+      @ticket.save
+      @event.quantity = 3
+      @event.save
+      authorize @event
+      redirect_to event_path(@event.id, redirect_success: "true")
     else
       render :new
     end
