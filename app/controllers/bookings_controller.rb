@@ -19,10 +19,9 @@ class BookingsController < ApplicationController
 
         @ticket.sold = true
         @ticket.save
+        redirect_to dashboard_path
         UserMailer.ticket_purchased(@ticket).deliver_now
         UserMailer.purchase(current_user, @ticket).deliver_now
-
-        redirect_to dashboard_path
       end
     end
   end
