@@ -66,6 +66,6 @@ class EventsController < ApplicationController
   end
 
   def ticket_params
-    params[:event].require(:ticket).permit(:photo, :event_id, :display_flag, :user_id, :price, :description, :sold)
+    params[:event].require(:ticket).permit(:photo, :event_id, :display_flag, :user_id, :pricing, :description, :sold)
   end
 end

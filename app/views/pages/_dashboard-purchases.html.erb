@@ -55,7 +55,7 @@
                   Bought for
                 </div>
                 <div class="price">
-                  £<%= booking.ticket.price %>
+                  <%= humanized_money_with_symbol(booking.ticket.pricing) %>
                 </div>
                 <div class='booking-ticket-date'>on <%=booking.ticket.created_at.to_date.strftime('%b %d')%></div>
 
