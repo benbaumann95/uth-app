@@ -50,3 +50,6 @@
 <%= javascript_pack_tag "map" %>
 
 <%= javascript_pack_tag "event-show" %>
+<% if params[:redirect_success] == "true" %>
+  <%= javascript_pack_tag "sweet-alert" %>
+<% end %>

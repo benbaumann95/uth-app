@@ -8,8 +8,12 @@
     <%= t.input :price, placeholder: '£', label: 'Price'%>
   </div>
   <div class="form-50 add-ticket-container">
-    <%= t.submit "List", class: 'list-btn' %>
+    <%= t.submit "List", class: 'list-btn', id:"sweet-alert-sell-ticket"%>
   </div>
 </div>
 
+<% end %>
+
+<% if params[:redirect_success] == "true" %>
+  <%= javascript_pack_tag "sweet-alert" %>
 <% end %>

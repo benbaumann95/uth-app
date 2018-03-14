@@ -9,3 +9,5 @@ function loadDynamicBannerText() {
 }
 
 export { loadDynamicBannerText };
+
+
