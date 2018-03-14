@@ -54,6 +54,10 @@ class Devise::SessionsController < DeviseController
 
   private
 
+  def after_sign_out_path_for(resource_or_scope)
+  stored_location_for(resource_or_scope) || super
+  end
+
   # Check if there is no signed in user before doing the sign out.
   #
   # If there is no signed in user, it will set the flash message and redirect

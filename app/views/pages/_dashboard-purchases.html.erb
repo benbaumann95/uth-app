@@ -30,7 +30,6 @@
                   <div class="text-center view-text-ticket">
                     <%= link_to "view", booking.ticket.photo.url %>
                   </div>
-
                   <%end %>
                 </div>
               </div>
@@ -38,7 +37,9 @@
               <div class="dashboard-description">
                 <div class="dashboard-description-container">
                   <div class="dashboard-link-to-show-page">
+                    <%= link_to event_path(booking.ticket.event_id) do %>
                     <p><%= booking.ticket.event.name %> @ <%= booking.ticket.event.address %></p>
+                    <% end %>
                   </div>
                   <div class="dashboard-details">
                     <p><strong><%=booking.ticket.event.date_and_time.strftime('%a %d %b') %></strong></p>
