@@ -7,7 +7,7 @@ class WatchlistPolicy < ApplicationPolicy
 
 
   def create?
-    record.user == user
+   true
   end
 
   def destroy
