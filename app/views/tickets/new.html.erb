@@ -1,69 +1,72 @@
 <div class="add-navbar-padding">
+
   <div class="new-ticket-container">
     <% if current_user[:photo] == nil  %>
-       <%= render 'edit_form' %>
+      <%= render 'edit_form' %>
     <% else %>
-    <% if @ticket.errors.any? %>
-      <ul>
-        <% @ticket.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-        <% end %>
-      </ul>
-    <% end %>
-
-    <%= form_tag(new_ticket_path, method: 'get', class: 'list-ticket-form') do %>
-    <%= text_field_tag :search_event, params[:search_event], placeholder: "Check if your event exists...", class: "form-control algolia-search", :onchange => "this.form.submit();" %>
-    <% end %>
-
-    <h6><%= link_to "Can't Find Your Event?", new_event_path %></h6>
-
-    <div class="search-results">
-      <% if @events != nil %>
-      <div class="row">
-        <% @events.each do |event| %>
-        <div class="col-xs-12 col-md-6 col-lg-6">
-          <div class="event-card" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.3) 0%, rgba(0,36,61,0.5) 50%), url(<%= cl_image_path(event.photo_file, crop: :fill, ) %>)">
-            <div class="event-text">
-              <h4><strong><%= event.name %></strong> @ <%= event.city %></h4>
-              <h5><%= event.date_and_time.strftime('%a %d %b %Y') %></h5>
-              <p><%= link_to " (My event is on another date)", new_event_path(content: "hello") %></p>
-
-              <% if event.quantity <= 0 %>
-                <p>Tickets for this event have sold out!</p>
-              <% elsif event.quantity == 1 %>
-                <p><%= event.quantity %> ticket is currently
-                listed at
-              <% ticket_price_array = [] %>
-                <% event.tickets.each do |ticket| %>
-              <% ticket_price_array << ticket.price %>
-              <% end %>
-              <% if ticket_price_array.count >= 1 && event.quantity != 0 %>
-              £<strong><%= ticket_price_array.min %></strong></p>
-              <% end %>
-              <% else %>
-              <p><%= event.quantity %> tickets are currently listed,</p>
-              lowest starting at
-              <% ticket_price_array = [] %>
-                <% event.tickets.each do |ticket| %>
-              <% ticket_price_array << ticket.price %>
-              <% end %>
-              <% if ticket_price_array.count >= 1 && event.quantity > 0 %>
-              £<strong><%= ticket_price_array.min %></strong></p>
-              <% end %>
-              <% end %>
-            </div>
-
-            <%= render 'list_ticket_form', event: event, ticket: @ticket %>
-          </div>
-        </div>
+      <% if @ticket.errors.any? %>
+        <ul>
+          <% @ticket.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+          <% end %>
+        </ul>
+      <% end %>
+      <div class="search-bar-query-container">
+        <h1 class='buy-sell-tickets-header'>Change of plans? Find / create your event to sell your ticket now!</h1>
+        <%= form_tag(new_ticket_path, method: 'get', class: 'list-ticket-form') do %>
+          <%= text_field_tag :search_event, params[:search_event], placeholder: "Check if your event exists...", class: "form-control algolia-search search", :onchange => "this.form.submit();" %>
         <% end %>
       </div>
-      <% end %>
-    </div>
-    <% end %>
-  </div>
-</div>
 
+      <div class="container-upcoming-events">
+        <div class="container-header-section">
+          <div class="container-header-text">
+            <h3 class='list-new-event'><%= link_to "Can't Find Your Event?", new_event_path %></h3>
+          </div>
+        </div>
+
+        <% @events.each do |event| %>
+        <div class="container-body">
+          <div class="event-grouped-container">
+            <div class="event-group-unique">
+              <div class="event-date" >
+                <div class="event-date-container">
+                  <div class="date-event-day">
+                    <%= event.date_and_time.strftime('%a') %>
+                  </div>
+                  <div class="date-event-month-date">
+                    <%= event.date_and_time.strftime('%d %b') %>
+                  </div>
+                </div>
+              </div>
+
+              <div class="event-description">
+                <div class="event-description-container">
+                  <div class="event-link-to-show-page">
+                    <%= link_to event.name, event_path(event.id) %>
+                  </div>
+                  <div class="event-details">
+                    <%= event.address %>
+                  </div>
+                </div>
+              </div>
+
+              <div class="event-watch"></div>
+
+              <div class="event-price" style='text-align: center; padding: 0;'>
+                <p class='sell-ticket-font'>Sell ticket</p>
+                <%= link_to "#", data: {toggle: "modal", target: "#event-modal-#{event.id}"}  do %>
+                <i class="fas fa-plus-circle fa-2x"></i>
+                <% end %>
+              </div>
+            </div>
+          </div>
+          <div id="event-modal-<%= event.id %>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+            <%= render "add_ticket", event: event, ticket: Ticket.new %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
 
 <!-- Include AlgoliaSearch JS Client and autocomplete.js library -->
 <script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
