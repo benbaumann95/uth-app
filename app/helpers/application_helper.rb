@@ -51,7 +51,7 @@ module ApplicationHelper
       when "Concert" then "event-category-box lightcoral"
       when "Festival" then 'event-category-box coral'
       when "Travel" then 'event-category-box lightslategrey'
-      when "Sport" then  'event-category-box aliceblue'
+      when "Sport" then  'event-category-box lawngreen'
       when "Socials" then 'event-category-box cadetblue'
       when "Theatre" then 'event-category-box lightseagreen'
       when "House party" then 'event-category-box darkred'
