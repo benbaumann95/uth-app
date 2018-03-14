@@ -6,7 +6,9 @@
         <h1>UniTixHub</h1>
         <h2>Buy and Sell tickets. Exclusively for Uni Students.</h2>
         <span id="banner-typed-text"></span>
-        <div><%= link_to '', '#home-content', class: "fas fa-chevron-down" %></div>
+        <div>
+          <%= link_to '', '#home-content', class: "fas fa-chevron-down" %>
+        </div>
       </div>
     </div>
   </div>
@@ -15,9 +17,7 @@
     <div class="upcoming">
       <div class="event-cards-home-container">
         <div class="container">
-          <% if !@upcoming_events.nil? %>
-            <h2>Upcoming Events</h2>
-          <% end %>
+          <h2>Upcoming Events</h2>
           <div class="row">
             <% @upcoming_events.each do |event| %>
               <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
@@ -40,14 +40,13 @@
     <div class="popular-cities">
       <div class="location-cards-home-container">
         <div class="container">
-          <% if !@cities.nil? %>
-            <h2>Popular Locations</h2>
-          <% end %>
+          <h2>Popular Locations</h2>
           <div class="row">
             <% @cities.each do |city| %>
               <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                 <%= link_to events_path(search_city: city) do %>
-                  <div class="home-location-cards" style="background-image: linear-gradient(-250deg, rgba(0,0,0,0.4) 31%, rgba(0,0,0,0.1) 85%), url(<%= cl_image_path city_picture(city), crop: :fill; %>)"><%= city %></div>
+                  <div class="home-location-cards" style="background-image: linear-gradient(-250deg, rgba(0,0,0,0.4) 31%, rgba(0,0,0,0.1) 85%), url(<%= cl_image_path city_picture(city), crop: :fill; %>)"><%= city %>
+                  </div>
                 <% end %>
               </div>
             <% end %>

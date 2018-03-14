@@ -95,7 +95,7 @@
 .event-description-container{
   vertical-align: top;
 }
-.event-link-to-show-page{
+.event-link-to-show-page p:first-child{
   color: #4cb289;
   font-size: 18px;
   text-decoration: none;
@@ -108,14 +108,10 @@
     text-decoration: none;
   }
 }
-@media (min-width: 767px) {
-  .event-link-to-show-page{
-    font-size: 18px;
-  }
-}
+
 @media (max-width: 767px) {
-  .event-link-to-show-page{
-    font-size: 12px;
+  .event-link-to-show-page p:first-child{
+    font-size: 10px;
   }
 }
 .event-details{
@@ -181,6 +177,23 @@
   .buy-sell-tickets-header{
     font-size: 16px;
     padding: 5px;
+  }
+}
+.event-category-box{
+  color: lightslategrey;
+  font-size: 10px;
+  margin-left: 20px;
+  padding: 4px 4px 1px 4px;
+  border: 0.8px solid;
+  border-radius: 5px;
+  text-transform: uppercase;
+}
+@media (max-width: 767px){
+  .event-category-box{
+    font-size: 5px;
+    margin-left: 5px;
+    padding-top: 3px;
+    margin-top: -1.5px;
   }
 }
 
