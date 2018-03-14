@@ -33,8 +33,10 @@
               <div class="dashboard-description">
                 <div class="dashboard-description-container">
                   <div class="dashboard-link-to-show-page">
-                    <p><%= ticket.event.name %> </p>
-                  </div>
+                    <%= link_to event_path(ticket.event_id) do  %>
+                    <p><%= ticket.event.name %>
+                    <% end %>
+                   </div>
                    <p class="ticket-event-address-text"><%=ticket.event.address %></p>
                   <div class="dashboard-details">
                     <p><%= ticket.description %></p>
@@ -49,7 +51,7 @@
                   Listed at
                 </div>
                 <div class="price">
-                  <p>£<%= ticket.price %></p>
+                  <p><%= humanized_money_with_symbol(ticket.pricing) %></p>
                 </div>
                 <%= link_to '', ticket_no_display_path(ticket.id), method: 'post', class: "fas fa-trash-alt", data: {confirm: "Remove from Dashboard? This will not delete your ticket listing"} %>
 

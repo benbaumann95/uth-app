@@ -34,7 +34,7 @@ class EventsController < ApplicationController
 
     if @event.valid?
       @ticket.save
-      @event.quantity = 3
+      @event.quantity = 1
       @event.save
       authorize @event
       redirect_to event_path(@event.id, redirect_success: "true")
@@ -66,6 +66,6 @@ class EventsController < ApplicationController
   end
 
   def ticket_params
-    params[:event].require(:ticket).permit(:photo, :event_id, :display_flag, :user_id, :price, :description, :sold)
+    params[:event].require(:ticket).permit(:photo, :event_id, :display_flag, :user_id, :pricing, :description, :sold)
   end
 end

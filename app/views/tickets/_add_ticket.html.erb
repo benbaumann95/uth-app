@@ -7,7 +7,7 @@
 
     <%= simple_form_for([event, ticket], remote: true) do |t| %>
       <div class="form-100">
-       <%= t.input :price, placeholder: '£', label: 'Price'%>
+       <%= t.input :pricing, placeholder: '£', label: 'Price', value: "10" %>
       </div>
       <div class="form-100">
        <%= t.input :photo, as: :file, label: 'Upload ticket', class: 'font-size-smaller' %>

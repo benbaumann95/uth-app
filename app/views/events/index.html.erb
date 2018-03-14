@@ -78,7 +78,7 @@
           <div class="price">
             <% ticket_price_array = [] %>
             <% event.tickets.each do |ticket| %>
-              <% ticket_price_array << ticket.price %>
+              <% ticket_price_array << ticket.pricing %>
             <% end %>
             <% if ticket_price_array.count >= 1 && event.quantity > 0 %>
             <strong>£<%= ticket_price_array.min %></strong>

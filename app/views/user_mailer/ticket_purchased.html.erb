@@ -1,6 +1,6 @@
 <p>Hello <%= @user.first_name %>! </p>
 
-<p> Your ticket for <%= @ticket.event.name %> has been purchased for £<%= @ticket.price %></p>
+<p> Your ticket for <%= @ticket.event.name %> has been purchased for <%= humanized_money_with_symbol(@ticket.pricing) %></p>
 <p> click the link below to go to your dashboard </p>
 
 <%= link_to "Get back to site", dashboard_url %>

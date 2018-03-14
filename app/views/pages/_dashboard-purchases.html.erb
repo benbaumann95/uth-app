@@ -24,21 +24,27 @@
           <div class="dashboard-grouped-container">
             <div class="dashboard-group-unique">
               <div class="dashboard-left">
+
                 <div class="dashboard-left-container" style="padding-left: 10px;">
                   <div class="price-at">
                   Bought for
                 </div>
                 <div class="price text-center">
-                  £<%= booking.ticket.price %>
+                 <%= humanized_money_with_symbol(booking.ticket.pricing) %>
                 </div>
                 <div class='booking-ticket-date'>on <%=booking.ticket.created_at.to_date.strftime('%b %d')%></div>
+
                 </div>
               </div>
 
               <div class="dashboard-description" style="padding: 4px 20px;">
                 <div class="dashboard-description-container">
                   <div class="dashboard-link-to-show-page">
-                    <p><%= booking.ticket.event.name %></p>
+                    
+                    <%= link_to event_path(booking.ticket.event_id) do %>
+                    <p><%= booking.ticket.event.name %> 
+                    <% end %>
+
                   </div>
                    <p class="ticket-event-address-text"><%= booking.ticket.event.address %></p>
                   <div class="dashboard-details">
@@ -60,8 +66,6 @@
                   </div>
 
                   <%end %>
-
-
 
               </div>
               <%end%>
