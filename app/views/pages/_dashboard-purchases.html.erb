@@ -25,10 +25,13 @@
             <div class="dashboard-group-unique">
               <div class="dashboard-left">
                 <div class="dashboard-left-container">
+                  <a href="<%= booking.ticket.photo  %>" class="far fa-file fa-4x" download ></a>
                   <%= link_to ticket_file_path(photo: booking.ticket.photo )  do %>
-                  <p class="voucher-photo"><i class="far fa-file fa-4x"></i></p>
-                  <% end %>
-                  <p class='text-center view-text-ticket'> View </p>
+                  <div class="text-center view-text-ticket">
+                    <%= link_to "view", booking.ticket.photo.url %>
+                  </div>
+
+                  <%end %>
                 </div>
               </div>
 
