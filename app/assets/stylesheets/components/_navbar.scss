@@ -1,6 +1,5 @@
 /* Main navbar */
 .navbar-wagon {
-  // background: transparent;
   background: #262626;
   height: 60px;
   padding: 0px 30px;
@@ -8,6 +7,12 @@
   align-items: center;
   justify-content: space-between;
   // transition: 1s background-color ease;
+}
+.navbar-fixed {
+  top: 0;
+  z-index: 100;
+  position: fixed;
+  width: 100%;
 }
 .navbar-wagon-black{
   background: #262626;
