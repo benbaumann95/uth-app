@@ -54,7 +54,7 @@
             <p>Price</p>
           </div>
           <div class="summary-50", class="margin-right-summary">
-            <p id='summary-price'>£<%= @ticket.price %></p>
+            <p id='summary-price'><%= humanized_money_with_symbol(@ticket.pricing) %></p>
           </div>
         </div>
 

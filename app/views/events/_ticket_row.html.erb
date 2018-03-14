@@ -24,7 +24,7 @@
 
           <div class="ticket-price price-container">
             <div class="price">
-            <strong>£<%= ticket.price %></strong>
+            <strong><%= humanized_money_with_symbol(ticket.pricing) %></strong>
             </div>
             <%= link_to ticket_bookings_path(ticket.id), method: :post do %>
             <i class="fas fa-shopping-cart fa-2x"></i>
