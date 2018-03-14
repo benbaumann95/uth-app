@@ -2,7 +2,7 @@
 <div class="create-container">
   <div class="title-holder">
 
-    <h3 class="list-ticket-title text-center">List a ticket</h3>
+    <h3 class="list-ticket-title text-center">Sell a ticket</h3>
   </div>
 
   <%= simple_form_for event do |e| %>
@@ -11,13 +11,13 @@
 
     <div class="form-row">
       <div class="form-50">
-        <%= e.input :name, label: 'Event Name', placeholder: 'e.g. Dusky', input_html: {value: params[:content]} %>
+        <%= e.input :name, label: 'Event Name', placeholder: 'e.g. Dusky', input_html: {value: params[:content]}, required: true  %>
       </div>
 
       <div class="form-50">
         <div class="date-style">
 
-          <%= e.input :date_and_time, as: :date, label: 'When' %>
+          <%= e.input :date_and_time, as: :date, label: 'When', required: true  %>
         </div>
       </div>
     </div>
@@ -25,32 +25,32 @@
       <div class="form-100">
         <div class="location-pin">
         </div>
-        <%= e.input :address, placeholder: 'Venue', label: 'Where', id: 'event_address' %>
+        <%= e.input :address, placeholder: 'Venue', label: 'Where', id: 'event_address', required: true %>
       </div>
 
     <div class="form-row">
       <div class="form-70">
         <div class="flex-row">
-          <%= e.input :category, collection: ["Club night","Concert","Festival","Travel","Sport","Society","Socials"], label: 'Type' %>
+          <%= e.input :category, collection: ["Club night","Concert","Festival","Travel","Sport","Society","Socials"], label: 'Type', required: true %>
         </div>
       </div>
 
       <%= e.simple_fields_for :ticket do |t| %>
       <div class="form-30">
-        <%= t.input :price, placeholder: '£', label: 'Price' %>
+        <%= t.input :price, placeholder: '£', label: 'Price', required: true %>
       </div>
     </div>
 
     <div class="form-row">
       <div class="flex-row">
-        <%= t.input :description, label: 'Description', placeholder: 'i.e. selling 2 tickets as a pair', id: 'form-description' %>
+        <%= t.input :description, label: 'Description', placeholder: 'i.e. selling 2 tickets as a pair', id: 'form-description', required: false %>
       </div>
     </div>
 
     <div class="form-row">
       <div class="flex-row">
         <div class="photo-row">
-          <%= t.input :photo, as: :file, label: 'Upload Ticket' %>
+          <%= t.input :photo, as: :file, label: 'Upload Ticket', required: true %>
         </div>
       </div>
     </div>
@@ -59,11 +59,13 @@
 
   <div class="btns-holder">
     <div class="done-btn">
-      <%= e.submit "Sell my ticket", class: 'done-btn' %>
+      <%= e.submit "Sell my ticket", id:"sweet-alert-sell-ticket", class: 'done-btn' %>
     </div>
   </div>
 
 </div>
 <% end %>
 <% end %>
+
+
 
