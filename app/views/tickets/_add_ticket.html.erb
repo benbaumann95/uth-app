@@ -1,8 +1,9 @@
 <div class="modal-dialog modal-lg" role="document">
   <div class="modal-content">
-    <h3 class='text-center'><%= event.name %></h3>
-    <h4 class='text-center'><%= event.address.split(',')[0].strip.titleize %>, <%= event.city %></h4>
-    <h5 class='text-center'><%= event.date_and_time.strftime('%a %d %b').upcase %></h5>
+    <h3 class='text-center darkslategrey'><%= event.name.upcase %></h3>
+    <p class='text-center darkslategrey'><%= event.date_and_time.strftime('%a %d %b').upcase %></p>
+    <p class='text-center darkslategrey'><%= event.address.split(',')[0].strip.titleize %>, <%= event.city %></p>
+
 
     <%= simple_form_for([event, ticket], remote: true) do |t| %>
       <div class="form-100">

@@ -8,7 +8,7 @@
         <div class="container-header-section">
           <div class="container-header-text">
             <span class="results-query">
-              Here are your listings
+              Here are your ticket listings
             </span>
             <span class="results-location-query">
               <strong><%=  @current_user.first_name.capitalize %></strong>
@@ -33,8 +33,9 @@
               <div class="dashboard-description">
                 <div class="dashboard-description-container">
                   <div class="dashboard-link-to-show-page">
-                    <p><%= ticket.event.name %> @ <%= ticket.event.address %></p>
+                    <p><%= ticket.event.name %> </p>
                   </div>
+                   <p class="ticket-event-address-text"><%=ticket.event.address %></p>
                   <div class="dashboard-details">
                     <p><%= ticket.description %></p>
                   </div>

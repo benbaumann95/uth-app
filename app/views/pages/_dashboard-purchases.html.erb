@@ -9,7 +9,7 @@
         <div class="container-header-section">
           <div class="container-header-text">
             <span class="results-query">
-              Here are your purchases
+              Here are your ticket purchases
             </span>
             <span class="results-location-query" >
               <strong><%=  @current_user.first_name.capitalize %></strong>
@@ -24,22 +24,23 @@
           <div class="dashboard-grouped-container">
             <div class="dashboard-group-unique">
               <div class="dashboard-left">
-                <div class="dashboard-left-container">
-                  <a href="<%= booking.ticket.photo  %>" class="far fa-file fa-4x" download ></a>
-                  <%= link_to ticket_file_path(photo: booking.ticket.photo )  do %>
-                  <div class="text-center view-text-ticket">
-                    <%= link_to "view", booking.ticket.photo.url %>
-                  </div>
-
-                  <%end %>
+                <div class="dashboard-left-container" style="padding-left: 10px;">
+                  <div class="price-at">
+                  Bought for
+                </div>
+                <div class="price text-center">
+                  £<%= booking.ticket.price %>
+                </div>
+                <div class='booking-ticket-date'>on <%=booking.ticket.created_at.to_date.strftime('%b %d')%></div>
                 </div>
               </div>
 
-              <div class="dashboard-description">
+              <div class="dashboard-description" style="padding: 4px 20px;">
                 <div class="dashboard-description-container">
                   <div class="dashboard-link-to-show-page">
-                    <p><%= booking.ticket.event.name %> @ <%= booking.ticket.event.address %></p>
+                    <p><%= booking.ticket.event.name %></p>
                   </div>
+                   <p class="ticket-event-address-text"><%= booking.ticket.event.address %></p>
                   <div class="dashboard-details">
                     <p><strong><%=booking.ticket.event.date_and_time.strftime('%a %d %b') %></strong></p>
                     <p><%= booking.ticket.description %></p>
@@ -49,15 +50,18 @@
               </div>
 
 
-              <div class="dashboard-price">
 
-                <div class="price-at">
-                  Bought for
-                </div>
-                <div class="price">
-                  £<%= booking.ticket.price %>
-                </div>
-                <div class='booking-ticket-date'>on <%=booking.ticket.created_at.to_date.strftime('%b %d')%></div>
+              <div class="dashboard-price" style = "text-align: center;">
+
+                <a href="<%= booking.ticket.photo  %>" class="far fa-file fa-4x" download ></a>
+                  <%= link_to ticket_file_path(photo: booking.ticket.photo )  do %>
+                  <div class="text-center view-text-ticket">
+                    <%= link_to "view ticket", booking.ticket.photo.url %>
+                  </div>
+
+                  <%end %>
+
+
 
               </div>
               <%end%>
