@@ -1,0 +1,6 @@
+<p>Hello <%= @user.first_name %>! </p>
+
+<p> You have listed a ticket for <%= @ticket2.event.name %> for <%= @ticket2.price %> </p>
+<p> click the link below to go to your dashboard </p>
+
+<%= link_to "Get back to site", dashboard_path %>
