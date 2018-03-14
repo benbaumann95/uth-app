@@ -56,7 +56,7 @@ Rails.application.configure do
   config.log_level = :debug
 
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.default_url_options = { host: "unitixhub.co.uk" }
+  config.action_mailer.default_url_options = { host: "www.unitixhub.co.uk" }
 
   # Prepend all log lines with the following tags.
   config.log_tags = [ :request_id ]
