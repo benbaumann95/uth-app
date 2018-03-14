@@ -36,6 +36,7 @@ class EventsController < ApplicationController
     if @ticket.save
       @event.save
       authorize @event
+
       redirect_to event_path(@event.id)
     else
       render :new

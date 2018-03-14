@@ -1,0 +1,9 @@
+
+<p>Hello <%= @user.first_name %>! </p>
+
+<p> You have purchased a ticket for <%= @ticket2.event.name %>.
+Click the link below to view the ticket.</p>
+
+<p><a href="<%= @ticket2.photo %>" > View </a></p>
+
+<%= link_to "Get back to site", root_url %>

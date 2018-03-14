@@ -1,18 +1,28 @@
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <%= f.error_notification %>
 
+<div class="container">
+  <div class="sign-up-container">
+    <div class="sign-up-text-container">
+      <h2 class='sign-up-text'> Edit Profile Pic </h2>
+    </div>
     <div class="form-inputs">
-      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-        <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
-      <% end %>
-       <%= f.input :bio, Label: 'bio', autofocus: true %>
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+    <% end %>
+      <%= f.input :bio, Label: 'bio', autofocus: true %>
       <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true %>
-
-    <div class="form-actions text-center">
-      <%= link_to profile_path do %>
-      <%= f.button :submit, "Update" %>
-      <% end %>
-    </div>
     </div>
 
-  <% end %>
+
+    <div class="form-row">
+      <div class="form-50">
+        <div class="form-actions" style="margin-left: 15px;">
+          <%= f.button :submit, "Submit", class: "btn btn-primary" %>
+        </div>
+        <% end %>
+      </div>
+
+    </div>
+</div>
+</div>
