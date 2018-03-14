@@ -46,25 +46,7 @@
               <div class="event-link-to-show-page">
                 <div class="display-flex">
                 <p><%= link_to event.name, event_path(event.id) %> </p>
-
-                <% if event.category == 'Club night' %>
-                  <p class = 'event-category-box palevioletred'><%= event.category %></p>
-                <% elsif event.category == 'Festival' %>
-                  <p class = 'event-category-box coral'><%= event.category %></p>
-                <% elsif event.category == 'Sport' %>
-                  <p class = 'event-category-box darkturquoise'><%= event.category %></p>
-                <% elsif event.category == 'Socials' %>
-                  <p class = 'event-category-box cadetblue'><%= event.category %></p>
-                <% elsif event.category == 'Theatre' %>
-                  <p class = 'event-category-box lightseagreen'><%= event.category %></p>
-                <% elsif event.category == 'Concert' %>
-                  <p class = 'event-category-box lightcoral'><%= event.category %></p>
-                <% elsif event.category == 'Travel' %>
-                  <p class = 'event-category-box lightslategrey'><%= event.category %></p>
-                <% else event.category == 'House party' %>
-                  <p class = 'event-category-box darkred'><%= event.category %></p>
-                <% end %>
-
+                  <p class="<%= colour_filter(event.category) %>"><%= event.category %></p>
                 </div>
               </div>
               <div class="event-details">
