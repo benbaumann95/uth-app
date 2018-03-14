@@ -34,7 +34,7 @@ class EventsController < ApplicationController
 
     if @event.valid?
       @ticket.save
-      @event.quantity = 3
+      @event.quantity = 1
       @event.save
       authorize @event
       redirect_to event_path(@event.id, redirect_success: "true")

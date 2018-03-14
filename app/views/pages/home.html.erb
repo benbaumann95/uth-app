@@ -17,7 +17,9 @@
     <div class="upcoming">
       <div class="event-cards-home-container">
         <div class="container">
-          <h2>Upcoming Events</h2>
+          <% if !@upcoming_events.empty? %>
+            <h2>Upcoming Events</h2>
+          <% end %>
           <div class="row">
             <% @upcoming_events.each do |event| %>
               <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
@@ -40,7 +42,9 @@
     <div class="popular-cities">
       <div class="location-cards-home-container">
         <div class="container">
-          <h2>Popular Locations</h2>
+          <% if !@cities.empty? %>
+            <h2>Popular Locations</h2>
+          <% end %>
           <div class="row">
             <% @cities.each do |city| %>
               <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
