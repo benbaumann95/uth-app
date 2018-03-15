@@ -32,6 +32,7 @@ class EventsController < ApplicationController
     @ticket.display_flag = true
     @ticket.sold = false
 
+
     if @event.valid?
       @ticket.save
       @event.quantity = 1
