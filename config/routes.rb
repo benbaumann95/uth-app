@@ -19,7 +19,9 @@ Rails.application.routes.draw do
     resources :watchlists, only: [:create, :destroy]
   end
   resources :tickets , only: [:index, :show, :destroy, :new] do
-    resources :bookings, only: [:create]
+    resources :bookings, only: [:create] do
+      resources :payments, only: [:new, :create]
+    end
   end
 
   post 'tickets/no_display/:id', to: 'tickets#no_display', as: 'ticket_no_display'
