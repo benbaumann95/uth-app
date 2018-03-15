@@ -79,7 +79,8 @@
   cursor: pointer;
   padding: 0 20px;
 }
-.navbar-wagon-item:nth-child(2){
+
+#active-navbar-button{
   background: $green;
   color: #262626;
   padding: 0px 10px;

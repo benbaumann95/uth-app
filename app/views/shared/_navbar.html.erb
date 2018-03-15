@@ -13,8 +13,8 @@
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
-      <%= link_to "Buy Tickets", events_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Sell Tickets", new_ticket_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Buy Tickets", events_path, class: "navbar-wagon-item navbar-wagon-link", id:"buy" %>
+      <%= link_to "Sell Tickets", new_ticket_path, class: "navbar-wagon-item  navbar-wagon-link", id:"sell" %>
       <!-- Avatar with dropdown menu -->
       <% if current_user[:photo] != nil  %>
           <div class="navbar-wagon-item">
@@ -136,4 +136,5 @@
 
   );
 
+  const activebutton = document.getElementById("active-navbar-button")
 </script>
