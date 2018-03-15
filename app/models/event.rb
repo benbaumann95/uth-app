@@ -29,7 +29,7 @@ class Event < ApplicationRecord
 
    def photo_file
     case self.category
-      when "Club night" then 'club-pic'
+      when "Club night" then 'club_pic'
       when "Concert" then 'club-rave-pic'
       when "Festival" then 'festival-sitting-down'
       when "Travel" then 'travel-pic'
