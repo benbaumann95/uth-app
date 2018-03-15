@@ -36,7 +36,6 @@ class TicketsController < ApplicationController
     @ticket.user = current_user
     @ticket.display_flag = true
     @ticket.sold = false
-
     if @ticket.save
       @event.quantity += 1
       @event.save
