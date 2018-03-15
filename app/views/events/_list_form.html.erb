@@ -35,7 +35,8 @@
         </div>
       </div>
 
-      <%= e.simple_fields_for :ticket do |t| %>
+
+      <%= e.simple_fields_for :tickets do |t| %>
       <div class="form-30">
         <%= t.input :pricing, placeholder: '£', label: 'Price', required: true %>
       </div>
