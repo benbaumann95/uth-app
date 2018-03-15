@@ -4,9 +4,9 @@
     </div>
     <div class="profile-avatar">
       <% if current_user[:photo] != nil  %>
-      <%= cl_image_tag current_user.photo, height: 300, width: 300, class: 'circle-border' %>
+      <%= cl_image_tag current_user.photo, height: 180, width: 180, class: 'circle-border' %>
       <% else %>
-      <%= image_tag "student_avatar.png", height: 300, width: 300, class: 'circle-border' %>
+      <%= image_tag "student_avatar.png", height: 180, width: 180, class: 'circle-border' %>
       <% end %>
       <p><%= link_to 'Change profile pic', edit_profile_pic_path, class:'small-edit-text-black' %></p>
     </div>

@@ -1,0 +1,19 @@
+<%= simple_form_for([event, ticket]) do |t| %>
+<%= t.input :description, label: 'Description'%>
+<div class="form-100">
+  <%= t.input :photo, as: :file, class: 'font-size-smaller' %>
+</div>
+<div class="form-row">
+  <div class="form-50">
+    <%= t.input :price, placeholder: '£', label: 'Price'%>
+  </div>
+  <div class="form-50 add-ticket-container">
+    <%= t.submit "List", class: 'list-btn', id:"sweet-alert-sell-ticket"%>
+  </div>
+</div>
+
+<% end %>
+
+<% if params[:redirect_success] == "true" %>
+  <%= javascript_pack_tag "sweet-alert" %>
+<% end %>
