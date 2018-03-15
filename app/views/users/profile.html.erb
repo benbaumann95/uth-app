@@ -4,23 +4,25 @@
     </div>
     <div class="profile-avatar">
       <% if current_user[:photo] != nil  %>
-      <%= cl_image_tag current_user.photo, height: 180, width: 180, class: 'circle-border' %>
+      <%= cl_image_tag current_user.photo, height: 190, width: 190, class: 'circle-border' %>
       <% else %>
-      <%= image_tag "student_avatar.png", height: 180, width: 180, class: 'circle-border' %>
+      <%= image_tag "student_avatar.png", height: 190, width: 190, class: 'circle-border' %>
       <% end %>
-      <p><%= link_to 'Change profile pic', edit_profile_pic_path, class:'small-edit-text-black' %></p>
+      <%= link_to edit_profile_pic_path do %>
+      <p style ="padding-top: 10px"> <i class="far fa-edit"> </i> </p>
+      <% end %>
     </div>
     <div class="profile-name text-center">
-      <p><%= current_user.first_name %> <%=current_user.last_name %>  <%= link_to 'edit', edit_first_name_path, class: 'small-edit-text' %></p>
+      <p><%= current_user.first_name %> <%=current_user.last_name %> <%= link_to edit_first_name_path do %> <i class="far fa-edit"></i> <% end %></p>
     </div>
     <div class="profile-name text-center">
-      <p><%= current_user.email %>  <%= link_to 'edit', edit_email_path, class: 'small-edit-text' %></p>
+      <p><%= current_user.email %>  <%= link_to edit_email_path do%> <i class="far fa-edit"></i> <% end %></p>
     </div>
     <div class="profile-bio-head text-center">
-      <p> <strong> Bio </strong> </p>
+      <p> <strong> Bio </strong><%= link_to edit_bio_path do %><i class="far fa-edit"></i> <% end %> </p>
     </div>
     <div class="profile-bio text-center">
-      <p><%= current_user.bio %> <%= link_to 'edit', edit_bio_path, class: 'small-edit-text' %></p>
+      <p><%= current_user.bio %> </p>
     </div>
   </div>
   <div class="profile-lower-section">
