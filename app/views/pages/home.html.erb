@@ -9,7 +9,7 @@
         <%= link_to 'Buy Tickets', events_path, class: "green-black" %>
         <%= link_to 'Sell Tickets', new_ticket_path, class: "black-green" %>
       </div>
-      <div>
+      <div class="chevron">
         <%= link_to '', '#home-content', class: "fas fa-chevron-down" %>
       </div>
     </div>
@@ -74,6 +74,9 @@
     <% end %>
   </div>
 
+  <div class="chevron">
+    <%= link_to '', '#', class: "fas fa-chevron-up" %>
+  </div>
 
   <div class="footer">
     <div class="footer-links">
