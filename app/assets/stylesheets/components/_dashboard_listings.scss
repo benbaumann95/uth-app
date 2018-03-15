@@ -255,5 +255,16 @@ button{
 .ticket-event-address-text{
     font-size: 14px;
 }
+@media (max-width: 767px) {
+  .ticket-event-address-text{
+    font-size: 10px;
+  }
+}
+
+.dashboard-left.listing{
+      display: table-cell;
+    vertical-align: top;
+    border-right: 0.5px solid #CFD4D9;
+}
 
 
