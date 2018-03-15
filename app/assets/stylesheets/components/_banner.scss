@@ -17,7 +17,7 @@
 .banner-content {
   padding-top: 60px;
 
-  #banner-typed-text, .typed-cursor {
+  .typed-text, .typed-cursor {
     font-size: 36px;
     font-family: $headers-font;
   }
@@ -73,9 +73,9 @@
     font-size: 24px;
     margin: 5px 10px;
   }
-}
-@media (max-width: 768px) {
-
+  .typed-text, .typed-cursor {
+    font-size: 24px !important;
+  }
 }
 
 .banner p {
