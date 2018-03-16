@@ -1,35 +1,36 @@
 
-    <div class="container-body <%= myclass %> container-upcoming-events ticket-container" style='margin-bottom: 5px;'>
-      <div class="event-grouped-container">
+<div class="container-body <%= myclass %> container-upcoming-events ticket-container" style='margin-bottom: 5px;'>
+  <div class="event-grouped-container">
 
-          <div class="event-date" >
-            <div class="ticket-date-container">
-              <div class="date-event-day">
-                <%= cl_image_tag ticket.user.photo, width: 80, height: 80, class: 'circle-avatar' %>
-              </div>
-            </div>
+      <div class="event-date" >
+        <div class="ticket-date-container">
+          <div class="date-event-day">
+            <%= cl_image_tag ticket.user.photo, width: 80, height: 80, class: 'circle-avatar' %>
           </div>
-
-          <div class="ticket-description">
-            <div class="event-description-container">
-              <div class="event-link-to-show-page green">
-                <%= ticket.event.name %>
-              </div>
-              <div class="ticket-details">
-                <%= ticket.description %>
-              </div>
-            </div>
-          </div>
-
-
-          <div class="ticket-price price-container">
-            <div class="price">
-            <strong><%= humanized_money_with_symbol(ticket.pricing) %></strong>
-            </div>
-            <%= link_to ticket_bookings_path(ticket.id), method: :post do %>
-            <i class="fas fa-shopping-cart fa-2x"></i>
-            <% end %>
-          </div>
-
+        </div>
       </div>
-    </div>
+
+      <div class="ticket-description">
+        <div class="event-description-container">
+          <div class="event-link-to-show-page green">
+            <%= ticket.event.name %>
+          </div>
+          <div class="ticket-details">
+            <%= ticket.description %>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="ticket-price price-container">
+        <div class="price">
+        <strong><%= humanized_money_with_symbol(ticket.pricing) %></strong>
+        </div>
+        <%= link_to ticket_bookings_path(ticket.id), method: :post do %>
+          <i class="fas fa-shopping-cart fa-2x", id="sweet-alert-buy-ticket"></i>
+        <% end %>
+      </div>
+
+  </div>
+</div>
+

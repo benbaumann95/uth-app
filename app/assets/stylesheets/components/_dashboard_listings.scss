@@ -91,12 +91,6 @@
 .dashboard-left{
   display: table-cell;
   vertical-align: top;
-}
-.dashboard-left-outside-block{
-  min-width: 50px;
-  display: block;
-}
-.dashboard-left-container{
   width: 85px;
   min-width: 85px;
   height: 110px;
@@ -104,8 +98,15 @@
   display: table-cell;
   vertical-align: middle;
 }
+.dashboard-left-outside-block{
+  min-width: 50px;
+  display: block;
+}
+.dashboard-left-container{
+
+}
 .dashboard-description{
-  padding: 5px 20px;
+  padding: 10px 20px;
   vertical-align: top;
   width: 100%;
   display: table-cell;
