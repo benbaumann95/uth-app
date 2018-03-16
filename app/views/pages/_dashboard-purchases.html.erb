@@ -37,18 +37,16 @@
                 </div>
               </div>
 
-              <div class="dashboard-description" style="padding: 4px 20px;">
+              <div class="dashboard-description">
                 <div class="dashboard-description-container">
                   <div class="dashboard-link-to-show-page">
-                    
                     <%= link_to event_path(booking.ticket.event_id) do %>
-                    <p><%= booking.ticket.event.name %> 
+                      <p><%= booking.ticket.event.name %> (<%=booking.ticket.event.date_and_time.strftime('%a %d %b') %>)</p>
                     <% end %>
-
                   </div>
-                   <p class="ticket-event-address-text"><%= booking.ticket.event.address %></p>
+
+                  <p class="ticket-event-address-text"><%= booking.ticket.event.address %></p>
                   <div class="dashboard-details">
-                    <p><strong><%=booking.ticket.event.date_and_time.strftime('%a %d %b') %></strong></p>
                     <p><%= booking.ticket.description %></p>
                   </div>
                 </div>
