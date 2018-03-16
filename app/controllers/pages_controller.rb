@@ -20,7 +20,8 @@ class PagesController < ApplicationController
   end
 
   def home
-    @cities = Event.distinct.pluck(:city)[0..5]
+    @cities = ["Bristol", "Manchester", "London"]
+    # @cities = Event.distinct.pluck(:city)[0..5]
     @categories = [
     "Club night",
     "Concert",
