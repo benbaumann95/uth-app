@@ -47,12 +47,12 @@ module ApplicationHelper
 
   def colour_filter(event)
     case event
-      when "Club night" then "event-category-box palevioletred"
+      when "Club night" then "event-category-box orangered"
       when "Concert" then "event-category-box deeppink"
       when "Festival" then 'event-category-box coral'
-      when "Travel" then 'event-category-box lightslategrey'
-      when "Sport" then  'event-category-box lawngreen'
-      when "Socials" then 'event-category-box cadetblue'
+      when "Travel" then 'event-category-box brown'
+      when "Sport" then  'event-category-box purpleblue'
+      when "Socials" then 'event-category-box purple'
       when "Theatre" then 'event-category-box lightseagreen'
       when "House party" then 'event-category-box darkred'
       when "Society" then 'event-category-box darkturquoise'
