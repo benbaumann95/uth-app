@@ -30,7 +30,9 @@
 <%= render 'dashboard-watching', watchlists: @watchlists %>
 
 <%= javascript_pack_tag "dashboard" %>
-
+<% if params[:redirect_success] == "true" %>
+  <%= javascript_pack_tag "sweet-alert" %>
+<% end %>
 
 
 
