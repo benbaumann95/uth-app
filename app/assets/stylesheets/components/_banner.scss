@@ -1,6 +1,15 @@
 .home-page {
   background-color: $white;
 }
+.chevron {
+  text-align: center;
+  .fas, .fas:hover {
+    height: 50px;
+    font-size: 48px;
+    z-index: 1;
+    text-decoration: none;
+  }
+}
 
 .banner-content-container {
   color: white;
@@ -11,7 +20,7 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  min-height: 500px;
+  min-height: 600px;
 }
 
 .banner-content {
@@ -27,12 +36,6 @@
   font-weight: bold;
   margin-bottom: 60px;
   // text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
-  }
-  .fas, .fas:hover {
-    height: 80px;
-    font-size: 48px;
-    z-index: 1;
-    text-decoration: none;
   }
   .buy-sell-btn {
     display: flex;
