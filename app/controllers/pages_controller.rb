@@ -11,6 +11,8 @@ class PagesController < ApplicationController
     @number_listings = current_user.tickets.all.count
     @number_purchases = current_user.bookings.all.count
     @number_watching = current_user.watchlists.all.count
+
+    @upcoming_tickets = Event.order(date_and_time: :desc)
   end
 
   def ticket_file

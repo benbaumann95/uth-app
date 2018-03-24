@@ -17,7 +17,7 @@
           </div>
         </div>
 
-        <% @tickets.each do |ticket| %>
+        <% current_user.tickets.each do |ticket| %>
 
         <div class="container-body">
           <div class="dashboard-grouped-container">
@@ -25,7 +25,14 @@
               <div class="dashboard-left">
                 <div class="dashboard-left-container">
                   <div>
-                    <p class='posted-on-text'>Posted on <strong><%=ticket.created_at.to_date.strftime('%d %b')%></strong> </p>
+                    <p class='posted-on-text'>Posted on</p> <p class='posted-on-text'><strong><%=ticket.created_at.to_date.strftime('%d %b %Y')%></strong> </p>
+                    <% if ticket.event.date_and_time < Time.now - (24/24) && ticket.event.quantity >= 0 %>
+                      <p class='text-center indianred'> Expired </p>
+                    <% elsif ticket.event.quantity <= 0 %>
+                      <p class='text-center green'> Sold </p>
+                    <% else %>
+                      <p class='text-center darkgray'> Pending </p>
+                    <% end %>
                   </div>
                 </div>
               </div>
@@ -34,7 +41,7 @@
                 <div class="dashboard-description-container">
                   <div class="dashboard-link-to-show-page">
                     <%= link_to event_path(ticket.event_id) do  %>
-                    <p><%= ticket.event.name %>
+                    <p><%= ticket.event.name %> (<strong><%=ticket.event.date_and_time.strftime('%a %d %b %Y') %></strong>)</p>
                     <% end %>
                    </div>
                    <p class="ticket-event-address-text"><%=ticket.event.address %></p>
@@ -53,7 +60,9 @@
                 <div class="price">
                   <p><%= humanized_money_with_symbol(ticket.pricing) %></p>
                 </div>
+                <% if ticket.event.date_and_time < Time.now - (24/24) %>
                 <%= link_to '', ticket_no_display_path(ticket.id), method: 'post', class: "fas fa-trash-alt", data: {confirm: "Remove from Dashboard? This will not delete your ticket listing"} %>
+                <% end %>
 
               </div>
 
