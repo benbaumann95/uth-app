@@ -91,6 +91,11 @@
   display: table-cell;
   border-left: 0.5px solid #CFD4D9;
 }
+@media (max-width: 500px) {
+  .event-description {
+    padding: 5px 10px;
+  }
+}
 
 .event-description-container{
   vertical-align: top;
@@ -147,14 +152,29 @@
   text-align: right;
   display: table-cell;
 }
+@media (max-width: 500px) {
+  .event-price{
+    min-width: 65px;
+  }
+}
 .event-price .cop-it{
   color: #535353;
   font-size: 14px;
   text-align: right;
 }
+@media (max-width: 500px) {
+  .event-price .cop-it{
+    font-size: 12px;
+  }
+}
 .event-price .price{
   font-size: 22px;
   color: #65B891;
+}
+@media (max-width: 500px) {
+  .event-price .price{
+    font-size: 12px;
+  }
 }
 .event-price .events-left{
   font-size: 14px;
@@ -162,13 +182,18 @@
   letter-spacing: 0.4px;
   font-weight: bolder;
 }
+@media (max-width: 768px) {
+  .event-price .events-left{
+    font-size: 10px;
+  }
+}
 .sold-out-text{
   margin-top: 20px;
   font-size: 14px;
 }
 @media (max-width: 768px) {
   .sold-out-text{
-    font-size: 12px;
+    font-size: 10px;
   }
 }
 
