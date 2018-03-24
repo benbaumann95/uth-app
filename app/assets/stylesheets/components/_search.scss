@@ -26,4 +26,9 @@
     height: 50px !important;
   }
 }
+@media (max-width: 767px) {
+  .home-search #search {
+    font-size: 12px;
+  }
+}
 

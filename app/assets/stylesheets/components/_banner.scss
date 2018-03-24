@@ -67,6 +67,12 @@
     }
   }
 }
+@media (max-width: 767px) {
+  .banner-content .buy-sell-btn a {
+    font-size: 14px;
+  }
+}
+
 
 @media (max-width: 768px) {
   .banner-content h1 {
@@ -99,6 +105,12 @@
   margin-left: 50px;
   &:hover{
     background-color: $light-green;
+  }
+}
+@media (max-width: 767px) {
+  .btn-home-search {
+    width: 100px;
+    margin-left: 10px;
   }
 }
 .upcoming {
