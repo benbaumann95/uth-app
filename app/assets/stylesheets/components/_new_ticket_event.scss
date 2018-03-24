@@ -78,6 +78,11 @@
   color: $black;
   display: block !important;
 }
+@media (max-width: 767px){
+.algolia-autocomplete {
+  min-width: 100px;
+  }
+}
 
 //search results cards
 

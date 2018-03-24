@@ -66,7 +66,7 @@
 
   <div class="home-search">
     <%= form_tag events_path, method: :get, class: 'form-inline search-form' do %>
-      <%= text_field_tag :search, params[:search], placeholder: "Looking for a particular event?",
+      <%= text_field_tag :search, params[:search], placeholder: "Know your event?",
       class: "form-control search-bar-position algolia-search"
       %>
       <%= submit_tag("Search", class: 'btn btn-primary btn-home-search', id: 'search-button') %>
