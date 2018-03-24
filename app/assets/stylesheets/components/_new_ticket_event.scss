@@ -159,6 +159,11 @@
   color: #D26478;
   font-weight: bold;
 }
+@media (max-width: 500px) {
+.sell-ticket-font{
+  font-size: 10px;
+}
+}
 @media (min-width: 767px) {
   .list-new-event{
     font-size: 24px;
