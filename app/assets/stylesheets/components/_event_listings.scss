@@ -61,6 +61,11 @@
   display: table-cell;
   vertical-align: middle;
 }
+@media (max-width: 767px){
+  .event-date-container{
+    min-width: 60px;
+  }
+}
 .date-event-day{
   width: 100%;
   color: #535353;
