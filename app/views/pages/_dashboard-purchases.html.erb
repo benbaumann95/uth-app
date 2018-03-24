@@ -41,7 +41,7 @@
                 <div class="dashboard-description-container">
                   <div class="dashboard-link-to-show-page">
                     <%= link_to event_path(booking.ticket.event_id) do %>
-                      <p><%= booking.ticket.event.name %> (<strong><%=booking.ticket.event.date_and_time.strftime('%a %d %b') %></strong>)</p>
+                      <p><%= booking.ticket.event.name %> (<strong><%=booking.ticket.event.date_and_time.strftime('%a %d %b %Y') %></strong>)</p>
                     <% end %>
                   </div>
 
