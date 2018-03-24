@@ -25,7 +25,8 @@
               <div class="dashboard-left">
                 <div class="dashboard-left-container">
                   <div>
-                    <p class='posted-on-text'>Posted on</p> <p class='posted-on-text'><strong><%=ticket.created_at.to_date.strftime('%d %b %Y')%></strong> </p>
+                    <p class='posted-on-text text-center'>Posted on</p>
+                    <p class='posted-on-text text-center'><strong><%=ticket.created_at.to_date.strftime('%d %b %Y')%></strong> </p>
                     <% if ticket.event.date_and_time < Time.now - (24/24) && ticket.event.quantity >= 0 %>
                       <p class='text-center indianred'> Expired </p>
                     <% elsif ticket.event.quantity <= 0 %>
