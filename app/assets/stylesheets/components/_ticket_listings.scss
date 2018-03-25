@@ -205,11 +205,11 @@
   }
 }
 .ticket-date-container{
-    width: 90px;
-    min-width: 90px;
-    height: 65px;
-    display: table-cell;
-    vertical-align: middle;
+  width: 90px;
+  min-width: 90px;
+  height: 65px;
+  display: table-cell;
+  vertical-align: middle;
 }
 .ticket-price .price-container{
   padding: 0;
@@ -218,6 +218,14 @@
 .tickets-for-event-text{
   padding: 20px 20px;
   margin: 20px 20px;
+  color: $dark-gray;
+}
+@media (max-width: 767px) {
+  .tickets-for-event-text{
+    padding: 20px 5px;
+    margin: 10px 5px;
+    font-size: 14px;
+  }
 }
 .display-flex{
   display: flex;
@@ -230,7 +238,7 @@
   padding: 15px;
 }
 .space-around-text{
-  padding-bottom: 10px;
+  padding: 5px 5px 20px 5px;
 }
 
 

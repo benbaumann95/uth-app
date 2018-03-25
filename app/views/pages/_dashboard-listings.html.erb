@@ -42,7 +42,7 @@
                 <div class="dashboard-description-container">
                   <div class="dashboard-link-to-show-page">
                     <%= link_to event_path(ticket.event_id) do  %>
-                    <p><%= ticket.event.name %> (<strong><%=ticket.event.date_and_time.strftime('%a %d %b %Y') %></strong>)</p>
+                    <p><%= ticket.event.name.capitalize %> (<strong><%=ticket.event.date_and_time.strftime('%a %d %b %Y') %></strong>)</p>
                     <% end %>
                    </div>
                    <p class="ticket-event-address-text"><%=ticket.event.address %></p>
