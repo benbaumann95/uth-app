@@ -181,6 +181,11 @@
   padding: 10px;
   font-size: 22px;
 }
+.event-expired-show{
+  padding: 15px;
+  text-transform: uppercase;
+}
+
 @media (min-width: 924px){
   .container-no-upcoming-tickets{
     background-color: whitesmoke;
@@ -222,8 +227,8 @@
 }
 @media (max-width: 767px) {
   .tickets-for-event-text{
-    padding: 20px 5px;
-    margin: 10px 5px;
+    padding: 20px 0px;
+    margin: 10px 0px;
     font-size: 14px;
   }
 }

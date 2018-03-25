@@ -1,7 +1,7 @@
 <div class="add-navbar-padding">
 
   <div class="search-bar-query-container">
-    <h1 class='buy-sell-tickets-header'>Find your event, cop a ticket in seconds!</h1>
+    <h1 class='buy-sell-tickets-header'>Find your event, cop a ticket in seconds! <i class="far fa-smile"></i></h1>
 
     <%= form_tag(events_path(params[:search]), method: 'get', class: 'events-search-bar') do %>
       <%= text_field_tag :search, params[:search], placeholder: "Search by name / city / category...", class: "form-control algolia-search search", :onchange => "this.form.submit();"%>
@@ -14,11 +14,11 @@
       <div class="container-header-text">
         <span class="results-query">
         <% if params[:search].blank? %>
-          Take a peek
+          <i class="fas fa-eye", style='padding-right: 10px;'></i> Take a peek
         </span>
         <span class="results-location-query">
         <% else %>
-          Take a peek at results for
+          <i class="fas fa-eye", style='padding-right: 10px;'></i>Take a peek at results for
         <strong><%= params[:search]%></strong>
         </span>
         <% end %>

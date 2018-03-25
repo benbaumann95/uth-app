@@ -184,6 +184,11 @@
   color: #65B891;
   margin: 0;
 }
+@media (max-width: 767px) {
+  .dashboard-price .price{
+    font-size: 18px;
+  }
+}
 .dashboard-price .events-left{
   font-size: 12px;
   color: #D26478;
