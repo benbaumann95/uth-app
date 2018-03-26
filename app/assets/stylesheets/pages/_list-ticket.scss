@@ -14,8 +14,8 @@
 @media (max-width: 767px) {
   .create-container {
     width: 100%;
-    margin: 20px auto;
-    padding-top: 20px;
+    margin: 5px 5px;
+    padding-top: 15px;
   }
 }
 
@@ -43,6 +43,11 @@
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
   color: $dark-gray;
   padding: 20px;
+}
+@media (max-width: 767px) {
+  .content-holder{
+   padding: 10px 0px;
+ }
 }
 .btns-holder{
   width: 100%;
@@ -209,6 +214,19 @@
 #event_date_and_time_3i{
   font-size: 12px !important;
   width: 20%;
+}
+@media (max-width: 767px) {
+  #event_date_and_time_1i{
+    font-size:10px !important;
+  }
+  #event_date_and_time_2i{
+    font-size: 9px !important;
+    width: 45%;
+  }
+  #event_date_and_time_3i{
+    font-size: 10px !important;
+    width: 25%;
+  }
 }
 
 
