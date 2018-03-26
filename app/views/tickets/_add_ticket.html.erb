@@ -1,18 +1,18 @@
 <div class="modal-dialog modal-lg" role="document">
   <div class="modal-content">
-    <h3 class='text-center darkslategrey'><%= event.name.upcase %></h3>
-    <p class='text-center darkslategrey'><%= event.date_and_time.strftime('%a %d %b').upcase %></p>
-    <p class='text-center darkslategrey'><%= event.address.split(',')[0].strip.titleize %>, <%= event.city %></p>
+    <h3 class='text-center green'><%= event.name.upcase %></h3>
+    <p class='text-center cadetblue'><i class="fas fa-calendar-alt"></i><%= event.date_and_time.strftime('%a %d %b').upcase %></p>
+    <p class='text-center lightcoral'><i class="fas fa-map-marker"></i><%= event.address.split(',')[0].strip.titleize %>, <%= event.city %></p>
 
 
     <%= simple_form_for([event, ticket], remote: true) do |t| %>
-      <div class="form-100">
+      <div class="form-100 darkslategrey">
        <%= t.input :pricing, placeholder: '£', label: 'Price', value: "10" %>
       </div>
-      <div class="form-100">
+      <div class="form-100 darkslategrey">
        <%= t.input :photo, as: :file, label: 'Upload ticket', class: 'font-size-smaller' %>
       </div>
-      <div class="form-100">
+      <div class="form-100 darkslategrey">
        <%= t.input :description, label: 'Description'%>
        <%= t.submit "Sell my ticket", class: 'list-btn' %>
       </div>
