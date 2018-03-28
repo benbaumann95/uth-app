@@ -36,6 +36,6 @@ class PagesController < ApplicationController
     "Society",
     "Socials"
     ]
-    @upcoming_events = policy_scope(Event).where("date_and_time > ?", DateTime.now.midnight - (24/24)).order(date_and_time: :asc).limit(12)
+    @upcoming_events = policy_scope(Event).where("date_and_time > ?", DateTime.now.midnight - (24/24)).order(date_and_time: :asc).limit(6)
   end
 end
