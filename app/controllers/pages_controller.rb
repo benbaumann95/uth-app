@@ -22,6 +22,9 @@ class PagesController < ApplicationController
   end
 
   def home
+    @watchlist = Watchlist.new
+    @watchlists = Watchlist.where(user: current_user)
+
     @cities = ["Bristol", "Manchester", "London"]
     # @cities = Event.distinct.pluck(:city)[0..5]
     @categories = [
