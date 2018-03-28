@@ -34,7 +34,9 @@
                   <div class="event-card-content-container">
                     <div class="event-card-content ">
                       <p class='green'><%= event.name.capitalize %></p>
-                      <p class='lightslategrey'><i class="fas fa-map-marker-alt lightslategrey" style='padding-right:10px;'></i><%= event.city %></p>
+                      <div class="location-container">
+                        <p class='lightslategrey'><i class="fas fa-map-marker-alt lightslategrey" style='padding-right:10px;'></i><%= event.city %></p>
+                      </div>
                       <div class="event-watch-bookmark-toggle" style='position: absolute; right: 0px; bottom: 0px;'>
                       <%= link_to event_watchlists_path(event), method: :post  do %>
                         <div class="heart <%= 'heart-clicked' if !@watchlists.where(event: event).first.blank? %>"></div>
