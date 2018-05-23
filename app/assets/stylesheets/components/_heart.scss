@@ -24,7 +24,7 @@
  to { background-position:right;}
 }
 .is_animating {
-  animation: heart-burst .8s steps(28) 1;
+  animation: heart-burst 0.8s steps(28) 1;
 }
 .heart-clicked{
  cursor: pointer;

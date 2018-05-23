@@ -1,9 +1,9 @@
 $(".heart").on('click', function(){
   $(this).toggleClass('is_animating');
 });
-$('.heart').on('animationend', function(){
-  $(this).toggleClass('is_animating');
-});
+// $('.heart').on('animationend', function(){
+//   $(this).toggleClass('is_animating');
+// });
 
 const heart = document.querySelectorAll(".heart")
 heart.forEach(heart_element => {
